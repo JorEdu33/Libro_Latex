@@ -1,0 +1,28 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+*.gz
+*.nav
+*.snm
+
+# Archivos PDF generados
+*.pdf
+
+# Archivos temporales de minted
+*.minted
+_FAD58DE7366495DB4650CFEFAC2FCD61.data.minted
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
