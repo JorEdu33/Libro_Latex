@@ -13,110 +13,82 @@
 % Bucaramanga, Colombia
 %
 % Febrero 03 de 2019
-%Jorge S	
+%
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 % ------------------------------------------------------------------------
 %
+% --------------------------\documentclass[letter,oneside,12pt,spanish]{report}
+
+\documentclass[letter,oneside,12pt,spanish]{report}
 % ------------------------------------------------------------------------
-\documentclass[letter,oneside,12pt,spanish]{report}          % Encabezados
+\usepackage{uislatexstyleAPA} % Libreria UIS APA
 % ------------------------------------------------------------------------
-\usepackage{uislatexstyleAPA}                           % Libreria UIS APA
-% ------------------------------------------------------------------------
-% Ingrese en este punto las librerías específicas de usuario
-% ------------------------------------------------------------------------
+
+% --- AQUÍ VAN TODOS LOS PAQUETES --- %
+\usepackage[utf8]{inputenc}
 \usepackage{epsfig}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{subfigure}
 \usepackage{graphicx}
-\usepackage{hyperref}
 \usepackage{float}
 \usepackage{multirow}
 \usepackage{wrapfig}
 \usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{listings}
 \usepackage{xcolor}
-\usepackage[utf8]{inputenc}
-%\usepackage[style=authoryear]{biblatex}
-\usepackage{minted} % Paquete para el resaltado de sintaxis
-\usepackage{xcolor} % Paquete para los colores
-\usepackage{caption} % Para los captions en el código
-\usepackage{tcolorbox} % Opcional: para darle un fondo al código
+\usepackage{caption}
+\usepackage{tcolorbox}
+\usepackage{subfigure}
+\usepackage{listings}
+\usepackage{minted}
+\usepackage{csquotes}
+\usepackage[style=apa]{biblatex}
+\usepackage{geometry}
+\usepackage{hyperref}
 
-
-% Definir colores personalizados para el código
-\definecolor{bg}{rgb}{0.95,0.95,0.92} % Color de fondo del código
-\definecolor{purple}{rgb}{0.5,0,0.5} % Color para palabras clave (como en Elixir)
-\definecolor{orange}{rgb}{0.9,0.4,0} % Color para números
-
-\captionsetup[figure]{labelfont={bf}, singlelinecheck=false}
-
-
-% Nuevos colores
+% --- CONFIGURACIONES DE COLORES --- %
+\definecolor{bg}{rgb}{0.95,0.95,0.92}
+\definecolor{purple}{rgb}{0.5,0,0.5}
+\definecolor{orange}{rgb}{0.9,0.4,0}
 \definecolor{codeborder}{RGB}{0,0,0}
 \definecolor{codebackground}{RGB}{255,255,255}
 \definecolor{codegray}{RGB}{128,128,128}
 \definecolor{codegreen}{RGB}{0,153,0}
 \definecolor{codeorange}{RGB}{255,125,80}
 
+% --- CONFIGURACIÓN DE LISTINGS --- %
 \lstdefinestyle{mystyle}{
-    frame=shadowbox,
-    backgroundcolor=\color{codebackground},
-    commentstyle=\color{codegray},
-    keywordstyle=\color{codeorange},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codegreen},
-    basicstyle=\ttfamily\footnotesize, % Cambié la fuente a pequeña (footnotesize)
-    breakatwhitespace=false,
-    breaklines=true,
-    captionpos=b,
-    keepspaces=true,
-    numbers=none, % Ningún número de línea %left
-    showspaces=false,
-    showstringspaces=false,
-    showtabs=false,
-    tabsize=2,
-    frame=single,            % Borde alrededor del listado
-    rulecolor=\color{codeborder},  % Color del borde
-    framesep=4pt,            % Espaciado entre el borde y el contenido
-    xleftmargin=10pt,        % Margen izquierdo
-    xrightmargin=10pt,       % Margen derecho
+	frame=shadowbox,
+	backgroundcolor=\color{codebackground},
+	commentstyle=\color{codegray},
+	keywordstyle=\color{codeorange},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codegreen},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=none,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=2,
+	frame=single,
+	rulecolor=\color{codeborder},
+	framesep=4pt,
+	xleftmargin=10pt,
+	xrightmargin=10pt,
 }
-\lstset{
-    frame=shadowbox,
-    language=Java,
-    aboveskip=3mm,
-    belowskip=3mm,
-    showstringspaces=false,
-    columns=flexible,
-    basicstyle={\small\ttfamily},
-    numbers=left,
-    numberstyle=\tiny\color{gray},
-    keywordstyle=\color{blue},
-    commentstyle=\color{dkgreen},
-    stringstyle=\color{mauve},
-    breaklines=true,
-    breakatwhitespace=true,
-    tabsize=3,
-    rulesepcolor=\color{black}
-}
-
 \lstset{style=mystyle}
 
-
-\parskip=12pt
-% \usepackage{subcaption}
-
-%\bibliographystyle{apalike}
-%\bibliography{biblio}
+% --- OTRAS CONFIGURACIONES --- %
 \addbibresource{biblio.bib}
+\geometry{headheight=15.13202pt}
+\captionsetup[figure]{labelfont={bf}, singlelinecheck=false}
+\parskip=12pt
 
-
-
-% ------------------------------------------------------------------------
-\begin{document}                               % Inicio de documento
+\begin{document}                              % Inicio de documento
 % ------------------------------------------------------------------------
 % Definición silábica de palabras
 % ------------------------------------------------------------------------
@@ -248,7 +220,7 @@ Bucaramanga\\
 
 \nnchapter{Introducción}
 
-Este trabajo presenta una propuesta para solventar este problema, que comprende la automatización de la generación de reportes contables, cuya arquitectura integra herramientas de Microsoft Power Platform y Python. Según el trabajo de (\cite{narayn2023building}) donde propone el uso de herramientas de Microsoft Power Platform, donde su integración genera un gran valor añadido a sus capacidades (\cite{narayn2023building}). Microsoft Power Automate ofrece gran facilidad al orquestar flujos de trabajo automatizados (\cite{hvartiainen2024leanmanagement}), el uso de Scripts de Python capaces de hacer conexión a los diferentes orígenes de datos así como su tratamiento (\cite{rattenbury2017principles}), y Microsoft Power Apps para la mejora en la interacción y control del usuario sobre la solución (\cite{psimon2022lowcode}). Se explora la implementación técnica de esta solución, evaluando el impacto de la integración de estas tecnologías por medio del desarrollo de servicios, partiendo de la flexibilidad que ofrece Python a la hora de tratar datos, en la eficiencia operativa de la gestión contable.
+Este trabajo presenta una propuesta para solventar este problema, que comprende la automatización de la generación de reportes contables, cuya arquitectura integra herramientas de Microsoft Power Platform y Python. Según el trabajo de (\cite{narayn2023building}) donde propone el uso de herramientas de Microsoft Power Platform, donde su integración genera un gran valor añadido a sus capacidades (\cite{narayn2023building}). Microsoft Power Automate ofrece gran facilidad al orquestar flujos de trabajo automatizados (\cite{hvartiainen2024leanmanagement}), el uso de Scripts de Python capaces de hacer conexión a los diferentes orígenes de datos así como su tratamiento (\cite{rattenbury2017principles}), y Microsoft Power Apps para la mejora en la interacción y control del usuario sobre la solución (\cite{psimon2022lowcode}). Se explora la implementación técnica de esta solución, evaluando el impacto de la integración de estas tecnologías por medio del desarrollo de servicios, partiendo de la flexibilidad que ofrece Python a la hora de tratar datos, en la eficiencia operativa de la gestión contable.(\cite{RCore2020})
 
 % ------------------------------------------------------------------------
 
@@ -1004,6 +976,7 @@ Este trabajo presenta una propuesta para solventar este problema, que comprende 
 %\bibliographystyle{apalike}
 %\bibliography{biblio}
 \addcontentsline{toc}{chapter}{Referencias Bibliográficas}
+
 \printbibliography
 
 
