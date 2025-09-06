@@ -255,6 +255,37 @@ Este trabajo presenta una propuesta para solventar este problema, que comprende 
 \chapter{Marco Teorico}
 
 
+
+%-----------------------------------------------------
+\section{Tecnologias implementadas}
+%-----------------------------------------------------
+\subsection{Node.js y Express.js}
+
+Node.js es un entorno de ejecución de código abierto que permite utilizar JavaScript en el lado del servidor, basado en el motor V8 de Google Chrome \parencite{tilkov2010}. Su modelo de ejecución se fundamenta en un bucle de eventos no bloqueante (event-driven, non-blocking I/O), lo que lo hace altamente eficiente para manejar múltiples conexiones concurrentes con bajo consumo de recursos \parencite{cantelon2014}. Esto resulta esencial en aplicaciones educativas, donde varios estudiantes interactúan de manera simultánea con la plataforma de aprendizaje.
+
+Sobre Node.js se implementa Express.js, un framework minimalista que simplifica la creación de aplicaciones web y APIs RESTful. Express proporciona herramientas para gestionar rutas, middleware, autenticación y manejo de peticiones/respuestas, lo cual facilita el desarrollo de un backend robusto y escalable \parencite{brown2019}. En el proyecto, Express.js se emplea para articular la comunicación entre la interfaz de usuario (React), la base de datos (MariaDB) y los servicios de evaluación automática (graders), garantizando consistencia y trazabilidad en los datos de estudiantes y ejercicios.
+
+
+\subsection{React.js}
+
+React.js es una biblioteca de JavaScript de código abierto, desarrollada por Facebook en 2013, diseñada para construir interfaces de usuario interactivas basadas en componentes \parencite{facebook2013}. Su arquitectura basada en el virtual DOM permite optimizar el rendimiento al renderizar solo los elementos que cambian en la interfaz \parencite{banks2017}.
+
+Desde la perspectiva pedagógica, React facilita la creación de interfaces dinámicas que mejoran la experiencia de los estudiantes al interactuar con contenidos educativos. Su enfoque en la reutilización de componentes hace posible diseñar módulos de ejercicios, formularios de autoevaluación y dashboards de resultados de manera eficiente y escalable \parencite{griffith2021}. En este proyecto, React.js se considera la herramienta idónea para implementar un frontend que permita visualizar ejercicios, enviar respuestas al backend y retroalimentar a los estudiantes en tiempo real.
+
+
+\subsection{Bases de datos relacionales (MariaDB)}
+
+MariaDB es un sistema de gestión de bases de datos relacional (RDBMS) de código abierto, surgido como un fork de MySQL tras su adquisición por Oracle en 2009, con el propósito de mantener un desarrollo libre y comunitario \parencite{widenius2016}. Al basarse en el modelo relacional propuesto por \textcite{codd1970}, organiza los datos en tablas relacionadas mediante claves primarias y foráneas, garantizando integridad, consistencia y normalización.
+
+En el marco del proyecto, MariaDB constituye el repositorio central de información, registrando estudiantes, ejercicios realizados, notas obtenidas y código enviado en las autoevaluaciones. Este enfoque permite realizar consultas analíticas posteriores para medir el rendimiento académico, evaluar patrones de aprendizaje y generar reportes para docentes. Además, al ser compatible con MySQL, ofrece portabilidad y estabilidad en su integración con aplicaciones desarrolladas en Node.js.
+
+\subsection{Virtualización y contenedores (Docker)}
+
+
+Docker es una plataforma de contenedores ligeros que permite empaquetar aplicaciones junto con sus dependencias y ejecutarlas de manera aislada sobre un mismo kernel del sistema operativo. A diferencia de las máquinas virtuales tradicionales, los contenedores Docker no requieren un hipervisor completo, lo que reduce drásticamente el consumo de recursos y acelera los procesos de despliegue \parencite{merkel2014}.
+
+En el ámbito educativo y de investigación, Docker aporta portabilidad y reproducibilidad, elementos esenciales para proyectos que buscan garantizar que los estudiantes trabajen en entornos homogéneos sin importar el sistema operativo que utilicen \parencite{boettiger2015}. En este proyecto, Docker se utiliza para desplegar servicios como la base de datos y el backend de validación, lo que facilita levantar ambientes de prueba controlados, ejecutar pilotos de manera rápida y asegurar que los docentes cuenten con una infraestructura estable y escalable.
+
 % ------------------------------------------------------------------------
 \newpage
 
@@ -929,13 +960,7 @@ Este trabajo presenta una propuesta para solventar este problema, que comprende 
 
 \noindent Como se muestra en la Figura \ref{fig:ConvsSinAutomatizacion} (a), el tratamiento manual de datos, que tradicionalmente llevaba alrededor de 540 horas al año, ha sido reducido en un 99.7\% mediante la automatización, disminuyendo el tiempo operativo a solo 80 minutos al año (Figura \ref{fig:ConvsSinAutomatizacion} (b)). Este ahorro de tiempo implica una liberación considerable de recursos humanos y tecnológicos, que ahora pueden ser reorientados hacia actividades de mayor valor añadido para la empresa, impulsando la productividad y la eficiencia operativa. Además, este enfoque refuerza la escalabilidad y flexibilidad de las soluciones basadas en Python en entornos corporativos, abriendo nuevas oportunidades para la mejora continua en la gestión de datos y la automatización de tareas.
 
-\begin{figure}[ht]
-    \centering
-    \captionof{figure}{ \\ \vspace{0.5cm} Costo en horas antes y después de la automatización}
-    \includegraphics[width=0.38\textwidth]{Figs/costo_horas_automatizacion_barras_final (1).pdf}
-    \label{fig:ConvsSinAutomatizacion}
-    \\Nota: (a) Representa el costo en horas sin automatización en un año, con valores que oscilan entre 41 y 48 horas mensuales. (b) Muestra el costo en horas con automatización aplicado solo en el corte de cada trimestre, con una ligera variación de tiempos que promedian alrededor de 20 minutos, representados en horas. León, J. (2024). Diseño propio.
-\end{figure}
+
 
 \begin{figure}[ht]
     \centering
