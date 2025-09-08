@@ -257,34 +257,61 @@ Este trabajo presenta una propuesta para solventar este problema, que comprende 
 
 
 %-----------------------------------------------------
-\section{Tecnologias implementadas}
-%-----------------------------------------------------
+\section{Tecnologías implementadas en el proyecto}
+
 \subsection{Node.js y Express.js}
 
-Node.js es un entorno de ejecución de código abierto que permite utilizar JavaScript en el lado del servidor, basado en el motor V8 de Google Chrome \parencite{tilkov2010}. Su modelo de ejecución se fundamenta en un bucle de eventos no bloqueante (event-driven, non-blocking I/O), lo que lo hace altamente eficiente para manejar múltiples conexiones concurrentes con bajo consumo de recursos \parencite{cantelon2014}. Esto resulta esencial en aplicaciones educativas, donde varios estudiantes interactúan de manera simultánea con la plataforma de aprendizaje.
+Node.js es un entorno de ejecución basado en el motor V8 de Google Chrome que permite ejecutar JavaScript en el lado del servidor, diseñado bajo un modelo de I/O no bloqueante. Esto lo convierte en una herramienta adecuada para aplicaciones que requieren manejar múltiples solicitudes concurrentes, como plataformas de aprendizaje en línea \parencite{tilkov2010}.
 
-Sobre Node.js se implementa Express.js, un framework minimalista que simplifica la creación de aplicaciones web y APIs RESTful. Express proporciona herramientas para gestionar rutas, middleware, autenticación y manejo de peticiones/respuestas, lo cual facilita el desarrollo de un backend robusto y escalable \parencite{brown2019}. En el proyecto, Express.js se emplea para articular la comunicación entre la interfaz de usuario (React), la base de datos (MariaDB) y los servicios de evaluación automática (graders), garantizando consistencia y trazabilidad en los datos de estudiantes y ejercicios.
-
+Express.js es un framework minimalista para Node.js que facilita la construcción de APIs y aplicaciones web mediante la organización de rutas, middleware y controladores \parencite{brown2019}. En el proyecto, Node.js y Express.js cumplen el rol de backend principal, gestionando la validación de respuestas de estudiantes, el control de intentos y la comunicación con la base de datos MariaDB.
 
 \subsection{React.js}
 
-React.js es una biblioteca de JavaScript de código abierto, desarrollada por Facebook en 2013, diseñada para construir interfaces de usuario interactivas basadas en componentes \parencite{facebook2013}. Su arquitectura basada en el virtual DOM permite optimizar el rendimiento al renderizar solo los elementos que cambian en la interfaz \parencite{banks2017}.
+React.js es una biblioteca de JavaScript desarrollada por Facebook que permite construir interfaces de usuario basadas en componentes reutilizables \parencite{banks2017}. Su arquitectura con virtual DOM optimiza la actualización de vistas, mejorando la eficiencia y la experiencia de usuario.
 
-Desde la perspectiva pedagógica, React facilita la creación de interfaces dinámicas que mejoran la experiencia de los estudiantes al interactuar con contenidos educativos. Su enfoque en la reutilización de componentes hace posible diseñar módulos de ejercicios, formularios de autoevaluación y dashboards de resultados de manera eficiente y escalable \parencite{griffith2021}. En este proyecto, React.js se considera la herramienta idónea para implementar un frontend que permita visualizar ejercicios, enviar respuestas al backend y retroalimentar a los estudiantes en tiempo real.
-
+El frontend, desarrollado en React.js, centraliza la gestión de calificaciones y el control de intentos de los estudiantes. Su principal ventaja es la transparencia: ante cualquier discrepancia con la calificación calculada por el backend (Node.js), un instructor puede revisar tanto el código enviado por el estudiante como la nota obtenida. Esto facilita una verificación rápida y fundamentada, garantizando la equidad en la evaluación.
 
 \subsection{Bases de datos relacionales (MariaDB)}
 
-MariaDB es un sistema de gestión de bases de datos relacional (RDBMS) de código abierto, surgido como un fork de MySQL tras su adquisición por Oracle en 2009, con el propósito de mantener un desarrollo libre y comunitario \parencite{widenius2016}. Al basarse en el modelo relacional propuesto por \textcite{codd1970}, organiza los datos en tablas relacionadas mediante claves primarias y foráneas, garantizando integridad, consistencia y normalización.
+MariaDB es un sistema de gestión de bases de datos relacional de código abierto, derivado de MySQL, que organiza los datos en tablas relacionadas bajo el modelo relacional propuesto por \textcite{codd1970}.
 
-En el marco del proyecto, MariaDB constituye el repositorio central de información, registrando estudiantes, ejercicios realizados, notas obtenidas y código enviado en las autoevaluaciones. Este enfoque permite realizar consultas analíticas posteriores para medir el rendimiento académico, evaluar patrones de aprendizaje y generar reportes para docentes. Además, al ser compatible con MySQL, ofrece portabilidad y estabilidad en su integración con aplicaciones desarrolladas en Node.js.
+Su función en el proyecto es ser el repositorio central de información, donde se almacenan los registros de estudiantes, intentos de ejercicios, calificaciones y respuestas. Gracias a sus características de integridad y consistencia, MariaDB asegura la fiabilidad en el almacenamiento de los resultados generados en los procesos de autoevaluación.
 
 \subsection{Virtualización y contenedores (Docker)}
 
+Docker es una plataforma de contenedores ligeros que empaqueta aplicaciones y dependencias en un entorno aislado, lo que garantiza portabilidad y reproducibilidad \parencite{merkel2014}.
 
-Docker es una plataforma de contenedores ligeros que permite empaquetar aplicaciones junto con sus dependencias y ejecutarlas de manera aislada sobre un mismo kernel del sistema operativo. A diferencia de las máquinas virtuales tradicionales, los contenedores Docker no requieren un hipervisor completo, lo que reduce drásticamente el consumo de recursos y acelera los procesos de despliegue \parencite{merkel2014}.
+En el proyecto, Docker permite desplegar servicios como el backend, frontend, playit.gg y la base de datos en un entorno controlado, asegurando que las pruebas piloto y los despliegues sean consistentes sin importar el sistema operativo. Su uso facilita la escalabilidad y reduce los problemas de compatibilidad entre entornos de desarrollo y producción.
 
-En el ámbito educativo y de investigación, Docker aporta portabilidad y reproducibilidad, elementos esenciales para proyectos que buscan garantizar que los estudiantes trabajen en entornos homogéneos sin importar el sistema operativo que utilicen \parencite{boettiger2015}. En este proyecto, Docker se utiliza para desplegar servicios como la base de datos y el backend de validación, lo que facilita levantar ambientes de prueba controlados, ejecutar pilotos de manera rápida y asegurar que los docentes cuenten con una infraestructura estable y escalable.
+\subsection{Moodle como LMS}
+
+Moodle es un sistema de gestión de aprendizaje (LMS) de código abierto ampliamente utilizado en la educación superior. Ofrece herramientas para gestionar cursos, usuarios, recursos y actividades de evaluación \parencite{dougiamas2003}.
+
+En este proyecto, Moodle funciona como el entorno de acceso institucional provisto por la UIS, donde los estudiantes encuentran los enlaces a los notebooks de Google Colab, las actividades prácticas y los recursos teóricos. Moodle sirve como el punto de integración pedagógica que articula los recursos tecnológicos desarrollados.
+
+\subsection{Python y R}
+
+Python y R son lenguajes de programación consolidados en el campo del análisis estadístico y la ciencia de datos. Python, gracias a bibliotecas como NumPy, SciPy y Pandas, se ha convertido en una herramienta versátil para la enseñanza y aplicación de métodos estadísticos \parencite{mckinney2017}. R, por su parte, es un lenguaje especializado en estadística y visualización de datos, ampliamente usado en contextos académicos \parencite{rcoreteam2023}.
+
+En el proyecto, para el desarrollo de los graders se emplearán ambos lenguajes de programación, lo que permitirá dotarlos de una mayor versatilidad en su uso.
+
+\subsection{Google Colab}
+
+Google Colab es una plataforma en la nube que permite ejecutar notebooks de Python sin necesidad de instalar software localmente. Combina teoría, código ejecutable y resultados en un único entorno interactivo \parencite{bisong2019}.
+
+Su integración en el proyecto permite a los estudiantes resolver ejercicios en tiempo real, ejecutar simulaciones y enviar sus respuestas al backend para validación. Además, Colab facilita el aprendizaje activo y autónomo.
+
+\subsection{Graders y autoevaluación automatizada}
+
+Los graders son sistemas de evaluación automática que comparan respuestas de estudiantes con soluciones esperadas, otorgando calificaciones y retroalimentación inmediata \parencite{kurnia2001}. Herramientas como nbgrader o Otter-Grader han demostrado su efectividad en la enseñanza de programación y estadística.
+
+En este proyecto, los graders están implementados en el backend desarrollado con Node.js y conectados a los notebooks de Colab. De esta forma, los estudiantes reciben retroalimentación instantánea, lo que fomenta el aprendizaje autónomo y reduce la carga de corrección manual para los docentes.
+
+\subsection{Playit.gg y tunelización de servicios}
+
+Playit.gg es una herramienta que permite crear túneles seguros entre una máquina local y la web pública, facilitando la exposición de servicios locales sin necesidad de configuración compleja de red.
+
+Durante el desarrollo y pruebas piloto del proyecto, Playit.gg se utiliza para exponer el backend y el frontend alojados en contenedores Docker hacia los estudiantes y notebooks de Colab. Esta estrategia permite realizar pilotos de manera controlada.
 
 % ------------------------------------------------------------------------
 \newpage
