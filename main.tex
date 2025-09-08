@@ -220,7 +220,8 @@ Bucaramanga\\
 
 \nnchapter{Introducción}
 
-Este trabajo presenta una propuesta para solventar este problema, que comprende la automatización de la generación de reportes contables, cuya arquitectura integra herramientas de Microsoft Power Platform y Python. Según el trabajo de (\cite{narayn2023building}) donde propone el uso de herramientas de Microsoft Power Platform, donde su integración genera un gran valor añadido a sus capacidades (\cite{narayn2023building}). Microsoft Power Automate ofrece gran facilidad al orquestar flujos de trabajo automatizados (\cite{hvartiainen2024leanmanagement}), el uso de Scripts de Python capaces de hacer conexión a los diferentes orígenes de datos así como su tratamiento (\cite{rattenbury2017principles}), y Microsoft Power Apps para la mejora en la interacción y control del usuario sobre la solución (\cite{psimon2022lowcode}). Se explora la implementación técnica de esta solución, evaluando el impacto de la integración de estas tecnologías por medio del desarrollo de servicios, partiendo de la flexibilidad que ofrece Python a la hora de tratar datos, en la eficiencia operativa de la gestión contable.(\cite{RCore2020})
+Este trabajo presenta una propuesta para solventar este problema, que comprende la automatización de la generación de reportes contables, cuya arquitectura integra herramientas de Microsoft Power Platform y Python. Según el trabajo de (\cite{narayn2023building}) donde propone el uso de herramientas de Microsoft Power Platform, donde su integración genera un gran valor añadido a sus capacidades (\cite{narayn2023building}). Microsoft Power Automate ofrece gran facilidad al orquestar flujos de trabajo automatizados (\cite{hvartiainen2024leanmanagement}), el uso de Scripts de Python capaces de hacer conexión a los diferentes orígenes de datos así como su tratamiento (\cite{rattenbury2017principles}), y Microsoft Power Apps para la mejora en la interacción y control del usuario sobre la solución (\cite{psimon2022lowcode}). Se explora la implementación técnica de esta solución, evaluando el impacto de la integración de 
+estas tecnologías por medio del desarrollo de servicios, partiendo de la flexibilidad que ofrece Python a la hora de tratar datos, en la eficiencia operativa de la gestión contable.(\cite{RCore2020})
 
 % ------------------------------------------------------------------------
 
@@ -255,6 +256,56 @@ Este trabajo presenta una propuesta para solventar este problema, que comprende 
 \chapter{Marco Teorico}
 
 \section{Fundamentos de la estadística aplicada a la educación}
+
+\subsection{Concepto de Estadística}
+
+De acuerdo con \textcite{montgomery1996}, la estadística es la ciencia que estudia cómo recopilar, organizar, analizar e interpretar datos con el fin de extraer conclusiones válidas y tomar decisiones fundamentadas en evidencia. Los autores plantean que la estadística no debe entenderse únicamente como un conjunto de técnicas matemáticas, sino como un proceso estructurado que incluye:
+
+\begin{itemize}
+	\item La definición del problema y los objetivos de estudio.
+	\item La recolección de datos de manera adecuada y representativa.
+	\item El resumen y descripción de la información mediante herramientas gráficas y numéricas.
+	\item La inferencia acerca de parámetros poblacionales y la validación de hipótesis.
+	\item La toma de decisiones bajo incertidumbre.
+\end{itemize}
+
+\textcite{montgomery1996} señalan que la estadística tiene un carácter transversal, pues se aplica tanto en las ciencias naturales y sociales como en la ingeniería y la administración, donde es imprescindible para controlar procesos, evaluar resultados y mejorar la toma de decisiones.
+
+\subsection{Estadística Inferencial (estimación, pruebas de hipótesis, distribuciones muestrales)}
+
+La estadística inferencial, según \textcite{montgomery1996}, es la rama de la estadística que utiliza la teoría de la probabilidad para sacar conclusiones sobre una población a partir del estudio de una muestra. Esta se apoya en tres componentes esenciales:
+
+\begin{itemize}
+	\item \textbf{Distribuciones muestrales}: permiten describir cómo varían los estadísticos (media, proporción, varianza) de una muestra a otra. Su conocimiento es fundamental para establecer la precisión de las inferencias realizadas.
+	
+	\item \textbf{Estimación de parámetros}: se distinguen la estimación puntual, que proporciona un único valor como aproximación al parámetro poblacional, y la estimación por intervalos de confianza, que incluye un rango de valores dentro del cual se encuentra el parámetro con cierta probabilidad.
+	
+	\item \textbf{Pruebas de hipótesis}: consisten en contrastar afirmaciones sobre parámetros poblacionales utilizando datos muestrales y distribuciones de probabilidad conocidas. Esto permite aceptar o rechazar hipótesis de manera sistemática y controlada, considerando un nivel de significancia y el riesgo de cometer errores tipo I y tipo II.
+\end{itemize}
+
+\textcite{montgomery1996} destacan que la inferencia estadística es la base del método científico en ingeniería y administración, pues ofrece herramientas rigurosas para validar hipótesis, evaluar procesos y mejorar la toma de decisiones en condiciones de incertidumbre.
+
+\subsection{Importancia de la estadística en la formación de ingenieros de sistemas}
+
+La estadística es un pilar en la formación de los ingenieros, ya que proporciona herramientas para analizar fenómenos complejos, modelar incertidumbre y optimizar procesos. Según \textcite{montgomery1996}, un ingeniero debe ser capaz de utilizar la estadística para:
+
+\begin{itemize}
+	\item Diseñar experimentos que permitan recolectar datos de forma adecuada.
+	\item Analizar y modelar la variabilidad inherente a los procesos.
+	\item Establecer relaciones entre variables mediante técnicas de regresión y correlación.
+	\item Evaluar el desempeño de sistemas bajo condiciones de incertidumbre.
+\end{itemize}
+
+En el caso específico de los ingenieros de sistemas, la estadística resulta esencial en áreas como:
+
+\begin{itemize}
+	\item Ciencia de datos y análisis de grandes volúmenes de información (big data).
+	\item Inteligencia artificial y aprendizaje automático, que se fundamentan en modelos probabilísticos.
+	\item Optimización y simulación de procesos informáticos.
+	\item Seguridad informática, donde se aplican métodos estadísticos para detección de anomalías.
+\end{itemize}
+
+Por tanto, la estadística no solo fortalece la formación académica de los estudiantes, sino que constituye una competencia profesional clave que les permite enfrentar los retos actuales de la ingeniería de sistemas, donde el análisis de datos es un recurso indispensable para la innovación y la toma de decisiones estratégicas.
 
 \section{Ambientes de aprendizaje}
 
