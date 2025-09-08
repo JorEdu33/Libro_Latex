@@ -16,8 +16,6 @@
 *.nav
 *.snm
 
-# Archivos PDF generados
-*.pdf
 
 # Archivos temporales de minted
 *.minted
