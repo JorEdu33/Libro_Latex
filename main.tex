@@ -431,6 +431,15 @@ Hoy en día, Moodle supera los 160.000 sitios registrados y 240 millones de usua
 
 \subsection{Plataformas de Aprendizaje}
 Las plataformas de gestión del aprendizaje (LMS) como Moodle han revolucionado la educación digital desde su implementación. El caso pionero de la Universidad de Curtin en Australia en 2002 demostró que la adopción de Moodle en cursos de estadística descriptiva resultó en una mejora significativa en la participación estudiantil y una reducción del 30\% en los índices de reprobación, atribuible a la organización modular de contenidos y el acceso asíncrono a materiales \parencite{Pacheco2025}.
+\begin{figure}[ht]
+    \centering
+    \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Plataformas de aprendizaje}.}
+    \includegraphics[width=0.7\textwidth]{Figs/LMS.jpg}
+    \label{fig:LMS}
+    \\Nota: Planificación de la trayectoria de desarrollo del sistema LMS. \parencite{Pacheco2025}
+\end{figure}
+
+\newpage
 
 Más recientemente, en 2025, la Universidad Nacional de Educación a Distancia (UNED) de España desarrolló un MOOC de estadística en Moodle que alcanzó una tasa de finalización del 68\%, superior al promedio de cursos masivos. Este éxito se atribuyó al uso de evaluaciones automáticas, foros moderados y contenido multimedia adaptativo \parencite{Goh2025}. En contextos de menores recursos, la Universidad Pública de El Alto en Bolivia implementó Moodle para Estadística II en 2024, logrando mejoras significativas en la claridad de contenidos y el rendimiento académico de los estudiantes \parencite{Ndibalema2025}.
 
@@ -448,25 +457,34 @@ Estas limitaciones subrayan la importancia de desarrollar sistemas de evaluació
 
 En el ámbito de la enseñanza de la estadística, la discusión sobre arquitecturas tecnológicas ha pasado de enfocarse en plataformas de gestión administrativa hacia propuestas que buscan integrar entornos de análisis, retroalimentación inmediata y evaluación automatizada. Moodle continúa siendo una referencia obligada en la educación digital, especialmente por su capacidad para organizar contenidos y actividades. Sin embargo, varios estudios coinciden en que, aunque resulta eficaz para estructurar cursos, no responde por completo a las exigencias de la enseñanza de la estadística inferencial, en la que interesa no solo el resultado final, sino también el razonamiento seguido por el estudiante \parencite{Pacheco2025, Ndibalema2025}.
 
+\begin{figure}[ht]
+    \centering
+    \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Arquitectura tecnológica para la educación}.}
+    \includegraphics[width=0.7\textwidth]{Figs/Arquitectura_E-learning.jpg}
+    \label{fig:architecture_E-learning}
+    \\Nota: Arquitectura de diseño del sistema de aprendizaje electrónico. \parencite{Mostefai2025}
+\end{figure}
+
 Ante esta limitación, algunas instituciones han apostado por combinar los LMS con entornos de programación y análisis de datos. Un ejemplo temprano es JupyterHub con nbgrader, desarrollado en la Universidad de California, Berkeley, que se consolidó como un referente en cursos masivos de ciencia de datos al permitir la entrega, ejecución y calificación automática de notebooks de Python \parencite{berkeley2018}. Por otro lado, la Universidad de Auckland ha incorporado RStudio Cloud para facilitar la práctica con R en cursos de inferencia y análisis de datos, priorizando la accesibilidad en la web \parencite{rubio2023}. Finalmente, en Carnegie Mellon University se ha implementado Autolab, pensado para la calificación de código en línea con control de intentos y reportes de error detallados \parencite{rubio2023}.
 
 El diseño de entornos educativos digitales exige arquitecturas escalables, flexibles y seguras. En 2025, Mostefai propuso una arquitectura de microservicios para plataformas educativas que separa la lógica de negocio, la visualización de resultados y la gestión de datos en componentes independientes. Esta arquitectura permitió escalar cursos de estadística con más de 5.000 estudiantes simultáneos sin pérdida de rendimiento, mejorando significativamente la mantenibilidad y escalabilidad de los sistemas \parencite{Mostefai2025}.
 
-Estas experiencias muestran un avance real hacia la automatización de la evaluación y la integración con el aprendizaje activo. Sin embargo, también dejan en evidencia limitaciones importantes. Por un lado, dependen de infraestructura institucional robusta o de licencias de pago, lo que restringe su uso en contextos de menor presupuesto. Además, suelen enfocarse en verificar la exactitud del código o los resultados numéricos, pero no siempre logran capturar la trazabilidad del razonamiento estadístico, que es clave en la formación en inferencia \parencite{alhaddad2024}.
-
-\section{Conclusiones}
-La revisión de literatura evidencia que, aunque existen avances relevantes en plataformas como Moodle y en el desarrollo de sistemas de autoevaluación, todavía persisten vacíos en la integración de estos recursos con arquitecturas modernas que soporten la enseñanza práctica de la estadística. Los estudios recientes subrayan la necesidad de combinar LMS, herramientas de autoevaluación inteligentes y arquitecturas escalables basadas en microservicios para ofrecer experiencias de aprendizaje más completas, transparentes y equitativas.
-
-En consecuencia, la propuesta de un entorno virtual de aprendizaje para Estadística II en la UIS no solo responde a estas limitaciones, sino que también se alinea con las tendencias actuales en educación digital, ofreciendo una solución replicable y escalable donde la retroalimentación automática y la integración práctica con herramientas de análisis de datos son los ejes fundamentales.
-
+\begin{figure}[ht]
+    \centering
+    \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Arquitectura de microservicios}.}
+    \includegraphics[width=0.8\textwidth]{Figs/Microservicios.jpg}
+    \label{fig:Microservicios}
+    \\Nota: Arquitectura técnica general de un sistema basado en servicios. \parencite{Mostefai2025}
+\end{figure}
 
 \newpage
 
+Estas experiencias muestran un avance real hacia la automatización de la evaluación y la integración con el aprendizaje activo. Sin embargo, también dejan en evidencia limitaciones importantes. Por un lado, dependen de infraestructura institucional robusta o de licencias de pago, lo que restringe su uso en contextos de menor presupuesto. Además, suelen enfocarse en verificar la exactitud del código o los resultados numéricos, pero no siempre logran capturar la trazabilidad del razonamiento estadístico, que es clave en la formación en inferencia \parencite{alhaddad2024}.
 
+\newpage
 % ------------------------------------------------------------------------
 % Bibliografía
 % ------------------------------------------------------------------------
-
 
 %\addcontentsline{toc}{chapter}{Referencias Bibliográficas}\newpage
 %\bibliographystyle{apalike}
@@ -474,8 +492,6 @@ En consecuencia, la propuesta de un entorno virtual de aprendizaje para Estadís
 \addcontentsline{toc}{chapter}{Referencias Bibliográficas}
 
 \printbibliography
-
-
 
 \nocite{poniszewska-maranda, burns-kubernetes, torres-bosch-microservicios, armstrong2015,kubevirtio, docker2023, kubelet-doc, namespace-article}
 % ------------------------------------------------------------------------
