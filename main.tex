@@ -432,8 +432,8 @@ Hoy en día, Moodle supera los 160.000 sitios registrados y 240 millones de usua
 \begin{figure}[ht]
 	\centering
     \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Linea de tiempo con base en diversas fuentes históricas.}.}
-	\includegraphics[width=1\textwidth]{Figs/Linea del Tiempo.png}
-	\label{fig:LuisaArquitectura}
+	\includegraphics[width=1\textwidth]{Figs/Linea del Tiempo.pdf}
+	\label{fig:LineaTiempo}
 	\\Fuente: Autores
 \end{figure}
 
@@ -545,6 +545,125 @@ incorpora actividades interactivas, mecanismos de autoevaluación y un plan de a
 implementado en dos cursos. De esta manera, el proyecto no solo fortalece la enseñanza de la 
 estadística inferencial en pregrado, sino que se alinea con las tendencias internacionales de 
 integración entre LMS.
+
+\newpage
+
+\chapter{Metodología}
+
+\section{Enfoque metodológico}
+Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permite organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajusta a la naturaleza del proyecto, en el cual se requiere diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje
+
+\section{Roles}
+
+El equipo esta conformado por tres integrantes: un docente y dos estudiantes.
+
+\subsection*{Scrum Master (Docente)}
+\begin{itemize}[leftmargin=*]
+	\item Definir los temas a desarrollar en cada iteración.
+	\item Validar los entregables (material teórico, graders y servidor de calificaciones).
+	\item Proporcionar retroalimentación y ajustes necesarios.
+\end{itemize}
+
+\subsection*{Desarrolladores (2 estudiantes)}
+Encargados de distribuirse las tareas correspondientes a cada sprint, las cuales incluyen:
+\begin{itemize}[leftmargin=*]
+	\item Elaborar el material teórico, diseñado para integrarse en Moodle y con un enfoque interactivo.
+	\item Diseñar e implementar los graders (evaluadores automáticos) para los ejercicios prácticos.
+	\item Programar la lógica del servidor que permite calificar y almacenar los resultados.
+	\item Ejecutar las correcciones solicitadas por el Scrum Master.
+\end{itemize}
+
+\section{Estructura de los sprints}
+
+El proyecto se organiza en \textbf{sprints semanales}, cada uno correspondiente al diseño y validación de una práctica de la asignatura. En total se llevaron a cabo ocho sprints, alineados con las ocho prácticas definidas en el curso de Estadística II. La dinámica de trabajo semanal fue la siguiente:
+
+\begin{itemize}
+	\item \textbf{Sábado:} el Scrum Master define los temas correspondientes a la semana.  
+	\item \textbf{Miércoles (fecha límite):} los estudiantes deben entregar el material teórico, los graders y la versión funcional del servidor de calificaciones.  
+	\item \textbf{Jueves:} el Scrum Master revisa los entregables y da su aprobación o indica las modificaciones requeridas.  
+	\item \textbf{Viernes:} se liberan los graders para que los estudiantes (grupo piloto) realicen las prácticas.  
+\end{itemize}
+
+\section{Sprints}
+\subsection{Sprint 0}
+
+Este sprint se definió a partir de la reunión llevada a cabo el 2 de abril de 2025 en la sala de juntas de la Escuela de Ingeniería de Sistemas de la UIS, con la participación de docentes del área de Estadística II y los dos estudiantes responsables del proyecto \parencite{acta_reunion_2025}.  
+
+En dicha reunión se establecieron los lineamientos iniciales del proyecto y se delimitó su alcance, acordando que el enfoque debía orientarse a mejorar los procesos de enseñanza y aprendizaje mediante el uso de herramientas digitales.  
+
+Durante las discusiones se resaltó la importancia de analizar las características de los principales lenguajes de programación utilizados en el ámbito estadístico (Python, MATLAB y R). Con este propósito se propuso elaborar un cuadro comparativo que permitiera identificar sus ventajas, desventajas y entornos de desarrollo asociados. Aunque no se seleccionó un lenguaje específico en esta etapa, se dejó abierta la posibilidad de trabajar con más de uno, con el objetivo de garantizar flexibilidad.  
+
+Asimismo, se planteó que la herramienta a desarrollar debía ser agnóstica respecto al lenguaje de programación, de modo que el usuario pudiera elegir libremente el entorno de su preferencia. También se discutió la conveniencia de incorporar interfaces visuales y elementos gráficos que fortalecieran la enseñanza para los estudiantes, junto con la organización de los contenidos pedagógicos dentro de Moodle como plataforma de apoyo.  
+
+De manera complementaria, se estableció una distribución preliminar de temas en tres unidades (1.3 y 1.4; 2.3 y 2.4; 3.3 y 3.4), con el fin de estructurar las prácticas, realizar pruebas efectivas y evaluar el funcionamiento del proyecto.  
+
+Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologías base que guiarían el desarrollo:  
+
+\begin{itemize}
+	\item \textbf{Node.js}: para el backend, debido a su rapidez en las respuestas y su estructura escalable.  
+	\item \textbf{Moodle}: como plataforma para la gestión del contenido teórico.  
+	\item \textbf{Google Colab}: como entorno de ejecución de los \textit{graders}, aprovechando su accesibilidad y la posibilidad de alternar entre los \textit{kernels} de Python y R.  
+	\item \textbf{Docker}: para asegurar un despliegue estable y controlado mediante contenedores.  
+	\item \textbf{Playit.gg}: como servicio de túnel que permite exponer el servidor de calificaciones en internet.  
+\end{itemize}
+
+
+
+\subsection{Sprint 1}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los temas a trabajar durante el sprint: medidas de tendencia central (media, mediana, moda), medidas de dispersión (rango, desviación estándar, varianza), histogramas y diagramas de caja (boxplots).
+	\item Validar la pertinencia y calidad de los contenidos teóricos elaborados por los estudiantes.
+	\item Revisar el funcionamiento de los graders y su integración con el servidor de calificaciones.
+	\item Orientar la definición de la arquitectura técnica, verificando que cumpliera con los lineamientos de escalabilidad y modularidad.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 9 de agosto de 2025 → El Scrum Master definió los temas a desarrollar.
+	\item \textbf{Entrega de los estudiantes:} 13 de agosto de 2025 → Se entregaron el material teórico en H5P, los graders y la estructura técnica inicial.
+	\item \textbf{Revisión del Scrum Master:} 14 de agosto de 2025 → Se realizaron recomendaciones de mejora sobre los contenidos y ejercicios.
+	\item \textbf{Liberación de recursos:} 15 de agosto de 2025 → Los graders y materiales teóricos fueron liberados en Moodle y Colab para ser utilizados por los grupos pilotos.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los estudiantes}
+
+\textbf{1. Estructura técnica del proyecto}
+\begin{itemize}
+	\item Se definió el esqueleto del sistema, estableciendo la organización de los módulos (frontend, backend y grader).
+	\item Se configuró la exposición de servicios y la comunicación entre módulos.
+	\item Se organizó el sistema en contenedores con Docker, garantizando un entorno estable, replicable y modular.
+	\newpage
+	\begin{figure}[ht]
+		\centering
+		\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
+		\includegraphics[width=1\textwidth]{Figs/Diagrama_contenedores.pdf}
+		\label{fig:Diagrama-Docker}
+		\\Elaboración propia con base en la estructura de los contenedores usados.
+	\end{figure}
+	
+\end{itemize}
+
+\textbf{2. Material teórico en Moodle}
+\begin{itemize}
+	\item Se elaboraron recursos interactivos utilizando H5P dentro de Moodle.
+	\item Los materiales incluyeron infografías sintetizadas, con la información esencial para el aprendizaje de los temas, permitiendo una mayor comprensión visual.
+	\item La construcción de los contenidos se fundamentó en los textos de referencia de Montgomery y Walpole, autores reconocidos en estadística.
+\end{itemize}
+
+\textbf{3. Graders en Google Colab}
+\begin{itemize}
+	\item Se desarrollaron notebooks en Google Colab con código en R.
+	\item Estos graders permitieron calcular medidas de tendencia central y dispersión, así como generar representaciones gráficas (histogramas y diagramas de caja).
+\end{itemize}
+
+\textbf{4. Ejercicios calificables y lógica en el backend}
+\begin{itemize}
+	\item Se diseñaron tres ejercicios evaluables relacionados con los temas del sprint.
+	\item Se implementó la lógica de corrección en el backend (Node.js) para procesar automáticamente las respuestas.
+	\item El servidor de calificaciones registró y almacenó los resultados, garantizando un flujo de evaluación automatizado.
+\end{itemize}
 
 \newpage
 
