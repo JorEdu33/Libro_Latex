@@ -552,11 +552,15 @@ integración entre LMS.
 \chapter{Metodología}
 
 \section{Enfoque metodológico}
-Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permite organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajusta a la naturaleza del proyecto, en el cual se requiere diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje
+
+
+Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permite organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajusta a la naturaleza del proyecto, en el cual se requiere diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje.
+
+Según \cite{schwaber2013scrum}, "Scrum es un marco de trabajo por el cual las personas pueden acometer problemas complejos adaptativos, a la vez que entregar productos del máximo valor posible productiva y creativamente".
 
 \section{Roles}
 
-El equipo esta conformado por tres integrantes: un docente y dos estudiantes.
+El equipo esta conformado por tres integrantes: un docente y dos practicantes (los autores del presente proyecto).
 
 \subsection*{Scrum Master (Docente)}
 \begin{itemize}[leftmargin=*]
@@ -565,7 +569,7 @@ El equipo esta conformado por tres integrantes: un docente y dos estudiantes.
 	\item Proporcionar retroalimentación y ajustes necesarios.
 \end{itemize}
 
-\subsection*{Desarrolladores (2 estudiantes)}
+\subsection*{Desarrolladores (practicantes)}
 Encargados de distribuirse las tareas correspondientes a cada sprint, las cuales incluyen:
 \begin{itemize}[leftmargin=*]
 	\item Elaborar el material teórico, diseñado para integrarse en Moodle y con un enfoque interactivo.
@@ -580,7 +584,7 @@ El proyecto se organiza en \textbf{sprints semanales}, cada uno correspondiente 
 
 \begin{itemize}
 	\item \textbf{Sábado:} el Scrum Master define los temas correspondientes a la semana.  
-	\item \textbf{Miércoles (fecha límite):} los estudiantes deben entregar el material teórico, los graders y la versión funcional del servidor de calificaciones.  
+	\item \textbf{Miércoles (fecha límite):} los practicanres deben entregar el material teórico, los graders y la versión funcional del servidor de calificaciones.  
 	\item \textbf{Jueves:} el Scrum Master revisa los entregables y da su aprobación o indica las modificaciones requeridas.  
 	\item \textbf{Viernes:} se liberan los graders para que los estudiantes (grupo piloto) realicen las prácticas.  
 \end{itemize}
@@ -588,7 +592,15 @@ El proyecto se organiza en \textbf{sprints semanales}, cada uno correspondiente 
 \section{Sprints}
 \subsection{Sprint 0}
 
-Este sprint se definió a partir de la reunión llevada a cabo el 2 de abril de 2025 en la sala de juntas de la Escuela de Ingeniería de Sistemas de la UIS, con la participación de docentes del área de Estadística II y los dos estudiantes responsables del proyecto (ver Anexo \ref{anexo:acta-abril-2025}).  
+Este sprint se definió a partir de la reunión llevada a cabo el 2 de abril de 2025 en la sala de juntas de la Escuela de Ingeniería de Sistemas de la UIS, los participantes fueron:
+
+\begin{itemize}
+	\item \textbf{Practicantes:} Daniel Alejandro Sánchez Rodríguez y Jorge Eduardo Suárez Cortés
+	
+	\item \textbf{Profesores del área de Estadística II :} César Augusto Aceros Moreno, Eliana Martha Bonalde Marcano, Andrés Leonardo González Gómez, David Edmundo Romo Bucheli y Sonia Cristina Gamboa Sarmiento
+\end{itemize}
+
+\noindent Para mayor detalle de la reunión puede consultarse el acta correspondiente en el \textbf{Anexo \ref{anexo:acta-abril-2025}}.
 
 En dicha reunión se establecieron los lineamientos iniciales del proyecto y se delimitó su alcance, acordando que el enfoque debía orientarse a mejorar los procesos de enseñanza y aprendizaje mediante el uso de herramientas digitales.  
 
@@ -628,7 +640,7 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 	\item \textbf{Liberación de recursos:} 15 de agosto de 2025 → Los graders y materiales teóricos fueron liberados en Moodle y Colab para ser utilizados por los grupos pilotos.
 \end{itemize}
 
-\subsubsection*{Actividades realizadas por los estudiantes}
+\subsubsection*{Actividades realizadas por los practicantes}
 
 \begin{enumerate}
 	\item \textbf{Estructura técnica del proyecto}
@@ -637,8 +649,9 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 		\item Se configuró la exposición de servicios y la comunicación entre módulos.
 		\item Se organizó el sistema en contenedores con Docker, garantizando un entorno estable, replicable y modular.
 	\end{itemize}
+	
+\noindent Lo anterior se representa gráficamente en el Esquema de los contenedores Docker mostrado en la \textbf{Figura~\ref{fig:Diagrama-Docker}}.
 
-	\newpage
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
@@ -686,18 +699,26 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 % Anexos
 \newpage
 
-
 \appendix
+
+% --- Solo una entrada en la TOC ---
 \chapter*{Anexos}
 \addcontentsline{toc}{chapter}{Anexos}
 
-% === ANEXO A: DOCUMENTOS INSTITUCIONALES ===
-\chapter{Actas de reunión}
+% --- Definir numeración en números ---
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+% --- Anexo 1 ---
+\refstepcounter{chapter}
+\chapter*{Anexo \thechapter: Actas de reunión}
 \label{anexo:actas}
 
-\section{Acta de reunión inicial - 02 de abril de 2025}
+\section*{Acta de reunión inicial - 02 de abril de 2025}
 \label{anexo:acta-abril-2025}
-\includepdf[pages=-, scale=1]{Anexos/Acta 02 abril de 2025.pdf}
+
+\includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anexos/Acta 02 abril de 2025.pdf}
+
+
 
 % ------------------------------------------------------------------------
 
