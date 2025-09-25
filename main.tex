@@ -430,6 +430,8 @@ El punto de inflexión en la historia de los LMS modernos llegó el 20 de agosto
 
 Hoy en día, Moodle supera los 160.000 sitios registrados y 240 millones de usuarios en más de 240 idiomas. Es utilizado por aproximadamente el 67\% de las instituciones de educación superior a nivel mundial. Su arquitectura abierta y modular permite integrar herramientas especializadas como Jupyter Notebook, nbgrader, R, Python y entornos de evaluación automática, lo que lo ha convertido en una plataforma clave para la enseñanza de la estadística y la ciencia de datos en la educación superior \parencite{Goh2025, Moodle2024}.
 
+La Figura~\ref{fig:LineaTiempo} muestra la línea de tiempo de la evolución de los LMS, destacando los hitos más importantes que llevaron a su consolidación.
+
 \begin{figure}[ht]
 	\centering
     \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Linea de tiempo con base en diversas fuentes históricas.}.}
@@ -439,7 +441,8 @@ Hoy en día, Moodle supera los 160.000 sitios registrados y 240 millones de usua
 \end{figure}
 
 \subsection{Plataformas de Aprendizaje}
-Las plataformas de gestión del aprendizaje (LMS) como Moodle han revolucionado la educación digital desde su implementación. El caso pionero de la Universidad de Curtin en Australia en 2002 demostró que la adopción de Moodle en cursos de estadística descriptiva resultó en una mejora significativa en la participación estudiantil y una reducción del 30\% en los índices de reprobación, atribuible a la organización modular de contenidos y el acceso asíncrono a materiales \parencite{Pacheco2025}.
+Las plataformas de gestión del aprendizaje (LMS) como Moodle han revolucionado la educación digital desde su implementación. El caso pionero de la Universidad de Curtin en Australia en 2002 demostró que la adopción de Moodle en cursos de estadística descriptiva resultó en una mejora significativa en la participación estudiantil y una reducción del 30\% en los índices de reprobación, atribuible a la organización modular de contenidos y el acceso asíncrono a materiales \parencite{Pacheco2025}. Este tipo de resultados se alinea con el ciclo de validación continua que suele seguirse en la implementación de un LMS, como se resume en la Figura~\ref{fig:LMS}, donde se observa cómo la revisión iterativa de requisitos, contenidos y pruebas permite alcanzar un entorno de aprendizaje funcional y adaptado al contexto institucional.
+
 \begin{figure}[ht]
     \centering
     \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Plataformas de aprendizaje}.}
@@ -462,7 +465,7 @@ Estas limitaciones subrayan la importancia de desarrollar sistemas de evaluació
 
 \subsection{Arquitectura tecnológica para la educación}
 
-En el ámbito de la enseñanza de la estadística, la discusión sobre arquitecturas tecnológicas ha pasado de enfocarse en plataformas de gestión administrativa hacia propuestas que buscan integrar entornos de análisis, retroalimentación inmediata y evaluación automatizada. Moodle continúa siendo una referencia obligada en la educación digital, especialmente por su capacidad para organizar contenidos y actividades. Sin embargo, varios estudios coinciden en que, aunque resulta eficaz para estructurar cursos, no responde por completo a las exigencias de la enseñanza de la estadística inferencial, en la que interesa no solo el resultado final, sino también el razonamiento seguido por el estudiante \parencite{Pacheco2025, Ndibalema2025}.
+En el ámbito de la enseñanza de la estadística, la discusión sobre arquitecturas tecnológicas ha pasado de enfocarse en plataformas de gestión administrativa hacia propuestas que buscan integrar entornos de análisis, retroalimentación inmediata y evaluación automatizada como se puede ver presente en la Figura~\ref{fig:architecture_E-learning}. Moodle continúa siendo una referencia obligada en la educación digital, especialmente por su capacidad para organizar contenidos y actividades. Sin embargo, varios estudios coinciden en que, aunque resulta eficaz para estructurar cursos, no responde por completo a las exigencias de la enseñanza de la estadística inferencial, en la que interesa no solo el resultado final, sino también el razonamiento seguido por el estudiante \parencite{Pacheco2025, Ndibalema2025}.
 
 \begin{figure}[ht]
     \centering
@@ -472,11 +475,10 @@ En el ámbito de la enseñanza de la estadística, la discusión sobre arquitect
     \\Fuente: Adaptada de \textcite{Mostefai2025}
 \end{figure}
 
-\newpage
 
 Ante esta limitación, algunas instituciones han apostado por combinar los LMS con entornos de programación y análisis de datos. Un ejemplo temprano es JupyterHub con nbgrader, desarrollado en la Universidad de California, Berkeley, que se consolidó como un referente en cursos masivos de ciencia de datos al permitir la entrega, ejecución y calificación automática de notebooks de Python \parencite{berkeley2018}. Por otro lado, la Universidad de Auckland ha incorporado RStudio Cloud para facilitar la práctica con R en cursos de inferencia y análisis de datos, priorizando la accesibilidad en la web \parencite{rubio2023}. Finalmente, en Carnegie Mellon University se ha implementado Autolab, pensado para la calificación de código en línea con control de intentos y reportes de error detallados \parencite{rubio2023}.
 
-El diseño de entornos educativos digitales exige arquitecturas escalables, flexibles y seguras. En 2025, Mostefai propuso una arquitectura de microservicios para plataformas educativas que separa la lógica de negocio, la visualización de resultados y la gestión de datos en componentes independientes. Esta arquitectura permitió escalar cursos de estadística con más de 5.000 estudiantes simultáneos sin pérdida de rendimiento, mejorando significativamente la mantenibilidad y escalabilidad de los sistemas \parencite{Mostefai2025}.
+El diseño de entornos educativos digitales exige arquitecturas escalables, flexibles y seguras. En 2025, Mostefai propuso una arquitectura de microservicios para plataformas educativas que separa la lógica de negocio, la visualización de resultados y la gestión de datos en componentes independientes se puede ver representado en la Figura~\ref{fig:Microservicios}. Esta arquitectura permitió escalar cursos de estadística con más de 5.000 estudiantes simultáneos sin pérdida de rendimiento, mejorando significativamente la mantenibilidad y escalabilidad de los sistemas \parencite{Mostefai2025}.
 
 \begin{figure}[ht]
     \centering
@@ -650,7 +652,7 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 		\item Se organizó el sistema en contenedores con Docker, garantizando un entorno estable, replicable y modular.
 	\end{itemize}
 	
-\noindent Lo anterior se representa gráficamente en el Esquema de los contenedores Docker mostrado en la \textbf{Figura~\ref{fig:Diagrama-Docker}}.
+\noindent Lo anterior se representa gráficamente en el Esquema de los contenedores Docker mostrado en la Figura~\ref{fig:Diagrama-Docker}.
 
 \begin{figure}[ht]
 	\centering
