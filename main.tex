@@ -45,6 +45,7 @@
 \usepackage[style=apa]{biblatex}
 \usepackage{geometry}
 \usepackage{hyperref}
+\usepackage{pdfpages}
 
 % --- CONFIGURACIONES DE COLORES --- %
 \definecolor{bg}{rgb}{0.95,0.95,0.92}
@@ -429,16 +430,19 @@ El punto de inflexión en la historia de los LMS modernos llegó el 20 de agosto
 
 Hoy en día, Moodle supera los 160.000 sitios registrados y 240 millones de usuarios en más de 240 idiomas. Es utilizado por aproximadamente el 67\% de las instituciones de educación superior a nivel mundial. Su arquitectura abierta y modular permite integrar herramientas especializadas como Jupyter Notebook, nbgrader, R, Python y entornos de evaluación automática, lo que lo ha convertido en una plataforma clave para la enseñanza de la estadística y la ciencia de datos en la educación superior \parencite{Goh2025, Moodle2024}.
 
+La Figura~\ref{fig:LineaTiempo} muestra la línea de tiempo de la evolución de los LMS, destacando los hitos más importantes que llevaron a su consolidación.
+
 \begin{figure}[ht]
 	\centering
     \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Linea de tiempo con base en diversas fuentes históricas.}.}
-	\includegraphics[width=1\textwidth]{Figs/Linea del Tiempo.png}
-	\label{fig:LuisaArquitectura}
+	\includegraphics[width=1\textwidth]{Figs/Linea del Tiempo.pdf}
+	\label{fig:LineaTiempo}
 	\\Fuente: Autores
 \end{figure}
 
 \subsection{Plataformas de Aprendizaje}
-Las plataformas de gestión del aprendizaje (LMS) como Moodle han revolucionado la educación digital desde su implementación. El caso pionero de la Universidad de Curtin en Australia en 2002 demostró que la adopción de Moodle en cursos de estadística descriptiva resultó en una mejora significativa en la participación estudiantil y una reducción del 30\% en los índices de reprobación, atribuible a la organización modular de contenidos y el acceso asíncrono a materiales \parencite{Pacheco2025}.
+Las plataformas de gestión del aprendizaje (LMS) como Moodle han revolucionado la educación digital desde su implementación. El caso pionero de la Universidad de Curtin en Australia en 2002 demostró que la adopción de Moodle en cursos de estadística descriptiva resultó en una mejora significativa en la participación estudiantil y una reducción del 30\% en los índices de reprobación, atribuible a la organización modular de contenidos y el acceso asíncrono a materiales \parencite{Pacheco2025}. Este tipo de resultados se alinea con el ciclo de validación continua que suele seguirse en la implementación de un LMS, como se resume en la Figura~\ref{fig:LMS}, donde se observa cómo la revisión iterativa de requisitos, contenidos y pruebas permite alcanzar un entorno de aprendizaje funcional y adaptado al contexto institucional.
+
 \begin{figure}[ht]
     \centering
     \captionof{figure}{ \\ \vspace{0.5cm} Estado del arte. \textbf{Plataformas de aprendizaje}.}
@@ -461,7 +465,7 @@ Estas limitaciones subrayan la importancia de desarrollar sistemas de evaluació
 
 \subsection{Arquitectura tecnológica para la educación}
 
-En el ámbito de la enseñanza de la estadística, la discusión sobre arquitecturas tecnológicas ha pasado de enfocarse en plataformas de gestión administrativa hacia propuestas que buscan integrar entornos de análisis, retroalimentación inmediata y evaluación automatizada. Moodle continúa siendo una referencia obligada en la educación digital, especialmente por su capacidad para organizar contenidos y actividades. Sin embargo, varios estudios coinciden en que, aunque resulta eficaz para estructurar cursos, no responde por completo a las exigencias de la enseñanza de la estadística inferencial, en la que interesa no solo el resultado final, sino también el razonamiento seguido por el estudiante \parencite{Pacheco2025, Ndibalema2025}.
+En el ámbito de la enseñanza de la estadística, la discusión sobre arquitecturas tecnológicas ha pasado de enfocarse en plataformas de gestión administrativa hacia propuestas que buscan integrar entornos de análisis, retroalimentación inmediata y evaluación automatizada como se puede ver presente en la Figura~\ref{fig:architecture_E-learning}. Moodle continúa siendo una referencia obligada en la educación digital, especialmente por su capacidad para organizar contenidos y actividades. Sin embargo, varios estudios coinciden en que, aunque resulta eficaz para estructurar cursos, no responde por completo a las exigencias de la enseñanza de la estadística inferencial, en la que interesa no solo el resultado final, sino también el razonamiento seguido por el estudiante \parencite{Pacheco2025, Ndibalema2025}.
 
 \begin{figure}[ht]
     \centering
@@ -471,11 +475,10 @@ En el ámbito de la enseñanza de la estadística, la discusión sobre arquitect
     \\Fuente: Adaptada de \textcite{Mostefai2025}
 \end{figure}
 
-\newpage
 
 Ante esta limitación, algunas instituciones han apostado por combinar los LMS con entornos de programación y análisis de datos. Un ejemplo temprano es JupyterHub con nbgrader, desarrollado en la Universidad de California, Berkeley, que se consolidó como un referente en cursos masivos de ciencia de datos al permitir la entrega, ejecución y calificación automática de notebooks de Python \parencite{berkeley2018}. Por otro lado, la Universidad de Auckland ha incorporado RStudio Cloud para facilitar la práctica con R en cursos de inferencia y análisis de datos, priorizando la accesibilidad en la web \parencite{rubio2023}. Finalmente, en Carnegie Mellon University se ha implementado Autolab, pensado para la calificación de código en línea con control de intentos y reportes de error detallados \parencite{rubio2023}.
 
-El diseño de entornos educativos digitales exige arquitecturas escalables, flexibles y seguras. En 2025, Mostefai propuso una arquitectura de microservicios para plataformas educativas que separa la lógica de negocio, la visualización de resultados y la gestión de datos en componentes independientes. Esta arquitectura permitió escalar cursos de estadística con más de 5.000 estudiantes simultáneos sin pérdida de rendimiento, mejorando significativamente la mantenibilidad y escalabilidad de los sistemas \parencite{Mostefai2025}.
+El diseño de entornos educativos digitales exige arquitecturas escalables, flexibles y seguras. En 2025, Mostefai propuso una arquitectura de microservicios para plataformas educativas que separa la lógica de negocio, la visualización de resultados y la gestión de datos en componentes independientes se puede ver representado en la Figura~\ref{fig:Microservicios}. Esta arquitectura permitió escalar cursos de estadística con más de 5.000 estudiantes simultáneos sin pérdida de rendimiento, mejorando significativamente la mantenibilidad y escalabilidad de los sistemas \parencite{Mostefai2025}.
 
 \begin{figure}[ht]
     \centering
@@ -548,6 +551,155 @@ integración entre LMS.
 
 \newpage
 
+\chapter{Metodología}
+
+\section{Enfoque metodológico}
+
+
+Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permite organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajusta a la naturaleza del proyecto, en el cual se requiere diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje.
+
+Según \cite{schwaber2013scrum}, "Scrum es un marco de trabajo por el cual las personas pueden acometer problemas complejos adaptativos, a la vez que entregar productos del máximo valor posible productiva y creativamente".
+
+
+\section{Pasos generales de la metodología}
+
+La metodología del proyecto se estructuró en función de los objetivos específicos, los cuales se materializaron en una serie de acciones interrelacionadas.
+
+En primer lugar, para el diseño de un plan de aula modular, se realizó una revisión y selección de los contenidos teóricos y prácticos más relevantes de la asignatura, en conjunto con los docentes responsables. Posteriormente, estos contenidos fueron organizados en unidades interactivas implementadas en Colab Notebooks con Python y R, incorporando actividades prácticas y calificadores automáticos que ofrecieron retroalimentación inmediata.
+En cuanto a la implementación del ambiente virtual de aprendizaje en Moodle, se inició con la configuración de la estructura del curso, definiendo por semanas para tener orden y control de los contenidos. A continuación, se integraron los Colab Notebooks, los materiales didácticos de apoyo y diversos recursos multimedia que fortalecieron la experiencia pedagógica. Finalmente, se llevaron a cabo pruebas de funcionamiento tanto técnico como pedagógico, con el propósito de verificar la accesibilidad y coherencia de los recursos integrados.
+
+Para el establecimiento de los instrumentos de medición, se diseñaron actividades evaluativas en Moodle basadas en los calificadores automáticos, definiendo indicadores específicos para valorar el logro de los resultados de aprendizaje. Estos instrumentos fueron implementados de manera piloto y ajustados a partir de la retroalimentación proporcionada por los docentes, lo cual permitió afinar su pertinencia y validez.
+
+Finalmente, con el objetivo de pilotear el ambiente de aprendizaje diseñado, se seleccionaron dos grupos de la asignatura Estadística II y se coordinó con los docentes responsables para aplicar el plan de aula y los instrumentos de evaluación. El proceso de pilotaje incluyó la recolección de datos sobre la usabilidad de la herramienta, la satisfacción de los estudiantes y la efectividad en términos de resultados de aprendizaje.
+
+En conjunto, estos pasos permitieron establecer una relación directa entre los objetivos planteados y las actividades realizadas, garantizando que cada etapa metodológica contribuyera al cumplimiento integral del proyecto.
+
+
+\section{Roles}
+
+El equipo esta conformado por tres integrantes: un docente y dos practicantes (los autores del presente proyecto).
+
+\subsection*{Scrum Master (Docente)}
+\begin{itemize}[leftmargin=*]
+	\item Definir los temas a desarrollar en cada iteración.
+	\item Validar los entregables (material teórico, graders y servidor de calificaciones).
+	\item Proporcionar retroalimentación y ajustes necesarios.
+\end{itemize}
+
+\subsection*{Desarrolladores (practicantes)}
+Encargados de distribuirse las tareas correspondientes a cada sprint, las cuales incluyen:
+\begin{itemize}[leftmargin=*]
+	\item Elaborar el material teórico, diseñado para integrarse en Moodle y con un enfoque interactivo.
+	\item Diseñar e implementar los graders (evaluadores automáticos) para los ejercicios prácticos.
+	\item Programar la lógica del servidor que permite calificar y almacenar los resultados.
+	\item Ejecutar las correcciones solicitadas por el Scrum Master.
+\end{itemize}
+
+\section{Estructura de los sprints}
+
+El proyecto se organiza en sprints semanales, cada uno correspondiente al diseño y validación de una práctica de la asignatura. En total se llevaron a cabo ocho sprints, alineados con las ocho prácticas definidas en el curso de Estadística II. La dinámica de trabajo semanal fue la siguiente:
+
+\begin{itemize}
+	\item \textbf{Sábado:} el Scrum Master define los temas correspondientes a la semana.  
+	\item \textbf{Miércoles (fecha límite):} los practicanres deben entregar el material teórico, los graders y la versión funcional del servidor de calificaciones.  
+	\item \textbf{Jueves:} el Scrum Master revisa los entregables y da su aprobación o indica las modificaciones requeridas.  
+	\item \textbf{Viernes:} se liberan los graders para que los estudiantes (grupo piloto) realicen las prácticas.  
+\end{itemize}
+
+\section{Sprints}
+\subsection{Sprint 0}
+
+Este sprint se definió a partir de la reunión llevada a cabo el 2 de abril de 2025 en la sala de juntas de la Escuela de Ingeniería de Sistemas de la UIS, los participantes fueron:
+
+\begin{itemize}
+	\item \textbf{Practicantes:} Daniel Alejandro Sánchez Rodríguez y Jorge Eduardo Suárez Cortés
+	
+	\item \textbf{Profesores del área de Estadística II :} César Augusto Aceros Moreno, Eliana Martha Bonalde Marcano, Andrés Leonardo González Gómez, David Edmundo Romo Bucheli y Sonia Cristina Gamboa Sarmiento
+\end{itemize}
+
+\noindent Para mayor detalle de la reunión puede consultarse el acta correspondiente en el Anexo \ref{anexo:acta-abril-2025}.
+
+En dicha reunión se establecieron los lineamientos iniciales del proyecto y se delimitó su alcance, acordando que el enfoque debía orientarse a mejorar los procesos de enseñanza y aprendizaje mediante el uso de herramientas digitales.  
+
+Durante las discusiones se resaltó la importancia de analizar las características de los principales lenguajes de programación utilizados en el ámbito estadístico (Python, MATLAB y R). Con este propósito se propuso elaborar un cuadro comparativo que permitiera identificar sus ventajas, desventajas y entornos de desarrollo asociados. Aunque no se seleccionó un lenguaje específico en esta etapa, se dejó abierta la posibilidad de trabajar con más de uno, con el objetivo de garantizar flexibilidad.  
+
+Asimismo, se planteó que la herramienta a desarrollar debía ser agnóstica respecto al lenguaje de programación, de modo que el usuario pudiera elegir libremente el entorno de su preferencia. También se discutió la conveniencia de incorporar interfaces visuales y elementos gráficos que fortalecieran la enseñanza para los estudiantes, junto con la organización de los contenidos pedagógicos dentro de Moodle como plataforma de apoyo.  
+
+De manera complementaria, se estableció una distribución preliminar de temas en tres unidades (1.3 y 1.4; 2.3 y 2.4; 3.3 y 3.4), con el fin de estructurar las prácticas, realizar pruebas efectivas y evaluar el funcionamiento del proyecto.  
+
+Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologías base que guiarían el desarrollo:  
+
+\begin{itemize}
+	\item \textbf{Node.js}: para el backend, debido a su rapidez en las respuestas y su estructura escalable.  
+	\item \textbf{Moodle}: como plataforma para la gestión del contenido teórico.  
+	\item \textbf{Google Colab}: como entorno de ejecución de los \textit{graders}, aprovechando su accesibilidad y la posibilidad de alternar entre los \textit{kernels} de Python y R.  
+	\item \textbf{Docker}: para asegurar un despliegue estable y controlado mediante contenedores.  
+	\item \textbf{Playit.gg}: como servicio de túnel que permite exponer el servidor de calificaciones en internet.  
+\end{itemize}
+
+
+
+\subsection{Sprint 1}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los temas a trabajar durante el sprint: medidas de tendencia central (media, mediana, moda), medidas de dispersión (rango, desviación estándar, varianza), histogramas y diagramas de caja (boxplots).
+	\item Validar la pertinencia y calidad de los contenidos teóricos elaborados por los estudiantes.
+	\item Revisar el funcionamiento de los graders y su integración con el servidor de calificaciones.
+	\item Orientar la definición de la arquitectura técnica, verificando que cumpliera con los lineamientos de escalabilidad y modularidad.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 9 de agosto de 2025 → El Scrum Master definió los temas a desarrollar.
+	\item \textbf{Entrega de los estudiantes:} 13 de agosto de 2025 → Se entregaron el material teórico en H5P, los graders y la estructura técnica inicial.
+	\item \textbf{Revisión del Scrum Master:} 14 de agosto de 2025 → Se realizaron recomendaciones de mejora sobre los contenidos y ejercicios.
+	\item \textbf{Liberación de recursos:} 15 de agosto de 2025 → Los graders y materiales teóricos fueron liberados en Moodle y Colab para ser utilizados por los grupos pilotos.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Estructura técnica del proyecto}
+	\begin{itemize}
+		\item Se definió el esqueleto del sistema, estableciendo la organización de los módulos (frontend, backend y grader).
+		\item Se configuró la exposición de servicios y la comunicación entre módulos.
+		\item Se organizó el sistema en contenedores con Docker, garantizando un entorno estable, replicable y modular.
+	\end{itemize}
+	
+\noindent Lo anterior se representa gráficamente en el Esquema de los contenedores Docker mostrado en la Figura~\ref{fig:Diagrama-Docker}.
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
+	\includegraphics[width=1\textwidth]{Figs/Diagrama_contenedores.pdf}
+	\label{fig:Diagrama-Docker}
+	\\Elaboración propia con base en la estructura de los contenedores usados.
+\end{figure}
+
+    \item \textbf{Material teórico en Moodle}
+\begin{itemize}
+	\item Se elaboraron recursos interactivos utilizando H5P dentro de Moodle.
+	\item Los materiales incluyeron infografías sintetizadas, con la información esencial para el aprendizaje de los temas, permitiendo una mayor comprensión visual.
+	\item La construcción de los contenidos se fundamentó en los textos de referencia de Montgomery y Walpole, autores reconocidos en estadística.
+\end{itemize}
+
+    \item \textbf{Graders en Google Colab}
+\begin{itemize}
+	\item Se desarrollaron notebooks en Google Colab con código en R.
+	\item Estos graders permitieron calcular medidas de tendencia central y dispersión, así como generar representaciones gráficas (histogramas y diagramas de caja).
+\end{itemize}
+
+\item \textbf{Ejercicios calificables y lógica en el backend}
+\begin{itemize}
+	\item Se diseñaron tres ejercicios evaluables relacionados con los temas del sprint.
+	\item Se implementó la lógica de corrección en el backend (Node.js) para procesar automáticamente las respuestas.
+	\item El servidor de calificaciones registró y almacenó los resultados, garantizando un flujo de evaluación automatizado.
+\end{itemize}
+\end{enumerate}
+
+\newpage
+
 % ------------------------------------------------------------------------
 % Bibliografía
 % ------------------------------------------------------------------------
@@ -562,6 +714,27 @@ integración entre LMS.
 \nocite{poniszewska-maranda, burns-kubernetes, torres-bosch-microservicios, armstrong2015,kubevirtio, docker2023, kubelet-doc, namespace-article}
 % ------------------------------------------------------------------------
 % Anexos
+\newpage
+
+\appendix
+
+% --- Solo una entrada en la TOC ---
+\chapter*{Anexos}
+\addcontentsline{toc}{chapter}{Anexos}
+
+% --- Definir numeración en números ---
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+% --- Anexo 1 ---
+\refstepcounter{chapter}
+\chapter*{Anexo \thechapter: Actas de reunión}
+\label{anexo:actas}
+
+\section*{Acta de reunión inicial - 02 de abril de 2025}
+\label{anexo:acta-abril-2025}
+
+\includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anexos/Acta 02 abril de 2025.pdf}
+
 
 
 % ------------------------------------------------------------------------
