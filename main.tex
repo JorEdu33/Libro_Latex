@@ -674,7 +674,7 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 	\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
 	\includegraphics[width=1\textwidth]{Figs/Diagrama_contenedores.pdf}
 	\label{fig:Diagrama-Docker}
-	\\Elaboración propia con base en la estructura de los contenedores usados.
+	\\Fuente: Elaboración propia con base en la estructura de los contenedores usados.
 \end{figure}
 
     \item \textbf{Material teórico en Moodle}
@@ -752,6 +752,131 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 
 \newpage
 
+\chapter{Resultados}
+
+Se presentan los resultados alcanzados en el diseño, implementación y validación del ambiente virtual de aprendizaje para el curso de Estadística II de la Escuela de Ingeniería de Sistemas e Informática de la UIS. Estos hallazgos evidencian el cumplimiento de los objetivos propuestos en la investigación, así como el impacto generado en los ámbitos pedagógico, tecnológico y estudiantil.
+
+\section{Desarrollo tecnológico del ambiente virtual}
+
+El proceso de implementación tecnológica del aula virtual de aprendizaje posibilitó la integración exitosa de diversas herramientas, garantizando su funcionamiento articulado y coherente.
+
+Se utilizó como base la plataforma de gestión académica, en la cual se estructuraron los módulos temáticos del curso organizados por semanas como se evidencia en la Figura \ref{fig:Moodle}. En cada módulo se dispuso el contenido teórico a través de recursos interactivos que facilitaron al estudiante una visualización clara de los temas y de las fórmulas necesarias para su comprensión. Asimismo, se incorporaron recursos adicionales como guías de práctica como se muestra en el Anexo \ref{anexo:Guía Semana 8}, actividades y quices, con el fin de fortalecer el proceso de aprendizaje. 
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Desarrollo tecnológico del ambiente virtual. \textbf{Estructura del curso de Moodle}.}
+	\includegraphics[width=1\textwidth]{Figs/Moodle.pdf}
+	\label{fig:Moodle}
+	\\Fuente: Pantallazo del curso en Moodle.
+\end{figure}
+
+\newpage
+
+Vinculado a través de la plataforma, se utilizó el entorno virtual para realizar de ejercicios prácticos en R y Python, lo que permitió a los estudiantes aplicar de manera directa los conceptos teóricos aprendidos. Esta integración favoreció la resolución de los problemas estadísticos mediante programación, promoviendo el desarrollo de habilidades analíticas y computacionales, así como el aprendizaje activo y la comprensión profunda de los métodos estadísticos.
+
+Los graders automáticos se integraron al aula virtual con el propósito de ofrecer a los estudiantes una retroalimentación inmediata de las prácticas. Gracias a esta herramienta, los estudiantes pudieron comprobar en tiempo real la validez de sus respuestas, identificar errores y comprender de manera más clara los pasos necesarios para llegar a la solución correcta. Así, además de agilizar la evaluación, se promovió una participación más autónoma y activa; los estudiantes tenían la oportunidad de corregir desde su propia experiencia.
+
+Se implementó el plugin \textit{Safe Exam Browser (SEB)} en los quices del curso. Esta herramienta permite bloquear el acceso a otras aplicaciones, navegadores o páginas web mientras los estudiantes realizan los ejercicios, asegurando que cada cuestionario se responda de manera individual y bajo condiciones controladas. Aportando ventajas significativas como:
+
+\begin{itemize}
+    \item \textbf{Prevenir distracciones y accesos no autorizados:} los estudiantes no podían navegar fuera del entorno de evaluación, lo que permitió mantener su atención centrada en los ejercicios.
+    \item \textbf{Fortalecer la confiabilidad de los resultados:} los datos reflejaron únicamente el desempeño individual de cada estudiante, ofreciendo información más precisa sobre su aprendizaje.
+\end{itemize}
+
+Gracias a estas características, SEB no solo reforzó la seguridad de los quices, sino que también contribuyó a crear un entorno más confiable y justo para los estudiantes, promoviendo una experiencia de aprendizaje más seria y comprometida.
+
+\section{Infraestructura tecnológica implementada}
+
+La infraestructura tecnológica diseñada para soportar el ambiente virtual de aprendizaje se estructuró bajo un modelo basado en contenedores \textit{Docker}, lo que permitió separar los distintos servicios y garantizar su portabilidad y escalabilidad. El despliegue general se gestionó mediante el archivo \texttt{docker-compose.yml} en un computador personal de 12 GB de ram en un sistema operativo UBUNTU de Linux, que coordinó la ejecución simultánea de cada servicio como se muestra en la Figura \ref{fig:AVA}. La organización de los servicios se estructuró de la siguiente manera:
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Arquitectura tecnológica del Ambiente Virtual de aprendizaje}.}
+	\includegraphics[width=0.7\textwidth]{Figs/Arquitectura_AVA.pdf}
+	\label{fig:AVA}
+	\\Fuente: Elaboración propia segun el árbol de estructura de servicios.
+\end{figure}
+
+\subsection{Backend}
+\begin{itemize}
+    \item Contiene la lógica principal del sistema desarrollada en \textit{Node.js}.
+    \item El archivo \texttt{server.js} y la carpeta \texttt{src/app.js} gestionan la configuración base del servidor.
+    \item En la carpeta \texttt{controllers} se desarrollaron los controladores para las diferentes prácticas (\texttt{prac1.controller.js}, \texttt{prac2.controller.js}, etc.), el manejo de estudiantes y la comunicación con la interfaz de frontend.
+    \item En \texttt{routes} se definieron las rutas para estudiantes, cuestionarios y la interacción con el frontend.
+    \item La carpeta \texttt{config/db.js} centralizó la conexión con la base de datos.
+\end{itemize}
+
+\subsection{Frontend}
+\begin{itemize}
+    \item Implementado con \textit{React}, contenía la interfaz con la que interactuaron los practicantes y el docente.
+    \item En la carpeta \texttt{components} se construyeron elementos como \texttt{Grupos.js}, \texttt{Semanas.js} y \texttt{DetalleEstudiante.js}, que organizaron la presentación de la información académica.
+    \item Los estilos \texttt{CSS} asociados (\texttt{Grupos.css}, \texttt{Semanas.css}, \texttt{DetalleEstudiantes.css}) se diseñaron para lograr una visualización limpia y funcional.
+    \item El despliegue del \textit{frontend} se gestionó mediante un \texttt{Dockerfile}, asegurando que la interfaz se integrara de manera coherente al ecosistema.
+\end{itemize}
+
+\subsection{Base de Datos}
+\begin{itemize}
+    \item Se utilizó \textit{MariaDB} como sistema gestor, con inicialización automática mediante el archivo \texttt{init.sql}.
+    \item La persistencia se garantizó con el volumen \texttt{mariadb\_data}.
+\end{itemize}
+
+\subsection{Nginx}
+\begin{itemize}
+    \item Funcionó como servidor web y proxy inverso, controlando el acceso externo al sistema.
+    \item El archivo \texttt{nginx.conf} definió las reglas de enrutamiento.
+    \item La carpeta \texttt{certs} almacenó los certificados de seguridad (\texttt{fullchain.pem} y \texttt{privkey.pem}), junto con la configuración del certificado SAN (\texttt{san.cnf}) para habilitar la navegación segura mediante \texttt{HTTPS}.
+    \item Los registros de acceso y errores (\texttt{logs/access.log}, \texttt{logs/error.log}) facilitaron la monitorización del sistema.
+\end{itemize}
+
+\subsection{Playit.gg}
+\begin{itemize}
+    \item Durante la implementación de los grupos piloto, se utilizó este servicio para establecer túneles seguros y exponer temporalmente los servicios.
+    \item Esto garantizó la accesibilidad sin necesidad de un despliegue en un servidor hosting.
+\end{itemize}
+
+\section{Recursos interactivos}
+
+Además de la infraestructura tecnológica y los servicios de programación, el ambiente virtual de aprendizaje integró herramientas digitales especialmente orientadas a enriquecer la experiencia pedagógica de los estudiantes mediante contenidos dinámicos e interactivos.
+
+En este contexto, se hizo uso de \textit{Genially} y \textit{H5P}, plataformas que permitieron diseñar materiales innovadores y atractivos, con el objetivo de facilitar la comprensión de los conceptos teóricos y metodológicos de \textit{Estadística II}. Genially se destinó principalmente a la elaboración de infografías y presentaciones interactivas como se muestran en las Figuras \ref{fig:Pgenially} y \ref{fig:Igenially}, que transformaron información compleja en representaciones visuales claras y accesibles. Estos recursos, una vez integrados en \textit{Moodle}, se convirtieron en un apoyo valioso para los distintos módulos del curso, ya que brindaron a los estudiantes la posibilidad de interactuar con los contenidos y explorar los temas de manera autónoma.
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Presentación en Genially sobre Intervalos de confianza}.}
+	\includegraphics[width=1\textwidth]{Figs/Presentacion_Genially.pdf}
+	\label{fig:Pgenially}
+	\\Fuente: Pantallazo de una presentación en Genially.
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Infografía en Genially sobre Bootstrap}.}
+	\includegraphics[width=0.6\textwidth]{Figs/Infografia_Genially.pdf}
+	\label{fig:Igenially}
+	\\Fuente: Pantallazo de una infografía en Genially.
+\end{figure}
+
+Por su parte, \textit{H5P}, que puede implementarse de forma nativa en \textit{Moodle}, se utilizó para generar infografías y actividades en las primeras clases como se muestra en la Figura \ref{fig:H5P}, contribuyendo a un aprendizaje más activo desde el inicio del curso. En el caso de \textit{Genially}, debido a que no se integra directamente en la plataforma, se recurrió al uso de \textit{iframes} embebidos para incorporar materiales sobre temas complejos, como el Teorema del Límite Central, en los cuales se añadieron diagramas interactivos y simulaciones.
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Infografía en H5P sobre Estadística descriptiva}.}
+	\includegraphics[width=1\textwidth]{Figs/Infografia_H5P.pdf}
+	\label{fig:H5P}
+	\\Fuente: Pantallazo de una infografía en H5P.
+\end{figure}
+
+Este proceso contó con el acompañamiento del profesor Carlos Mantilla, quien no solo orientó en la correcta implementación de los recursos embebidos, sino que también brindó recomendaciones sobre la manera más efectiva de llevar los temas dentro de \textit{Moodle}.
+
+\section{Experiencia de los Estudiantes}
+
+Un componente central en la evaluación de resultados fue la percepción de los estudiantes frente al uso del entorno y las herramientas tecnológicas. Para ello, se aplicó una encuesta a los dos cursos participantes, con el fin de indagar tanto en la experiencia técnica como en el impacto académico.
+
+\newpage
+
+\chapter{Conclusiones y trabajo a futuro}
+
+\newpage
 % ------------------------------------------------------------------------
 % Bibliografía
 % ------------------------------------------------------------------------
@@ -787,8 +912,14 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 
 \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anexos/Acta 02 abril de 2025.pdf}
 
+\refstepcounter{chapter}
+\chapter*{Anexo \thechapter: Guías de prácticas}
+\label{anexo:Guía Semana 8}
 
+\section*{Guía de práctica de la semana 8}
+\label{anexo:Guía-Semana-8}
 
+\includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anexos/G.pdf}
 % ------------------------------------------------------------------------
 
 % ------------------------------------------------------------------------
