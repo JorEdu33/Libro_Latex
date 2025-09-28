@@ -644,7 +644,7 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 \subsubsection*{Objetivos del Scrum Master (docente)}
 \begin{itemize}
 	\item Definir los temas a trabajar durante el sprint: medidas de tendencia central (media, mediana, moda), medidas de dispersión (rango, desviación estándar, varianza), histogramas y diagramas de caja (boxplots).
-	\item Validar la pertinencia y calidad de los contenidos teóricos elaborados por los estudiantes.
+	\item Validar la pertinencia y calidad de los contenidos teóricos elaborados por los practicantes.
 	\item Revisar el funcionamiento de los graders y su integración con el servidor de calificaciones.
 	\item Orientar la definición de la arquitectura técnica, verificando que cumpliera con los lineamientos de escalabilidad y modularidad.
 \end{itemize}
@@ -652,7 +652,7 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 \subsubsection*{Cronograma del Sprint}
 \begin{itemize}
 	\item \textbf{Inicio del Sprint:} 9 de agosto de 2025 → El Scrum Master definió los temas a desarrollar.
-	\item \textbf{Entrega de los estudiantes:} 13 de agosto de 2025 → Se entregaron el material teórico en H5P, los graders y la estructura técnica inicial.
+	\item \textbf{Entrega de los practicantes:} 13 de agosto de 2025 → Se entregaron el material teórico en H5P, los graders y la estructura técnica inicial.
 	\item \textbf{Revisión del Scrum Master:} 14 de agosto de 2025 → Se realizaron recomendaciones de mejora sobre los contenidos y ejercicios.
 	\item \textbf{Liberación de recursos:} 15 de agosto de 2025 → Los graders y materiales teóricos fueron liberados en Moodle y Colab para ser utilizados por los grupos pilotos.
 \end{itemize}
@@ -696,6 +696,58 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 	\item Se implementó la lógica de corrección en el backend (Node.js) para procesar automáticamente las respuestas.
 	\item El servidor de calificaciones registró y almacenó los resultados, garantizando un flujo de evaluación automatizado.
 \end{itemize}
+\end{enumerate}
+
+
+
+\subsection{Sprint 2}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los temas estadísticos a abordar: Teorema del Límite Central aplicado a la distribución t de Student y a la distribución F.
+	\item Supervisar la ampliación de los recursos teóricos y prácticos, asegurando la coherencia pedagógica con el programa de la asignatura.
+	\item Validar la correcta implementación de los graders relacionados con pruebas de hipótesis y comparación de varianzas.
+	\item Orientar la mejora del \textit{frontend} para optimizar la visualización de las calificaciones y retroalimentaciones automáticas.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 16 de agosto de 2025 → Se definieron los temas estadísticos y se establecieron las prioridades técnicas.
+	\item \textbf{Entrega de los practicantes:} 20 de agosto de 2025 → Se presentaron los nuevos materiales teóricos, graders funcionales y las primeras mejoras en la interfaz.
+	\item \textbf{Revisión del Scrum Master:} 21 de agosto de 2025 → Se realizaron recomendaciones sobre la claridad conceptual de los contenidos y la usabilidad de la interfaz.
+	\item \textbf{Liberación de recursos:} 22 de agosto de 2025 → Se publicaron en Moodle y Colab los materiales y graders validados para su uso en el entorno piloto.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Ampliación de contenidos teóricos}  
+	\begin{itemize}
+		\item Se elaboraron materiales interactivos en H5P centrados en el Teorema del Límite Central y su aplicación con distribuciones t de Student y F.
+		\item Los contenidos incluyeron infografías, ejemplos resueltos y referencias bibliográficas, buscando facilitar la comprensión intuitiva de las distribuciones muestrales.
+		\item Se enfatizó en la interpretación de regiones de rechazo, grados de libertad y supuestos estadísticos, para reforzar el razonamiento inferencial de los estudiantes.
+	\end{itemize}
+	
+	\item \textbf{Graders de distribuciones t y F en Google Colab}  
+	\begin{itemize}
+		\item Se desarrollaron nuevos notebooks en Google Colab con código en R, enfocados en ejercicios prácticos sobre pruebas t y F.
+		\item Los graders permitieron a los estudiantes realizar cálculos de valores críticos, regiones de rechazo y decisiones de hipótesis de forma automática.
+		\item Se verificó su compatibilidad con el servidor de calificaciones y se implementaron pruebas para evitar errores de ejecución comunes.
+	\end{itemize}
+	
+	\item \textbf{Ejercicios calificables y lógica en el backend}  
+	\begin{itemize}
+		\item Se diseñaron ejercicios evaluables sobre aplicaciones del Teorema del Límite Central, pruebas t y F, con distintos grados de dificultad.
+		\item Se amplió la lógica en el backend para manejar retroalimentación más detallada, especificando en qué pasos se cometieron errores en la resolución.
+		\item Se ajustaron los endpoints para almacenar no solo la nota final, sino también los comentarios generados automáticamente.
+	\end{itemize}
+	
+	\item \textbf{Mejoras en el \textit{frontend} para visualización de calificaciones}  
+	\begin{itemize}
+		\item Se rediseñaron los componentes de interfaz relacionados con la visualización de notas y retroalimentaciones, mejorando la claridad y accesibilidad.
+		\item Se incorporaron indicadores visuales que permiten a los estudiantes identificar rápidamente ejercicios aprobados, pendientes o con errores.
+		\item Estas mejoras facilitaron la experiencia de usuario y contribuyeron a una retroalimentación más efectiva del proceso de aprendizaje.
+	\end{itemize}
 \end{enumerate}
 
 \newpage
