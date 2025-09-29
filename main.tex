@@ -266,7 +266,7 @@ Bucaramanga\\
     del contenido de la asignatura, mediante herramientas de Python y R.
 \end{itemize}
 
-\section{Objetivos Especificos}
+\section{Objetivos Específicos}
 
 \begin{itemize}
     \item Diseñar un plan de aula modular para la asignatura Estadística II que organice los contenidos teóricos y prácticos en 
@@ -774,7 +774,57 @@ Se utilizó como base la plataforma de gestión académica, en la cual se estruc
 
 Vinculado a través de la plataforma, se utilizó el entorno virtual para realizar de ejercicios prácticos en R y Python, lo que permitió a los estudiantes aplicar de manera directa los conceptos teóricos aprendidos. Esta integración favoreció la resolución de los problemas estadísticos mediante programación, promoviendo el desarrollo de habilidades analíticas y computacionales, así como el aprendizaje activo y la comprensión profunda de los métodos estadísticos.
 
-Los graders automáticos se integraron al aula virtual con el propósito de ofrecer a los estudiantes una retroalimentación inmediata de las prácticas. Gracias a esta herramienta, los estudiantes pudieron comprobar en tiempo real la validez de sus respuestas, identificar errores y comprender de manera más clara los pasos necesarios para llegar a la solución correcta. Así, además de agilizar la evaluación, se promovió una participación más autónoma y activa; los estudiantes tenían la oportunidad de corregir desde su propia experiencia.
+Un ejemplo de ello fue la implementación del método \textit{bootstrap} para la estimación de la mediana y el uso del \textit{skewness} como criterio para decidir si emplear el estimador normal o el de percentiles. A través de esta actividad, los estudiantes pudieron seguir paso a paso el proceso de remuestreo, calcular el sesgo (\textit{Bias}), el error estándar (\textit{SE}) y finalmente construir intervalos de confianza al 95 \%. El código utilizado fue el siguiente:
+
+\begin{lstlisting}[language=R, caption={Implementación del método bootstrap y Skewness para la mediana en R}]
+# Semilla de reproducibilidad
+set.seed(21)
+x <- c(0.5, 1, 0.75, 1.2, 0.9, 1.1, 2, 3, 4, 5, 6, 8, 10, 
+       0.6, 0.7, 0.8, 0.9, 1.0, 1.3, 1.5)
+B <- 1500
+orig <- median(x)
+n <- length(x)
+
+boots <- numeric(B)
+for(i in 1:B){
+  s <- sample(x, size = n, replace = TRUE)
+  boots[i] <- median(s)
+}
+bias <- round(mean(boots) - orig, 4)
+se_boot <- round(sd(boots), 4)
+skew_boot_n <- ((boots-mean(boots))/(se_boot))^3
+skew_boot <- round(mean(skew_boot_n), 4)
+
+alpha <- 0.05
+method <- ifelse(abs(skew_boot) < 0.5, "normal", "percentil")
+if(method == "normal"){
+  z <- qnorm(1-alpha/2)
+  ci_lower <- orig - z * se_boot
+  ci_upper <- orig + z * se_boot
+} else {
+  ci <- quantile(boots, c(alpha/2, 1 - alpha/2))
+  ci_lower <- ci[1]; ci_upper <- ci[2]
+}
+
+cat("Original mediana:", orig, "\n")
+cat("Bias:", bias, "\n")
+cat("SE:", se_boot, "\n")
+cat("Skewness:", skew_boot, "\n")
+cat("Metodo elegido:", method, "\n")
+cat("IC:", "[",ci_lower, ";", ci_upper,"]", "\n")
+\end{lstlisting}
+
+La actividad ayudó a reforzar el concepto de intervalo de confianza y la estimación mediante remuestreo, además de permitir a los estudiantes experimentar cómo estas técnicas estadísticas se aplican realmente a través de la programación. De esta manera, los resultados no quedaron en un simple cálculo, sino que fueron comprendidos e interpretados dentro de un contexto académico práctico y aplicado.
+
+Los graders automáticos se integraron al aula virtual con el propósito de ofrecer a los estudiantes una retroalimentación inmediata de las prácticas. Gracias a esta herramienta, los estudiantes pudieron comprobar en tiempo real la validez de sus respuestas como se observa en la Figura \ref{fig:Colab}, identificar errores y comprender de manera más clara los pasos necesarios para llegar a la solución correcta. Así, además de agilizar la evaluación, se promovió una participación más autónoma y activa; los estudiantes tenían la oportunidad de corregir desde su propia experiencia.
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Desarrollo tecnológico del ambiente virtual. \textbf{Calificador de las prácticas}.}
+	\includegraphics[width=1\textwidth]{Figs/Colab.pdf}
+	\label{fig:Colab}
+	\\Fuente: Pantallazo del mensaje del calificador en el Notebook.
+\end{figure}
 
 Se implementó el plugin \textit{Safe Exam Browser (SEB)} en los quices del curso. Esta herramienta permite bloquear el acceso a otras aplicaciones, navegadores o páginas web mientras los estudiantes realizan los ejercicios, asegurando que cada cuestionario se responda de manera individual y bajo condiciones controladas. Aportando ventajas significativas como:
 
@@ -871,6 +921,15 @@ Este proceso contó con el acompañamiento del profesor Carlos Mantilla, quien n
 \section{Experiencia de los Estudiantes}
 
 Un componente central en la evaluación de resultados fue la percepción de los estudiantes frente al uso del entorno y las herramientas tecnológicas. Para ello, se aplicó una encuesta a los dos cursos participantes, con el fin de indagar tanto en la experiencia técnica como en el impacto académico.
+
+\section{Generalización de los resultados}
+
+Los resultados obtenidos evidencian que los estudiantes aprovecharon de manera significativa las herramientas tecnológicas disponibles en el aula virtual para apoyar la solución de problemas relacionados con la asignatura y con situaciones prácticas de su formación. Sin embargo, también se identificó que no todos hicieron un uso responsable de estos recursos. En algunos casos, de no haberse implementado medidas de control como el uso del \textit{Safe Exam Browser (SEB)} y otras estrategias de acompañamiento docente, los estudiantes habrían recurrido de forma excesiva a herramientas externas, como la inteligencia artificial, para resolver actividades, prácticas e incluso quices. Esto condujo a situaciones en las que se emplearon librerías y métodos no explicados en clase, lo que ocasionó inconsistencias en el aprendizaje y resultados poco confiables en el \textit{autocalificador}, reflejados en calificaciones desfavorables.
+
+No obstante, este panorama también dejó en evidencia aspectos muy positivos. Los estudiantes que asumieron con compromiso y esfuerzo su proceso de aprendizaje lograron aprovechar al máximo los contenidos interactivos y las herramientas de programación integradas en el AVA. Asimismo, se beneficiaron del acompañamiento de los practicantes, quienes desempeñaron un papel clave en la resolución de dudas y en la orientación del uso adecuado de los recursos.
+
+Los resultados reflejan dos realidades distintas. Por un lado, ponen de manifiesto la importancia de fortalecer los mecanismos de control y el acompañamiento docente, con el fin de evitar el uso inadecuado de recursos externos. Pero, al mismo tiempo, muestran el gran potencial que tiene el ambiente virtual cuando los estudiantes lo asumen con responsabilidad y compromiso, pues en esos casos se logran aprendizajes mucho más significativos y duraderos.
+
 
 \newpage
 
