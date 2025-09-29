@@ -222,6 +222,14 @@ Bucaramanga\\
 
 \nnchapter{Introducción}
 
+La enseñanza de la estadística en la educación superior, particularmente en los programas de ingeniería, constituye un desafío permanente debido a la necesidad de articular los fundamentos teóricos con la práctica aplicada y el desarrollo de competencias analíticas que respondan a problemas reales. En la asignatura Estadística II de la Escuela de Ingeniería de Sistemas e Informática de la Universidad Industrial de Santander, se han identificado dificultades recurrentes que se reflejan en la percepción de la estadística como un conjunto de procedimientos abstractos y poco vinculados con la práctica profesional. Esta situación repercute en bajos niveles de motivación, escasa apropiación de los contenidos y limitaciones en el aprendizaje autónomo.
+
+Ante esta problemática, resulta necesario implementar estrategias pedagógicas que favorezcan un aprendizaje más activo, dinámico y significativo. En este sentido, los Ambientes Virtuales de Aprendizaje (AVA) se consolidan como una alternativa metodológica y tecnológica para complementar la enseñanza tradicional. Dichos entornos permiten integrar contenidos teóricos, actividades prácticas y mecanismos de evaluación formativa en un mismo espacio digital, promoviendo la autonomía del estudiante y su participación activa en el proceso educativo.
+En concordancia con lo anterior, el presente trabajo de grado tuvo como propósito diseñar e implementar un ambiente de aprendizaje para la asignatura Estadística II, utilizando la plataforma Moodle como eje central para la gestión de contenidos y actividades académicas. A este entorno se integraron recursos computacionales basados en Google Colab, orientados al desarrollo de prácticas en Python y R, así como un sistema de autoevaluación mediante graders automatizados, lo cual permite validar en tiempo real las soluciones planteadas por los estudiantes y ofrecer retroalimentación inmediata.
+
+Para soportar estas funcionalidades se implementó una arquitectura de microservicios que articula diversas tecnologías: Node.js para la gestión del backend, React para la interfaz de notas para el docente, MariaDB para la administración de datos académico y Docker como plataforma de contenedorización que garantiza la portabilidad y el despliegue uniforme de los servicios. Adicionalmente, se empleó Playit.gg como servicio de túneles seguros, lo que posibilitó la exposición del servidor y el acceso remoto al sistema, asegurando así el funcionamiento de los procesos de calificación automática y retroalimentación en los graders de esta manera se consolidó un ecosistema tecnológico robusto y escalable.
+
+El desarrollo del proyecto se llevó a cabo mediante una metodología ágil, organizada en sprints, que permitió estructurar de forma progresiva las fases de diseño, implementación e integración tecnológica. Asimismo, se realizó un pilotaje con dos grupos de estudiantes, lo cual facilitó la validación inicial de la propuesta en un contexto académico auténtico y permitió efectuar los ajustes necesarios para garantizar su pertinencia pedagógica y técnica.
 
 
 % ------------------------------------------------------------------------
@@ -380,6 +388,17 @@ Playit.gg es una herramienta que permite crear túneles seguros entre una máqui
 
 Durante el desarrollo y pruebas piloto del proyecto, Playit.gg se utiliza para exponer el backend y el frontend alojados en contenedores Docker hacia los estudiantes y notebooks de Colab. Esta estrategia permite realizar pilotos de manera controlada.
 
+\subsection{Nginx como proxy inverso y habilitador de HTTPS}
+
+Nginx es un servidor web de alto rendimiento que también puede desempeñar funciones de balanceador de carga, proxy inverso y servidor de correo. Su arquitectura basada en eventos le permite manejar miles de conexiones concurrentes de manera eficiente, lo que lo convierte en una herramienta ampliamente adoptada para aplicaciones web modernas \parencite{nginx2025}.
+
+En el contexto del presente proyecto, Nginx cumple un rol estratégico como \textit{proxy inverso}, permitiendo canalizar el tráfico hacia los diferentes servicios desplegados en contenedores Docker (frontend y backend) de forma segura y eficiente. Además, se configuró con certificados autofirmados para habilitar conexiones HTTPS, garantizando así la confidencialidad e integridad de la información transmitida entre los estudiantes, el navegador y el servidor.
+
+
+\subsection{Safe Exam Browser (SEB)}
+
+Safe Exam Browser (SEB) es una aplicación de código abierto diseñada para asegurar la realización de evaluaciones en línea, transformando temporalmente el ordenador del estudiante en un entorno controlado. Para ello, bloquea el acceso a otras páginas web, programas o funciones del sistema operativo que podrían comprometer la integridad del examen \parencite{seb2023}.
+
 
 % ------------------------------------------------------------------------
 \newpage
@@ -528,18 +547,17 @@ integración entre LMS.
 
 \section{Enfoque metodológico}
 
+Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permitió organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajustó a la naturaleza del proyecto, en el cual se requirió diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje.
 
-Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permite organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajusta a la naturaleza del proyecto, en el cual se requiere diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje.
-
-Según \cite{schwaber2013scrum}, "Scrum es un marco de trabajo por el cual las personas pueden acometer problemas complejos adaptativos, a la vez que entregar productos del máximo valor posible productiva y creativamente".
-
+Según \cite{schwaber2013scrum}, ``Scrum es un marco de trabajo por el cual las personas pueden acometer problemas complejos adaptativos, a la vez que entregar productos del máximo valor posible productiva y creativamente''.
 
 \section{Pasos generales de la metodología}
 
 La metodología del proyecto se estructuró en función de los objetivos específicos, los cuales se materializaron en una serie de acciones interrelacionadas.
 
 En primer lugar, para el diseño de un plan de aula modular, se realizó una revisión y selección de los contenidos teóricos y prácticos más relevantes de la asignatura, en conjunto con los docentes responsables. Posteriormente, estos contenidos fueron organizados en unidades interactivas implementadas en Colab Notebooks con Python y R, incorporando actividades prácticas y calificadores automáticos que ofrecieron retroalimentación inmediata.
-En cuanto a la implementación del ambiente virtual de aprendizaje en Moodle, se inició con la configuración de la estructura del curso, definiendo por semanas para tener orden y control de los contenidos. A continuación, se integraron los Colab Notebooks, los materiales didácticos de apoyo y diversos recursos multimedia que fortalecieron la experiencia pedagógica. Finalmente, se llevaron a cabo pruebas de funcionamiento tanto técnico como pedagógico, con el propósito de verificar la accesibilidad y coherencia de los recursos integrados.
+
+En cuanto a la implementación del ambiente virtual de aprendizaje en Moodle, se inició con la configuración de la estructura del curso, definiendo por semanas con el fin de mantener un orden y control de los contenidos. A continuación, se integraron los Colab Notebooks, los materiales didácticos de apoyo y diversos recursos multimedia que fortalecieron la experiencia pedagógica. Finalmente, se llevaron a cabo pruebas de funcionamiento tanto técnico como pedagógico, con el propósito de verificar la accesibilidad y coherencia de los recursos integrados.
 
 Para el establecimiento de los instrumentos de medición, se diseñaron actividades evaluativas en Moodle basadas en los calificadores automáticos, definiendo indicadores específicos para valorar el logro de los resultados de aprendizaje. Estos instrumentos fueron implementados de manera piloto y ajustados a partir de la retroalimentación proporcionada por los docentes, lo cual permitió afinar su pertinencia y validez.
 
@@ -547,10 +565,9 @@ Finalmente, con el objetivo de pilotear el ambiente de aprendizaje diseñado, se
 
 En conjunto, estos pasos permitieron establecer una relación directa entre los objetivos planteados y las actividades realizadas, garantizando que cada etapa metodológica contribuyera al cumplimiento integral del proyecto.
 
-
 \section{Roles}
 
-El equipo esta conformado por tres integrantes: un docente y dos practicantes (los autores del presente proyecto).
+El equipo estuvo conformado por tres integrantes: un docente y dos practicantes (los autores del presente proyecto).
 
 \subsection*{Scrum Master (Docente)}
 \begin{itemize}[leftmargin=*]
@@ -559,35 +576,36 @@ El equipo esta conformado por tres integrantes: un docente y dos practicantes (l
 	\item Proporcionar retroalimentación y ajustes necesarios.
 \end{itemize}
 
-\subsection*{Desarrolladores (practicantes)}
-Encargados de distribuirse las tareas correspondientes a cada sprint, las cuales incluyen:
+\subsection*{Desarrolladores (Practicantes)}
+Encargados de distribuirse las tareas correspondientes a cada sprint, las cuales incluyeron:
 \begin{itemize}[leftmargin=*]
 	\item Elaborar el material teórico, diseñado para integrarse en Moodle y con un enfoque interactivo.
 	\item Diseñar e implementar los graders (evaluadores automáticos) para los ejercicios prácticos.
-	\item Programar la lógica del servidor que permite calificar y almacenar los resultados.
+	\item Programar la lógica del servidor que permitió calificar y almacenar los resultados.
 	\item Ejecutar las correcciones solicitadas por el Scrum Master.
 \end{itemize}
 
 \section{Estructura de los sprints}
 
-El proyecto se organiza en sprints semanales, cada uno correspondiente al diseño y validación de una práctica de la asignatura. En total se llevaron a cabo ocho sprints, alineados con las ocho prácticas definidas en el curso de Estadística II. La dinámica de trabajo semanal fue la siguiente:
+El proyecto se organizó en sprints semanales, cada uno correspondiente al diseño y validación de una práctica de la asignatura. En total se llevaron a cabo nueve sprints, alineados con las ocho prácticas definidas en el curso de Estadística II y contando con 2 quices. La dinámica de trabajo semanal fue la siguiente:
 
 \begin{itemize}
-	\item \textbf{Sábado:} el Scrum Master define los temas correspondientes a la semana.  
-	\item \textbf{Miércoles (fecha límite):} los practicanres deben entregar el material teórico, los graders y la versión funcional del servidor de calificaciones.  
-	\item \textbf{Jueves:} el Scrum Master revisa los entregables y da su aprobación o indica las modificaciones requeridas.  
-	\item \textbf{Viernes:} se liberan los graders para que los estudiantes (grupo piloto) realicen las prácticas.  
+	\item \textbf{Sábado:} el Scrum Master definió los temas correspondientes a la semana.  
+	\item \textbf{Miércoles (fecha límite):} los practicantes entregaron el material teórico, los graders y la versión funcional del servidor de calificaciones.  
+	\item \textbf{Jueves:} el Scrum Master revisó los entregables y dio su aprobación o indicó las modificaciones requeridas.  
+	\item \textbf{Viernes:} se liberaron los graders para que los estudiantes (grupo piloto) realizaran las prácticas.  
 \end{itemize}
 
 \section{Sprints}
+
 \subsection{Sprint 0}
 
-Este sprint se definió a partir de la reunión llevada a cabo el 2 de abril de 2025 en la sala de juntas de la Escuela de Ingeniería de Sistemas de la UIS, los participantes fueron:
+Este sprint se definió a partir de la reunión llevada a cabo el 2 de abril de 2025 en la sala de juntas de la Escuela de Ingeniería de Sistemas de la UIS. Los participantes fueron:
 
 \begin{itemize}
-	\item \textbf{Practicantes:} Daniel Alejandro Sánchez Rodríguez y Jorge Eduardo Suárez Cortés
-	
-	\item \textbf{Profesores del área de Estadística II :} César Augusto Aceros Moreno, Eliana Martha Bonalde Marcano, Andrés Leonardo González Gómez, David Edmundo Romo Bucheli y Sonia Cristina Gamboa Sarmiento
+	\item \textbf{Practicantes:} Daniel Alejandro Sánchez Rodríguez y Jorge Eduardo Suárez Cortés.
+	\item \textbf{Profesores del área de Estadística II:} César Augusto Aceros Moreno, Eliana Martha Bonalde Marcano, Andrés Leonardo González Gómez, David Edmundo Romo Bucheli.
+	\item \textbf{Dirección del proyecto en su fase inicial:} Sonia Cristina Gamboa Sarmiento.
 \end{itemize}
 
 \noindent Para mayor detalle de la reunión puede consultarse el acta correspondiente en el Anexo \ref{anexo:acta-abril-2025}.
@@ -600,17 +618,15 @@ Asimismo, se planteó que la herramienta a desarrollar debía ser agnóstica res
 
 De manera complementaria, se estableció una distribución preliminar de temas en tres unidades (1.3 y 1.4; 2.3 y 2.4; 3.3 y 3.4), con el fin de estructurar las prácticas, realizar pruebas efectivas y evaluar el funcionamiento del proyecto.  
 
-Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologías base que guiarían el desarrollo:  
+Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologías base que guiaron el desarrollo:  
 
 \begin{itemize}
 	\item \textbf{Node.js}: para el backend, debido a su rapidez en las respuestas y su estructura escalable.  
 	\item \textbf{Moodle}: como plataforma para la gestión del contenido teórico.  
 	\item \textbf{Google Colab}: como entorno de ejecución de los \textit{graders}, aprovechando su accesibilidad y la posibilidad de alternar entre los \textit{kernels} de Python y R.  
 	\item \textbf{Docker}: para asegurar un despliegue estable y controlado mediante contenedores.  
-	\item \textbf{Playit.gg}: como servicio de túnel que permite exponer el servidor de calificaciones en internet.  
+	\item \textbf{Playit.gg}: como servicio de túnel que permitió exponer el servidor de calificaciones en internet.  
 \end{itemize}
-
-
 
 \subsection{Sprint 1}
 
@@ -626,7 +642,7 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 \begin{itemize}
 	\item \textbf{Inicio del Sprint:} 9 de agosto de 2025 → El Scrum Master definió los temas a desarrollar.
 	\item \textbf{Entrega de los practicantes:} 13 de agosto de 2025 → Se entregaron el material teórico en H5P, los graders y la estructura técnica inicial.
-	\item \textbf{Revisión del Scrum Master:} 14 de agosto de 2025 → Se realizaron recomendaciones de mejora sobre los contenidos y ejercicios.
+	\item \textbf{Revisión del Scrum Master:} 14 de agosto de 2025 → El material desarrollado por los practicantes no requirió modificaciones.
 	\item \textbf{Liberación de recursos:} 15 de agosto de 2025 → Los graders y materiales teóricos fueron liberados en Moodle y Colab para ser utilizados por los grupos pilotos.
 \end{itemize}
 
@@ -640,55 +656,53 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 		\item Se organizó el sistema en contenedores con Docker, garantizando un entorno estable, replicable y modular.
 	\end{itemize}
 	
-\noindent Lo anterior se representa gráficamente en el Esquema de los contenedores Docker mostrado en la Figura~\ref{fig:Diagrama-Docker}.
-
-\begin{figure}[ht]
-	\centering
-	\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
-	\includegraphics[width=1\textwidth]{Figs/Diagrama_contenedores.pdf}
-	\label{fig:Diagrama-Docker}
-	\\Fuente: Elaboración propia con base en la estructura de los contenedores usados.
-\end{figure}
-
-    \item \textbf{Material teórico en Moodle}
-\begin{itemize}
-	\item Se elaboraron recursos interactivos utilizando H5P dentro de Moodle.
-	\item Los materiales incluyeron infografías sintetizadas, con la información esencial para el aprendizaje de los temas, permitiendo una mayor comprensión visual.
-	\item La construcción de los contenidos se fundamentó en los textos de referencia de Montgomery y Walpole, autores reconocidos en estadística.
-\end{itemize}
-
-    \item \textbf{Graders en Google Colab}
-\begin{itemize}
-	\item Se desarrollaron notebooks en Google Colab con código en R.
-	\item Estos graders permitieron calcular medidas de tendencia central y dispersión, así como generar representaciones gráficas (histogramas y diagramas de caja).
-\end{itemize}
-
-\item \textbf{Ejercicios calificables y lógica en el backend}
-\begin{itemize}
-	\item Se diseñaron tres ejercicios evaluables relacionados con los temas del sprint.
-	\item Se implementó la lógica de corrección en el backend (Node.js) para procesar automáticamente las respuestas.
-	\item El servidor de calificaciones registró y almacenó los resultados, garantizando un flujo de evaluación automatizado.
-\end{itemize}
+	\noindent Lo anterior se representó gráficamente en el esquema de los contenedores Docker mostrado en la Figura~\ref{fig:Diagrama-Docker}.
+	
+	\begin{figure}[ht]
+		\centering
+		\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
+		\includegraphics[width=1\textwidth]{Figs/Diagrama_contenedores.pdf}
+		\label{fig:Diagrama-Docker}
+		\\Fuente: Elaboración propia con base en la estructura de los contenedores usados.
+	\end{figure}
+	
+	\item \textbf{Material teórico en Moodle}
+	\begin{itemize}
+		\item Se elaboraron recursos interactivos utilizando H5P dentro de Moodle.
+		\item Los materiales incluyeron infografías sintetizadas con la información esencial para el aprendizaje de los temas, permitiendo una mayor comprensión visual.
+		\item La construcción de los contenidos se fundamentó en los textos de referencia de \textcite{montgomery1996} y \textcite{walpole2012probabilidad}, autores reconocidos en estadística.
+	\end{itemize}
+	
+	\item \textbf{Graders en Google Colab}
+	\begin{itemize}
+		\item Se desarrollaron notebooks en Google Colab utilizando código en R.
+		\item Estos graders permitieron calcular medidas de tendencia central y dispersión, así como generar representaciones gráficas (histogramas y diagramas de caja).
+	\end{itemize}
+	
+	\item \textbf{Ejercicios calificables y lógica en el backend}
+	\begin{itemize}
+		\item Se diseñaron tres ejercicios evaluables relacionados con los temas del sprint.
+		\item Se implementó la lógica de corrección en el backend (Node.js) para procesar automáticamente las respuestas.
+		\item El servidor de calificaciones registró y almacenó los resultados, garantizando un flujo de evaluación automatizado.
+	\end{itemize}
 \end{enumerate}
-
-
 
 \subsection{Sprint 2}
 
 \subsubsection*{Objetivos del Scrum Master (docente)}
 \begin{itemize}
-	\item Definir los temas estadísticos a abordar: Teorema del Límite Central aplicado a la distribución t de Student y a la distribución F.
+	\item Definir los temas estadísticos a abordar: Teorema del Límite Central aplicado a la distribución t-Student y la distribución F.
 	\item Supervisar la ampliación de los recursos teóricos y prácticos, asegurando la coherencia pedagógica con el programa de la asignatura.
-	\item Validar la correcta implementación de los graders relacionados con pruebas de hipótesis y comparación de varianzas.
-	\item Orientar la mejora del \textit{frontend} para optimizar la visualización de las calificaciones y retroalimentaciones automáticas.
+	\item Validar la correcta implementación de los graders y su funcionamiento.
+	\item Orientar la mejora del frontend para optimizar la visualización de las calificaciones.
 \end{itemize}
 
 \subsubsection*{Cronograma del Sprint}
 \begin{itemize}
 	\item \textbf{Inicio del Sprint:} 16 de agosto de 2025 → Se definieron los temas estadísticos y se establecieron las prioridades técnicas.
 	\item \textbf{Entrega de los practicantes:} 20 de agosto de 2025 → Se presentaron los nuevos materiales teóricos, graders funcionales y las primeras mejoras en la interfaz.
-	\item \textbf{Revisión del Scrum Master:} 21 de agosto de 2025 → Se realizaron recomendaciones sobre la claridad conceptual de los contenidos y la usabilidad de la interfaz.
-	\item \textbf{Liberación de recursos:} 22 de agosto de 2025 → Se publicaron en Moodle y Colab los materiales y graders validados para su uso en el entorno piloto.
+	\item \textbf{Revisión del Scrum Master:} 21 de agosto de 2025 → Se realizaron recomendaciones para mejorar la claridad de la usabilidad de los graders.
+	\item \textbf{Liberación de recursos:} 22 de agosto de 2025 → Los graders y materiales teóricos fueron liberados en Moodle y Colab para ser utilizados por los grupos pilotos.
 \end{itemize}
 
 \subsubsection*{Actividades realizadas por los practicantes}
@@ -696,30 +710,318 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 \begin{enumerate}
 	\item \textbf{Ampliación de contenidos teóricos}  
 	\begin{itemize}
-		\item Se elaboraron materiales interactivos en H5P centrados en el Teorema del Límite Central y su aplicación con distribuciones t de Student y F.
-		\item Los contenidos incluyeron infografías, ejemplos resueltos y referencias bibliográficas, buscando facilitar la comprensión intuitiva de las distribuciones muestrales.
-		\item Se enfatizó en la interpretación de regiones de rechazo, grados de libertad y supuestos estadísticos, para reforzar el razonamiento inferencial de los estudiantes.
+		\item Se elaboraron materiales interactivos centrados en el Teorema del Límite Central y su aplicación con distribuciones t-Student y F, integrando teoría, ejemplos resueltos y gráficos interactivos.
+		\item Se enfatizó en la interpretación de regiones de rechazo y grados de libertad, para reforzar el razonamiento inferencial de los estudiantes.
 	\end{itemize}
 	
 	\item \textbf{Graders de distribuciones t y F en Google Colab}  
 	\begin{itemize}
-		\item Se desarrollaron nuevos notebooks en Google Colab con código en R, enfocados en ejercicios prácticos sobre pruebas t y F.
+		\item Se desarrollaron nuevos notebooks en Google Colab utilizando código en R, enfocados en ejercicios prácticos sobre pruebas t y F.
 		\item Los graders permitieron a los estudiantes realizar cálculos de valores críticos, regiones de rechazo y decisiones de hipótesis de forma automática.
-		\item Se verificó su compatibilidad con el servidor de calificaciones y se implementaron pruebas para evitar errores de ejecución comunes.
 	\end{itemize}
 	
 	\item \textbf{Ejercicios calificables y lógica en el backend}  
 	\begin{itemize}
-		\item Se diseñaron ejercicios evaluables sobre aplicaciones del Teorema del Límite Central, pruebas t y F, con distintos grados de dificultad.
-		\item Se amplió la lógica en el backend para manejar retroalimentación más detallada, especificando en qué pasos se cometieron errores en la resolución.
-		\item Se ajustaron los endpoints para almacenar no solo la nota final, sino también los comentarios generados automáticamente.
+		\item Se diseñaron ejercicios evaluables sobre aplicaciones del Teorema del Límite Central con la distribución t y F, con distintos grados de dificultad.
+		\item Se ajustaron los endpoints para almacenar no solo la nota final, sino también los códigos hechos por los estudiantes.
 	\end{itemize}
 	
 	\item \textbf{Mejoras en el \textit{frontend} para visualización de calificaciones}  
 	\begin{itemize}
-		\item Se rediseñaron los componentes de interfaz relacionados con la visualización de notas y retroalimentaciones, mejorando la claridad y accesibilidad.
-		\item Se incorporaron indicadores visuales que permiten a los estudiantes identificar rápidamente ejercicios aprobados, pendientes o con errores.
-		\item Estas mejoras facilitaron la experiencia de usuario y contribuyeron a una retroalimentación más efectiva del proceso de aprendizaje.
+		\item Se rediseñaron los componentes de interfaz relacionados con la visualización de notas y codigo de los estudiantes.
+	\end{itemize}
+\end{enumerate}
+
+
+\subsection{Sprint 3}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los contenidos estadísticos relacionados con intervalos de confianza, incluyendo sus diferentes tipos y aplicaciones prácticas.
+	\item Supervisar la elaboración de recursos teóricos y ejercicios prácticos que permitan comprender la construcción e interpretación de intervalos.
+	\item Validar el funcionamiento de los graders desarrollados para cálculos de intervalos de confianza, de predicción y de tolerancia.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 23 de agosto de 2025 → Se establecieron los temas estadísticos, los entregables técnicos y pedagógicos, y las prioridades de desarrollo.
+	\item \textbf{Entrega de los practicantes:} 27 de agosto de 2025 → Se presentaron los materiales teóricos, graders implementados y los ejercicios evaluables.
+	\item \textbf{Revisión del Scrum Master:} 28 de agosto de 2025 → Se realizaron observaciones sobre el material teórico.
+	\item \textbf{Liberación de recursos:} 29 de agosto de 2025 → Se publicaron los recursos validados en Moodle y Colab para ser utilizados en el entorno piloto.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Desarrollo de contenidos teóricos sobre intervalos}  
+	\begin{itemize}
+		\item Se elaboraron materiales interactivos en genially que abordaron los fundamentos de los intervalos de confianza y sus aplicaciones.
+		\item Se diferenciaron claramente los intervalos bilaterales y unilaterales, explicando su uso en distintos contextos inferenciales.
+		\item Se incluyeron ejemplos prácticos sobre intervalos con varianza conocida y desconocida, así como intervalos de predicción e intervalos de tolerancia.
+	\end{itemize}
+	
+	\item \textbf{Graders para intervalos en Google Colab}  
+	\begin{itemize}
+		\item Se diseñaron notebooks en Google Colab contando con diferentes ejercicios para cada grupo piloto.
+		\item Los graders permitieron a los estudiantes ingresar datos muestrales y obtener intervalos de confianza, predicción y tolerancia.
+	\end{itemize}
+	
+	\item \textbf{Ejercicios calificables y lógica en el backend}  
+	\begin{itemize}
+		\item Se desarrollaron ejercicios evaluables enfocados en la construcción e interpretación de distintos tipos de intervalos.
+		\item Se amplió la lógica del backend para manejar escenarios con diferentes tipos de error, distinguiendo entre errores de cálculo, interpretación y selección de tipo de intervalo.
+	\end{itemize}
+	
+\end{enumerate}
+
+
+
+\subsection{Sprint 4}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los contenidos y lineamientos técnicos para la implementación manual del método bootstrap en Python.
+	\item Supervisar la creación de materiales teóricos y prácticos que expliquen el cálculo del error estándar (SE), sesgo (\textit{bias}) e intervalos de confianza con bootstrap.
+	\item Validar la correcta ejecución de los algoritmos de remuestreo y su integración en los graders desarrollados por los practicantes.
+	\item Orientar la estructuración de ejercicios prácticos que fortalezcan la comprensión conceptual y computacional del método bootstrap.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 30 de agosto de 2025 → Se definieron los objetivos conceptuales y técnicos del sprint, priorizando la correcta implementación manual del bootstrap.
+	\item \textbf{Entrega de los practicantes:} 3 de septiembre de 2025 → Se entregaron los materiales teóricos, notebooks en Python y ejercicios evaluables asociados.
+	\item \textbf{Revisión del Scrum Master:} 4 de septiembre de 2025 → Se revisó la precisión de los algoritmos de remuestreo y la claridad pedagógica de los contenidos.
+	\item \textbf{Liberación de recursos:} 5 de septiembre de 2025 → Se publicaron los recursos validados en Moodle y Colab, quedando listos para ser utilizados por los grupos pilotos.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Material teórico sobre el método bootstrap}  
+	\begin{itemize}
+		\item Se elaboraron recursos interactivos en genially que explicaron la teoria del remuestreo bootstrap.
+		\item Se incluyeron secciones dedicadas al cálculo manual del error estándar, el sesgo y los intervalos de confianza bajo el enfoque bootstrap normal.
+	\end{itemize}
+	
+	\item \textbf{Implementación manual de bootstrap en Python}  
+	\begin{itemize}
+		\item Se desarrollaron notebooks en Google Colab utilizando Python, implementando desde cero el algoritmo bootstrap sin librerías externas de alto nivel.
+		\item Los scripts permitieron realizar múltiples remuestreos, calcular el error estándar, el sesgo y construir intervalos de confianza normales.
+	\end{itemize}
+	
+	\item \textbf{Graders y ejercicios evaluables}  
+	\begin{itemize}
+		\item Se diseñaron ejercicios calificables que exigían aplicar el método bootstrap manualmente para estimar parámetros y sus intervalos de confianza.
+		\item La lógica del backend fue adaptada para validar los resultados por parte de los estudiantes.
+	\end{itemize}
+	
+\end{enumerate}
+
+\subsection{Sprint 5}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Diseñar y supervisar la preparación de una evaluación tipo \textit{quiz} para medir la apropiación de los conceptos estadísticos y computacionales desarrollados en los sprints anteriores.
+	\item Garantizar que la estructura del quiz combine tanto la aplicación práctica de métodos de bootstrap como la comprensión teórica de intervalos y distribuciones.
+	\item Validar la correcta configuración técnica de Moodle y Safe Exam Browser para asegurar un entorno controlado y minimizar prácticas de deshonestidad académica.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 6 de septiembre de 2025 → Se definieron la estructura del quiz, los temas a evaluar y la estrategia técnica para su implementación.
+	\item \textbf{Entrega de los practicantes:} 10 de septiembre de 2025 → Se presentaron las preguntas, ejercicios y configuraciones en Moodle.
+	\item \textbf{Revisión del Scrum Master:} 11 de septiembre de 2025 → Se revisó la claridad conceptual de las preguntas, la adecuación de la dificultad y la correcta configuración de la plataforma.
+	\item \textbf{Liberación de recursos:} 12 de septiembre de 2025 → Se aprobó la versión final del quiz y se habilitó en el entorno de Moodle, listo para su aplicación controlada.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Diseño de la estructura general del quiz}  
+	\begin{itemize}
+		\item Se definió un quiz con duración total de dos horas, dividido en dos partes: una práctica presencial y una teórica en Moodle.
+		\item La evaluación se planificó para cubrir tanto competencias de cálculo manual con bootstrap, como la comprensión teórica de conceptos clave de inferencia estadística.
+	\end{itemize}
+	
+	\item \textbf{Primera parte: Ejercicios de bootstrap en RStudio}  
+	\begin{itemize}
+		\item Se diseñaron dos ejercicios prácticos que debían resolverse manualmente en RStudio sin acceso a internet.
+		\item En cada ejercicio, los estudiantes debían calcular la \textbf{mediana}, el \textbf{sesgo (bias)}, el \textbf{error estándar (SE)}, la \textbf{asimetría (skewness)} y el \textbf{intervalo de confianza} (determinando si corresponde usar el método normal o percentil).
+		\item Los resultados finales se consignaron en una hoja de respuestas física, que fue recolectada al finalizar esta primera parte.
+		\item Esta sección buscó evaluar la capacidad de los estudiantes para aplicar el método bootstrap manualmente y razonar sobre la elección del tipo de intervalo.
+	\end{itemize}
+	
+	\item \textbf{Segunda parte: Quiz en Moodle con Safe Exam Browser}  
+	\begin{itemize}
+		\item La segunda sección consistió en un cuestionario de cuatro preguntas teóricas seleccionadas aleatoriamente por Moodle de un banco de ejercicios previamente preparados.
+		\item Los temas abordados fueron:
+		\begin{itemize}
+			\item Intervalos de confianza.
+			\item Intervalos de tolerancia.
+			\item Distribuciones de muestreo de medias y Teorema del Límite Central.
+			\item Estadísticas importantes: medidas de tendencia central y de variabilidad de la muestra.
+			\item Estimación de la varianza en muestra única.
+			\item Intervalos de predicción.
+		\end{itemize}
+		\item Para esta parte, se configuró el uso obligatorio de \textit{Safe Exam Browser}, una herramienta que permite controlar el entorno del examen y reducir significativamente la posibilidad de trampas académicas.
+		\item La plataforma seleccionó las preguntas de manera aleatoria para cada estudiante, incrementando la equidad y la robustez de la evaluación.
+	\end{itemize}
+\end{enumerate}
+
+\subsection{Sprint 6}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los contenidos teóricos y prácticos relacionados con pruebas de hipótesis para una muestra en el contexto de distribuciones normales.
+	\item Supervisar la elaboración de materiales pedagógicos que aborden los diferentes tipos de hipótesis (unilaterales y bilaterales) y los errores asociados (Tipo I y Tipo II).
+	\item Validar el correcto diseño e implementación de los graders en Colab para ejercicios de pruebas de hipótesis, incluyendo el cálculo de potencia estadística (\textit{power}), error tipo II (\(\beta\)) y valores \textit{p}.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 13 de septiembre de 2025 → Se definieron los contenidos estadísticos y técnicos a desarrollar durante el sprint.
+	\item \textbf{Entrega de los practicantes:} 17 de septiembre de 2025 → Se presentaron los materiales teóricos, notebooks interactivos y ejercicios evaluables.
+	\item \textbf{Revisión del Scrum Master:} 18 de septiembre de 2025 → Se verificó la precisión conceptual y estadística de los materiales y graders.
+	\item \textbf{Liberación de recursos:} 19 de septiembre de 2025 → Se publicaron los recursos en Moodle y Colab para su uso por los grupos pilotos.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Desarrollo de contenidos teóricos sobre pruebas de hipótesis}  
+	\begin{itemize}
+		\item Se elaboraron materiales interactivos en Genially que explican la teoría de una prueba de hipótesis para:
+		\begin{enumerate}
+			\item La media de una distribución normal con varianza conocida.
+			\item La media de una distribución normal con varianza desconocida.
+			\item La varianza y la desviación estándar de una distribución normal.
+		\end{enumerate}
+		\item Cada caso incluyó la identificación de hipótesis nula y alternativa, la selección adecuada del tipo de prueba (cola derecha, cola izquierda o bilateral), y la representación gráfica de la región de rechazo.
+		\item Se incorporaron explicaciones conceptuales sobre el error tipo II (\(\beta\)), la potencia de la prueba (\(1 - \beta\)) y la interpretación del valor \textit{p}.
+	\end{itemize}
+	
+	\item \textbf{Graders para pruebas de hipótesis en Google Colab}  
+	\begin{itemize}
+		\item Se desarrollaron notebooks en Google Colab utilizando Python para ejercicios prácticos relacionados con pruebas de hipótesis para una muestra.
+		\item Los graders guiaron a los estudiantes en la identificación de parámetros poblacionales, formulación de hipótesis, determinación de regiones críticas y cálculo de estadísticos de prueba.
+		\item Además, permitieron calcular el error tipo II, la potencia estadística y el valor \textit{p} asociado a cada prueba.
+	\end{itemize}
+	
+	\item \textbf{Ejercicios evaluables y lógica en el backend}  
+	\begin{itemize}
+		\item Se diseñaron ejercicios calificables de diferentes niveles de dificultad, abarcando pruebas unilaterales y bilaterales.
+		\item Se implementaron endpoints en el backend para procesar automáticamente las respuestas de los estudiantes y registrar sus resultados.
+	\end{itemize}
+\end{enumerate}
+
+
+\subsection{Sprint 7}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Definir los contenidos teóricos y prácticos relacionados con \textbf{pruebas de hipótesis para dos muestras}, como continuación natural del Sprint 6 (hipótesis para una muestra).
+	\item Supervisar la elaboración de materiales pedagógicos que aborden los diferentes escenarios de comparación de dos poblaciones, incluyendo casos con varianzas conocidas, varianzas desconocidas iguales y varianzas desconocidas distintas.
+	\item Validar la correcta implementación de los graders en Google Colab para ejercicios de pruebas de hipótesis con dos muestras, incluyendo el cálculo de estadísticos de prueba, regiones de rechazo, valores \textit{p} y potencia estadística.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 20 de septiembre de 2025 → Se definieron los contenidos estadísticos y técnicos a desarrollar durante el sprint.
+	\item \textbf{Entrega de los practicantes:} 24 de septiembre de 2025 → Se presentaron los materiales teóricos, notebooks interactivos y ejercicios evaluables.
+	\item \textbf{Revisión del Scrum Master:} 25 de septiembre de 2025 → Se verificó la precisión conceptual y estadística de los materiales y graders.
+	\item \textbf{Liberación de recursos:} 26 de septiembre de 2025 → Se publicaron los recursos en Moodle y Colab para su uso por los grupos pilotos.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Desarrollo de contenidos teóricos sobre pruebas de hipótesis para dos muestras}  
+	\begin{itemize}
+		\item Se elaboraron materiales interactivos en Genially que explican la teoría y procedimientos de pruebas de hipótesis para:
+		\begin{enumerate}
+			\item Comparación de medias de dos poblaciones con varianzas conocidas.
+			\item Comparación de medias con varianzas desconocidas pero iguales.
+			\item Comparación de medias con varianzas desconocidas y diferentes (prueba t de Welch).
+		\end{enumerate}
+		\item Se incluyeron explicaciones detalladas sobre la formulación de hipótesis nula y alternativa, la elección de pruebas unilaterales o bilaterales, y la representación gráfica de las regiones de rechazo correspondientes.
+		\item Se abordaron conceptos de error Tipo I, error Tipo II y potencia estadística en el contexto de pruebas con dos muestras.
+	\end{itemize}
+	
+	\item \textbf{Graders para pruebas de hipótesis con dos muestras en Google Colab}  
+	\begin{itemize}
+		\item Se desarrollaron notebooks interactivos en Google Colab utilizando Python para resolver ejercicios prácticos de comparación de dos muestras.
+		\item Los graders guiaron a los estudiantes en la identificación de parámetros, formulación de hipótesis, selección del tipo de prueba adecuado (z o t), cálculo de estadísticos y toma de decisiones.
+		\item Se implementaron funciones para el cálculo automático de valores \textit{p}, regiones críticas y potencia de la prueba bajo distintos escenarios.
+	\end{itemize}
+	
+\end{enumerate}
+
+\subsection{Sprint 8}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Introducir el método de \textbf{Monte Carlo} como una herramienta fundamental para la simulación y aproximación de resultados estadísticos mediante generación de números aleatorios.
+	\item Supervisar el desarrollo de ejercicios prácticos que permitan a los estudiantes comprender la lógica detrás de la simulación Monte Carlo de forma manual, sin depender exclusivamente de librerías estadísticas avanzadas.
+	\item Validar la correcta implementación de los notebooks en Google Colab para garantizar que los procedimientos y resultados obtenidos por simulación sean coherentes con la teoría estadística.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 27 de septiembre de 2025 → Se definieron los contenidos teóricos y prácticos relacionados con el método de Monte Carlo.
+	\item \textbf{Entrega de los practicantes:} 1 de octubre de 2025 → Se entregaron los primeros notebooks con simulaciones manuales en Python y ejercicios guía.
+	\item \textbf{Revisión del Scrum Master:} 2 de octubre de 2025 → Se revisó la claridad pedagógica, la corrección estadística de los procedimientos y la funcionalidad del código en Colab.
+	\item \textbf{Liberación de recursos:} 3 de octubre de 2025 → Se publicaron los notebooks en Colab para que los grupos pilotos pudieran trabajar con las simulaciones.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Desarrollo de contenidos teóricos y prácticos sobre el método Monte Carlo}  
+	\begin{itemize}
+		\item Se elaboraron materiales introductorios que explican la idea central del método Monte Carlo: aproximar probabilidades o parámetros mediante la generación repetida de valores aleatorios.
+		\item Se mostraron ejemplos manuales en Python para ilustrar cómo simular experimentos básicos.
+	\end{itemize}
+	
+	\item \textbf{Implementación de ejercicios interactivos en Google Colab}  
+	\begin{itemize}
+		\item Se desarrollaron notebooks en Google Colab que guiaron a los estudiantes en la implementación manual de simulaciones Monte Carlo utilizando estructuras básicas de Python.
+		\item Los ejercicios incluyeron pasos claros para definir el experimento, generar datos aleatorios, calcular resultados y visualizar la convergencia de las estimaciones.
+		\item Se diseñaron actividades para que los estudiantes pudieran modificar parámetros y observar cómo cambia la precisión de las estimaciones al variar el número de simulaciones.
+	\end{itemize}
+\end{enumerate}
+
+
+\subsection{Sprint 9}
+
+\subsubsection*{Objetivos del Scrum Master (docente)}
+\begin{itemize}
+	\item Diseñar y supervisar la aplicación de una evaluación tipo quiz en Moodle para medir el nivel de apropiación de los conceptos estadísticos y computacionales desarrollados en los sprints anteriores.
+	\item Garantizar que la evaluación se realice en un entorno controlado y seguro mediante la configuración de \textbf{Safe Exam Browser (SEB)}, asegurando la integridad académica del proceso.
+	\item Coordinar la logística y supervisión presencial del quiz en aulas designadas para garantizar el correcto funcionamiento técnico y la participación ordenada de los estudiantes.
+\end{itemize}
+
+\subsubsection*{Cronograma del Sprint}
+\begin{itemize}
+	\item \textbf{Inicio del Sprint:} 4 de octubre de 2025 → Se definió el formato de la evaluación, el banco de preguntas y la configuración de seguridad en Moodle.
+	\item \textbf{Entrega de los practicantes:} 8 de octubre de 2025 → Se cargaron las preguntas en Moodle y se configuró el acceso mediante Safe Exam Browser.
+	\item \textbf{Revisión del Scrum Master:} 9 de octubre de 2025 → Se verificó la correcta configuración del cuestionario, el funcionamiento del SEB y la validez de las preguntas.
+	\item \textbf{Aplicación del quiz:} 10 de octubre de 2025 → Se llevó a cabo la evaluación en las aulas designadas utilizando computadores con SEB.
+\end{itemize}
+
+\subsubsection*{Actividades realizadas por los practicantes}
+
+\begin{enumerate}
+	\item \textbf{Diseño y preparación del quiz en Moodle}  
+	\begin{itemize}
+		\item Se seleccionaron y redactaron preguntas que evaluaban conceptos fundamentales abordados en los sprints previos, incluyendo teoría estadística, ejercicios prácticos y aspectos computacionales.
+		\item Se configuraron parámetros como número de intentos, retroalimentación automática y tiempo límite para la presentación.
+	\end{itemize}
+	
+	
+	\item \textbf{Aplicación y supervisión del quiz}  
+	\begin{itemize}
+		\item La evaluación se realizó en un aula del edificio CENTIC de la UIS, bajo supervisión docente y técnica para garantizar el cumplimiento de las condiciones establecidas.
+		\item Los practicantes apoyaron en la logística, resolución de problemas técnicos menores y control del acceso seguro.
 	\end{itemize}
 \end{enumerate}
 
