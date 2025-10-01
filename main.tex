@@ -146,10 +146,6 @@ Bucaramanga\\
 
 \listoffigures                         % Lista de figuras, tablas y anexos
 \newpage
-\listoftables
-%\listofanexo
-% ------------------------------------------------------------------------
-\newpage
 
 \chapter*{Glosario}
 
@@ -536,7 +532,7 @@ que combina \textit{Moodle} con entornos de programación (\textit{Python} y \te
 \textit{Docker}. La propuesta busca responder a las limitaciones señaladas en la literatura, 
 especialmente la ausencia de retroalimentación inmediata. Para ello, se plantea un entorno que 
 incorpora actividades interactivas, mecanismos de autoevaluación y un plan de aula estructurado, 
-implementado en dos cursos. De esta manera, el proyecto no solo fortalece la enseñanza de la 
+implementado en dos grupos. De esta manera, el proyecto no solo fortalece la enseñanza de la 
 estadística inferencial en pregrado, sino que se alinea con las tendencias internacionales de 
 integración entre LMS.
 
@@ -1125,7 +1121,7 @@ Gracias a estas características, SEB no solo reforzó la seguridad de los quice
 
 \section{Infraestructura tecnológica implementada}
 
-La infraestructura tecnológica diseñada para soportar el ambiente virtual de aprendizaje se estructuró bajo un modelo basado en contenedores \textit{Docker}, lo que permitió separar los distintos servicios y garantizar su portabilidad y escalabilidad. El despliegue general se gestionó mediante el archivo \texttt{docker-compose.yml} en un computador personal de 12 GB de ram en un sistema operativo UBUNTU de Linux, que coordinó la ejecución simultánea de cada servicio como se muestra en la Figura \ref{fig:AVA}. La organización de los servicios se estructuró de la siguiente manera:
+La infraestructura tecnológica diseñada para soportar el ambiente virtual de aprendizaje se estructuró bajo un modelo basado en contenedores \textit{Docker}, lo que permitió separar los distintos servicios y garantizar su portabilidad y escalabilidad Anexo \ref{anexo:repositorio}. El despliegue general se gestionó mediante el archivo \texttt{docker-compose.yml} en un computador personal de 12 GB de ram en un sistema operativo UBUNTU de Linux, que coordinó la ejecución simultánea de cada servicio como se muestra en la Figura \ref{fig:AVA}. La organización de los servicios se estructuró de la siguiente manera:
 
 \begin{figure}[ht]
 	\centering
@@ -1201,7 +1197,7 @@ La infraestructura tecnológica diseñada para soportar el ambiente virtual de a
 
 \section{Recursos interactivos}
 
-Además de la infraestructura tecnológica y los servicios de programación, el ambiente virtual de aprendizaje integró herramientas digitales especialmente orientadas a enriquecer la experiencia pedagógica de los estudiantes mediante contenidos dinámicos e interactivos.
+Además de la infraestructura tecnológica y los servicios de programación, el ambiente virtual de aprendizaje integró herramientas digitales especialmente orientadas a enriquecer la experiencia pedagógica de los estudiantes mediante contenidos dinámicos e interactivos Anexo \ref{anexo:repositorio}.
 
 En este contexto, se hizo uso de \textit{Genially} y \textit{H5P}, plataformas que permitieron diseñar materiales innovadores y atractivos, con el objetivo de facilitar la comprensión de los conceptos teóricos y metodológicos de \textit{Estadística II}. Genially se destinó principalmente a la elaboración de infografías y presentaciones interactivas como se muestran en las Figuras \ref{fig:Pgenially} y \ref{fig:Igenially}, que transformaron información compleja en representaciones visuales claras y accesibles. Estos recursos, una vez integrados en \textit{Moodle}, se convirtieron en un apoyo valioso para los distintos módulos del curso, ya que brindaron a los estudiantes la posibilidad de interactuar con los contenidos y explorar los temas de manera autónoma.
 
@@ -1216,7 +1212,7 @@ En este contexto, se hizo uso de \textit{Genially} y \textit{H5P}, plataformas q
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Infografía en Genially sobre Bootstrap}.}
-	\includegraphics[width=0.55\textwidth]{Figs/Infografia_Genially.pdf}
+	\includegraphics[width=0.65\textwidth]{Figs/Infografia_Genially.pdf}
 	\label{fig:Igenially}
 	\\Fuente: Captura de pantalla de una infografía en Genially.
 \end{figure}
@@ -1226,34 +1222,119 @@ Por su parte, \textit{H5P}, que puede implementarse de forma nativa en \textit{M
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Infografía en H5P sobre Estadística descriptiva}.}
-	\includegraphics[width=0.8\textwidth]{Figs/Infografia_H5P.pdf}
+	\includegraphics[width=1\textwidth]{Figs/Infografia_H5P.pdf}
 	\label{fig:H5P}
 	\\Fuente: Captura de pantalla de una infografía en H5P.
 \end{figure}
 
-\newpage
 
 Este proceso contó con el acompañamiento del profesor Carlos Mantilla, quien no solo orientó en la correcta implementación de los recursos embebidos, sino que también brindó recomendaciones sobre la manera más efectiva de llevar los temas dentro de \textit{Moodle}.
 
 \section{Experiencia de los Estudiantes}
 
-Un componente clave en la evaluación de resultados fue la percepción de los estudiantes sobre el uso del entorno virtual y las herramientas tecnológicas implementadas. Para este propósito, se aplicó una encuesta a los dos cursos piloto participantes, de la cual respondieron 30 de los 50 estudiantes.
+Un componente clave en la evaluación de resultados fue la percepción de los estudiantes sobre el uso del entorno virtual y las herramientas tecnológicas implementadas. Para este propósito, se aplicó una encuesta a los dos grupos piloto participantes, de la cual respondieron 30 de los 50 estudiantes.
 
-En cuanto al acompañamiento brindado por los practicantes, cerca del $50\%$ de los encuestados consideró que este no fue del todo adecuado, señalando que la orientación recibida no siempre resultó suficiente para resolver sus inquietudes. De manera similar, un $43.3\%$ calificó como \textit{regular} la capacidad del ambiente de aprendizaje para fortalecer la comprensión de los contenidos.
+En cuanto al acompañamiento brindado por los practicantes, cerca del $50\%$ de los encuestados consideró que este no fue del todo adecuado, señalando que la orientación recibida no siempre resultó suficiente para resolver sus inquietudes. De manera similar, un $43.3\%$ calificó como \textit{regular} la capacidad del ambiente de aprendizaje para fortalecer la comprensión de los contenidos Figura \ref{fig:Ayuda_Impacto}.
 
-Por otro lado, se resaltaron aspectos positivos relacionados con los métodos de enseñanza utilizados, los cuales fueron valorados como efectivos por el $56.7\%$ de los participantes. A esto se suma la percepción favorable hacia la calidad de los materiales teóricos, que obtuvo una aprobación del $60\%$. Asimismo, los estudiantes reconocieron la rapidez del servidor, con un $73\%$ de aceptación, lo que facilitó el acceso fluido a las actividades y recursos.
+\begin{figure}[h]
+	\centering
+	\captionof{figure}{\\ \vspace{0.3cm} Experiencia de los Estudiantes. \textbf{Diagramas de: Ayuda de los prácticantes y comprensión del contenido}.}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.41\textwidth]{Figs/ayuda_practicantes.pdf}
+    \end{subfigure}
+	\hfill
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.39\textwidth]{Figs/impacto_aprendizaje.pdf}
+    \end{subfigure}
+	\label{fig:Ayuda_Impacto}
+	\\ Fuente: Elaboración propia a partir de la encuesta.
+\end{figure}
 
-En relación con las herramientas tecnológicas, la gran mayoría de los encuestados ($93.3\%$) manifestó su preferencia por Python como lenguaje de programación, argumentando que les resulta más comprensible debido a experiencias previas en otros cursos. Asimismo, un porcentaje similar resaltó el uso de Google Colab como entorno de programación, destacando que se trata de una herramienta gratuita, de fácil acceso y que no requiere la instalación de programas adicionales.
+Por otro lado, se resaltaron aspectos positivos relacionados con los métodos de enseñanza utilizados, los cuales fueron valorados como efectivos por el $56.7\%$ de los participantes. A esto se suma la percepción favorable hacia la calidad de los materiales teóricos, que obtuvo una aprobación del $60\%$ Figura \ref{fig:MM}. 
+
+\begin{figure}[h]
+	\centering
+	\captionof{figure}{\\ \vspace{0.3cm} Experiencia de los Estudiantes. \textbf{Diagramas de los metodos y materiales usados en el curso}.}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.38\textwidth]{Figs/Metodos_Enseñanza.pdf}
+    \end{subfigure}
+	\hfill
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.38\textwidth]{Figs/materiales_teoricos.pdf}
+    \end{subfigure}
+	\label{fig:MM}
+	\\ Fuente: Elaboración propia a partir de la encuesta.
+\end{figure}
+
+\newpage
+
+Asimismo, los estudiantes reconocieron la rapidez del servidor, con un $73\%$ de aceptación, lo que facilitó el acceso fluido a las actividades y recursos.
+Con las herramientas tecnológicas la gran mayoría de los encuestados ($93.3\%$) manifestó su preferencia por Python como lenguaje de programación, argumentando que les resulta más comprensible debido a experiencias previas en otros grupos Figura \ref{fig:RL}. 
+
+\begin{figure}[h]
+	\centering
+	\captionof{figure}{\\ \vspace{0.3cm} Experiencia de los Estudiantes. \textbf{Diagramas de la respuesta del servidor y el lenguaje preferido}.}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.38\textwidth]{Figs/Respuesta_Servidor.pdf}
+    \end{subfigure}
+	\hfill
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.38\textwidth]{Figs/lenguaje_preferido.pdf}
+    \end{subfigure}
+	\label{fig:RL}
+	\\ Fuente: Elaboración propia a partir de la encuesta.
+\end{figure}
+
+Por otro lado, un porcentaje de ($93.3\%$) resaltó el uso de Google Colab como entorno de programación, destacando que se trata de una herramienta gratuita, de fácil acceso y que no requiere la instalación de programas adicionales.
+Pero tambien establecen que es mejor usar las tecnologias implementadas para el desarrrollo de el curso de Estadística II teniendo una aceptación del ($63.3\%$) como lo muestra la Figura \ref{fig:CT}.
+
+\begin{figure}[h]
+	\centering
+	\captionof{figure}{\\ \vspace{0.3cm} Experiencia de los Estudiantes. \textbf{Diagramas del uso de colab y de la integración de tecnologias}.}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.37\textwidth]{Figs/uso_colab.pdf}
+    \end{subfigure}
+	\hfill
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.45\textwidth]{Figs/uso_tecnologias.pdf}
+    \end{subfigure}
+	\label{fig:CT}
+	\\ Fuente: Elaboración propia a partir de la encuesta.
+\end{figure}
 
 No obstante, respecto a la propuesta de consolidar un esquema completo dentro de Moodle que agrupe todos los materiales, el $40\%$ de los estudiantes manifestó estar en desacuerdo y un $56.7\%$ expresó una posición neutral, lo cual refleja que aún existen percepciones divididas frente a la centralización de los recursos.
+Finalmente, el $63.3\%$ de los encuestados coincidieron en que la implementación de evaluadores automáticos (\textit{graders}) fue una herramienta útil para el desarrollo del curso, aportando tanto a la retroalimentación inmediata como a la autoevaluación de los conocimientos adquiridos Figura \ref{fig:MG}.
 
-Finalmente, el $63.3\%$ de los encuestados coincidieron en que la implementación de evaluadores automáticos (\textit{graders}) fue una herramienta útil para el desarrollo del curso, aportando tanto a la retroalimentación inmediata como a la autoevaluación de los conocimientos adquiridos.
+\begin{figure}[h]
+	\centering
+	\captionof{figure}{\\ \vspace{0.3cm} Experiencia de los Estudiantes. \textbf{Diagramas sobre centralizar los materiales en Moodle y la implementación de graders}.}
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.43\textwidth]{Figs/integracion_moodle.pdf}
+    \end{subfigure}
+	\hfill
+    \begin{subfigure}
+        \centering
+        \includegraphics[width=0.37\textwidth]{Figs/uso_graders.pdf}
+    \end{subfigure}
+	\label{fig:MG}
+	\\ Fuente: Elaboración propia a partir de la encuesta.
+\end{figure}
 
-\section{Análisis de los cursos piloto}
+\newpage
 
-Se hizo el análisis de cinco prácticas de laboratorio en los cursos piloto, los cuales evidencian una evolución desigual en el proceso de aprendizaje de los estudiantes. También, se analizó tanto el código entregado por los estudiantes como su nivel de atención durante las clases, con el propósito de identificar si la falta de concentración o el uso inadecuado de recursos externos podía influir en la calidad de las soluciones presentadas. 
+\section{Análisis de los grupos piloto}
 
-\subsection{Prácticas}
+Se hizo el análisis de cinco prácticas de laboratorio en los grupos piloto, los cuales evidencian una evolución desigual en el proceso de aprendizaje de los estudiantes. También, se analizó tanto el código entregado por los estudiantes Anexo \ref{anexo:repositorio}, como su nivel de atención durante las clases, con el propósito de identificar si la falta de concentración o el uso inadecuado de recursos externos podía influir en la calidad de las soluciones presentadas. 
+
 En la \textbf{Práctica 1} se presentó la mayor dificultad inicial: el  promedio es de $\bar{x}=2.17$, con una mediana de $2.18$, una desviación estándar de $\sigma=1.44$ y un rango intercuartílico $\text{IQR}$ de $2.23$. Estos indicadores reflejan un bajo desempeño general y una gran dispersión en los resultados, como se muestra en la Figura \ref{fig:Mapa}.
 
 La \textbf{Práctica 2} marcó un avance notable en el rendimiento, con un promedio de $\bar{x}=3.89$, mediana de $4.27$, desviación estándar de $\sigma=1.47$ e $\text{IQR}$ de $1.67$. Este progreso se refleja también en la Figura \ref{fig:Dispersion}, donde se observa una concentración importante de calificaciones entre $4.0$ y $5.0$.
@@ -1264,35 +1345,33 @@ No obstante, en la \textbf{Práctica 4} ($\bar{x}=3.92$, mediana $4.33$, desviac
 
 \begin{figure}[ht]
 	\centering
-	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los cursos piloto. \textbf{Diagrama de dispersión de notas de las prácticas}.}
-	\includegraphics[width=0.75\textwidth]{Figs/Dispersion_Notas.pdf}
+	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los grupos piloto. \textbf{Diagrama de dispersión de notas de las prácticas}.}
+	\includegraphics[width=0.67\textwidth]{Figs/Dispersion_Notas.pdf}
 	\label{fig:Dispersion}
 	\\Fuente: Elaboración propia a partir de las notas de las prácticas 1 a 5.
 \end{figure}
 
 \begin{figure}[ht]
 	\centering
-	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los cursos piloto. \textbf{Diagrama de boxplots de notas de las prácticas}.}
-	\includegraphics[width=0.75\textwidth]{Figs/Promedio_Notas.pdf}
+	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los grupos piloto. \textbf{Diagrama de boxplots de notas de las prácticas}.}
+	\includegraphics[width=0.7\textwidth]{Figs/Promedio_Notas.pdf}
 	\label{fig:Promedio}
 	\\Fuente: Elaboración propia a partir de las notas de las prácticas 1 a 5.
 \end{figure}
 
+\newpage
+
 Los resultados sugieren que los estudiantes son capaces de alcanzar altos niveles de rendimiento cuando cuentan con condiciones de práctica dirigida, retroalimentación inmediata o acompañamiento cercano, como se reflejó en las Prácticas 2, 3 y 4 evidenciado en la Figura \ref{fig:Mapa}. Sin embargo, el retroceso evidenciado en la Práctica 5 revela que, cuando el proceso depende más del aprendizaje autónomo y de la aplicación de la teoría, aparecen varias dificultades.
+
+De acuerdo con las prácticas no se puede explicar únicamente la complejidad de las actividades, sino también por factores comportamentales y pedagógicos. Se observó que algunos estudiantes no prestan la atención adecuada en las clases, se distraen con los celulares o confían en el uso de herramientas como la IA y en la posibilidad de tener más de un intento para resolver las actividades. No obstante, los resultados demuestran que esta dependencia no compensa la falta de comprensión conceptual; cuando las tareas exigen aplicar ecuaciones o integrar teoría en código, muchos estudiantes no logran resolverlas de forma adecuada o, en ciertos casos, deciden no presentar las actividades.
 
 \begin{figure}[ht]
 	\centering
-	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los cursos piloto. \textbf{Diagrama de matriz de correlación de notas de las prácticas}.}
+	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los grupos piloto. \textbf{Diagrama de matriz de correlación de notas de las prácticas}.}
 	\includegraphics[width=0.8\textwidth]{Figs/Mapa_Notas.pdf}
 	\label{fig:Mapa}
 	\\Fuente: Elaboración propia a partir de las notas de las prácticas 1 a 5.
 \end{figure}
-
-\subsection{Estudiantes}
-
-De acuerdo con las prácticas no se puede explicar únicamente la complejidad de las actividades, sino también por factores comportamentales y pedagógicos. Se observó que algunos estudiantes no prestan la atención adecuada en las clases, se distraen con los celulares o confían en el uso de herramientas como la IA y en la posibilidad de tener más de un intento para resolver las actividades. No obstante, los resultados demuestran que esta dependencia no compensa la falta de comprensión conceptual; cuando las tareas exigen aplicar ecuaciones o integrar teoría en código, muchos estudiantes no logran resolverlas de forma adecuada o, en ciertos casos, deciden no presentar las actividades.
-
-
 
 \section{Generalización de los resultados}
 
@@ -1300,7 +1379,12 @@ Los resultados obtenidos evidencian que los estudiantes aprovecharon de manera s
 
 No obstante, este panorama también dejó en evidencia aspectos muy positivos. Los estudiantes que asumieron con compromiso y esfuerzo su proceso de aprendizaje lograron aprovechar al máximo los contenidos interactivos y las herramientas de programación integradas en el AVA. Asimismo, se beneficiaron del acompañamiento de los practicantes, quienes desempeñaron un papel clave en la resolución de dudas y en la orientación del uso adecuado de los recursos.
 
-Los resultados reflejan dos realidades distintas. Por un lado, ponen de manifiesto la importancia de fortalecer los mecanismos de control y el acompañamiento docente, con el fin de evitar el uso inadecuado de recursos externos. Pero, al mismo tiempo, muestran el gran potencial que tiene el ambiente virtual cuando los estudiantes lo asumen con responsabilidad y compromiso, pues en esos casos se logran aprendizajes mucho más significativos y duraderos.
+Estos resultados mostraron dos realidades distintas, donde por un lado, ponen de manifiesto la importancia de fortalecer los mecanismos de control y el acompañamiento docente, con el fin de evitar el uso inadecuado de recursos externos. Pero, al mismo tiempo, muestran el gran potencial que tiene el ambiente virtual cuando los estudiantes lo asumen con responsabilidad y compromiso.
+
+En términos de gestión, se evidencia que la infraestructura tecnológica (\textit{Docker}, \textit{Node.js}, \textit{MariaDB}, \textit{Nginx}, \textit{Playit.gg}) y los recursos pedagógicos (\textit{H5P}, \textit{Genially}, \textit{iframes}, \textit{SEB}) aportaron a la consolidación de un entorno seguro, dinámico y accesible.
+
+Finalmente, se destaca que todo lo implementado se encuentra documentado en el Anexo \ref{anexo:repositorio}, donde se detallan desde la infraestructura tecnológica, los \textit{graders} y el material teórico interactivo desarrollado para el curso. Este soporte documental no solo respalda la implementación realizada, sino que también garantiza su posible replicabilidad en otros espacios académicos.
+
 
 \newpage
 
@@ -1310,15 +1394,13 @@ Los resultados reflejan dos realidades distintas. Por un lado, ponen de manifies
 
 En el presente trabajo se evidenció que los estudiantes aprovecharon de manera significativa las herramientas tecnológicas integradas en el entorno virtual (\textit{Colab Notebooks}, Python, R, H5P y Genially) para resolver problemas relacionados con la asignatura y con situaciones prácticas de su formación. La implementación de contenidos interactivos, infografías, presentaciones y ejercicios con retroalimentación inmediata permitió consolidar un aprendizaje activo y práctico, alineado con los objetivos del curso de Estadística II.
 
-Se diseñó un plan de aula modular, el cual permitió estructurar los contenidos teóricos y prácticos de manera coherente en notebooks de Colab, utilizando los dos lenguajes propuestos (Python y R). Estos notebooks estaban configurados con autocalificación, lo que generaba una nota y, a su vez, facilitaba que los estudiantes recibieran retroalimentación en función del trabajo realizado en la práctica. 
+Se diseñó un plan de aula modular, el cual permitió estructurar los contenidos teóricos y prácticos de manera coherente en notebooks de Colab, utilizando los dos lenguajes propuestos (Python y R). Estos notebooks estaban configurados con autocalificación, lo que generaba una nota y a su vez, facilitaba que los estudiantes recibieron retroalimentación en función del trabajo realizado en la práctica, los resultados de los cursos piloto evidenciaron que el plan fue apropiado y progresivo teniendo evidencias que en las primeras prácticas reflejaron mayores dificultades llegando a tener un promedio de 2.2, pero en las posteriores se alcanzaron calificaciones superiores a 4.0, lo que confirma su pertinencia y nivel de dificultad adecuado para un desempeño continuo a través de las prácticas.
 
-El ambiente virtual de aprendizaje (AVA) fue implementado en la plataforma Moodle, dentro de la oferta de TIC de la universidad, donde se logró integrar de manera efectiva el contenido teórico y práctico de los temas establecidos en el plan modular.
+El ambiente virtual de aprendizaje (AVA) fue implementado en la plataforma Moodle, dentro de la oferta de TIC de la universidad, logrando integrar de manera efectiva el contenido teórico y práctico de los temas establecidos en el plan modular. Para alcanzar este objetivo se establecieron como mecanismos de medición quices y laboratorios, que facilitaron la observación y análisis del comportamiento académico de los estudiantes en el caso de los quices, el primer ejercicio evaluativo presentó un promedio de 2.6 sobre 5, lo cual permitió identificar las dificultades en la apropiación de los conceptos. Este tipo de resultados cuantitativos evidenció la utilidad del AVA no solo como espacio de aprendizaje, sino también como herramienta de seguimiento académico y de retroalimentación continua
 
-Para alcanzar este objetivo, se establecieron como mecanismos de medición de las actividades prácticas y evaluativas \textit{quices} y laboratorios, los cuales permitieron observar y analizar el comportamiento académico de los estudiantes.
+El AVA se implementó en dos grupos de la asignatura Estadística II de la Escuela de Ingeniería de Sistemas e Informática (C1 y F3), bajo la dirección del profesor Andrés Leonardo González Gómez, quien autorizó su uso para el pilotaje del ambiente virtual. Durante este proceso se evidenció una mejora progresiva en el desempeño académico de los estudiantes. El promedio inicial de las prácticas fue de 2.2, mientras que en la tercera práctica se alcanzó un promedio de 4.5, lo que corresponde a un incremento aproximado del 105\% en relación con el punto de partida. Considerando el conjunto de prácticas realizadas, el promedio general fue de 3.64, valor que refleja una mejora global del 66\% frente al rendimiento inicial, evidenciando la adaptación progresiva de los estudiantes.
 
-El AVA se integró en dos grupos de Estadística II de la Escuela de Ingeniería de Sistemas e Informática (C1 y F3), bajo la dirección del profesor Andrés Leonardo González Gómez, quien autorizó su uso para pilotear el ambiente virtual. En este proceso se evidenció dificultades de los estudiantes para adaptarse al nuevo esquema de trabajo.
-
-No obstante, se identificó que no todos los estudiantes hicieron un uso adecuado de herramientas externas como la inteligencia artificial. Aunque en algunos casos se implementó el plugin \textit{Safe Exam Browser (SEB)} y estrategias de acompañamiento para \textit{quices} y evaluaciones, estas medidas no fueron suficientes en las actividades tipo laboratorio, donde se detectó el uso de IA a través de errores en el formato, la aplicación de métodos no explicados en clase y la utilización de librerías que resolvían los problemas estadísticos sin necesidad de aplicar las fórmulas correspondientes.
+No obstante, se identificó que no todos los estudiantes hicieron un uso adecuado de herramientas externas como la inteligencia artificial. Aunque en algunos casos se implementó el plugin Safe Exam Browser (SEB) y estrategias de acompañamiento para quices y evaluaciones, estas medidas no fueron suficientes en las actividades tipo laboratorio, donde en la práctica 5 se presentó un aproximado del 56\% de los estudiantes del grupo piloto hicieron uso de IA, evidenciado en errores de formato, la aplicación de métodos no explicados en clase y la utilización de librerías que resolvían los problemas estadísticos sin necesidad de aplicar las fórmulas correspondientes.
 
 
 
@@ -1376,6 +1458,17 @@ Finalmente, se sugiere incrementar la cantidad de actividades interactivas, info
 \label{anexo:Guía-Semana-8}
 
 \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anexos/G.pdf}
+
+% --- Anexo 3 ---
+\refstepcounter{chapter}
+\chapter*{Anexo \thechapter: Repositorio del Proyecto}
+\label{anexo:repositorio}
+
+El código fuente de este proyecto se encuentra disponible en el repositorio público:
+
+\begin{center}
+\href{https://github.com/JorEdu33/Estructura-del-servidor-y-Material-de-clase.git}{\texttt{https://github.com/JorEdu33/Estructura-del-servidor-y-Material-de-clase.git}}
+\end{center}
 
 
 
