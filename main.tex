@@ -46,6 +46,7 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{pdfpages}
+\usepackage{attachfile2}
 
 % --- CONFIGURACIONES DE COLORES --- %
 \definecolor{bg}{rgb}{0.95,0.95,0.92}
@@ -186,7 +187,7 @@ Bucaramanga\\
   \asttfootnote{Facultad de Ingenierías Fisicomecánicas. Escuela de Ingeniería de Sistemas e Informática.\\
   	Director: Andrés Leonardo Gonzáles Gómez}
   \item[Palabras Clave:]Ambiente virtual de aprendizaje, Moodle, Estadística II, Autoevaluación.
-  \item[Descripción:] El presente trabajo de grado describe el diseño, desarrollo e implementación de un ambiente de aprendizaje virtual para la asignatura Estadística II, dirigida a estudiantes de la Escuela de Ingeniería de Sistemas e Informática de la Universidad Industrial de Santander. El ambiente fue construido sobre la plataforma Moodle, con el objetivo de ofrecer una experiencia de aprendizaje más activa, significativa y continua mediante la integración sistemática de un plan de aula modular que articula contenidos teóricos, ejercicios prácticos en Python y R a través de Colab Notebooks e instrumentos de evaluación formativa, tales como autoevaluaciones y retroalimentación inmediata.
+  \item[Descripción:] El presente trabajo de grado describe el diseño, desarrollo e implementación de un ambiente de aprendizaje virtual para la asignatura Estadística II, dirigida a estudiantes de la Escuela de Ingeniería de Sistemas e Informática de la Universidad Industrial de Santander. El ambiente fue construido sobre la plataforma Moodle, con el objetivo de ofrecer una experiencia de aprendizaje más activa, significativa y continua mediante la integración sistemática de un plan de aula modular que articula contenidos teóricos, ejercicios prácticos en Python y R a través de Colab Notebooks e instrumentos de evaluación formativa, tales como evaluaciones con calificación automática y retroalimentación inmediata.
   El enfoque pedagógico del entorno se basa en el aprendizaje activo y la construcción progresiva del conocimiento, promoviendo la participación continua del estudiante y el desarrollo de competencias relacionadas con el análisis estadístico y la interpretación de datos. Las actividades propuestas están diseñadas para favorecer la autonomía del aprendizaje. Los resultados obtenidos sugieren que el uso del ambiente virtual contribuye a mejorar la comprensión de los contenidos estadísticos, así como a incrementar la motivación y el compromiso de los estudiantes con su proceso de formación. Esta propuesta representa una alternativa metodológica y tecnológica que responde a las necesidades actuales de la educación superior en el ámbito de la ingeniería de sistemas, especialmente en contextos donde la articulación entre teoría y práctica resulta esencial para el desarrollo de competencias profesionales.
   
   
@@ -206,9 +207,8 @@ Bucaramanga\\
   \asttfootnote{Faculty of Physicomechanical Engineering. School of Systems and Computer Engineering.\\
   	Director: Andrés Leonardo Gonzáles Gómez}
   \item[Key words:] Virtual learning environment, Moodle, Statistics II, Self-assessment.
-  \item[Description:]This thesis describes the design, development, and implementation of a virtual learning environment for the Statistics II course, aimed at students of the School of Systems Engineering and Computer Science at the Industrial University of Santander. The environment was built on the Moodle platform with the aim of offering a more active, meaningful, and continuous learning experience through the systematic integration of a modular classroom plan that combines theoretical content, practical exercises in Python and R through Colab Notebooks, and formative assessment tools such as self-assessments and immediate feedback.
+  \item[Description:]This thesis describes the design, development, and implementation of a virtual learning environment for the Statistics II course, aimed at students of the School of Systems Engineering and Computer Science at the Industrial University of Santander. The environment was built on the Moodle platform with the aim of offering a more active, meaningful, and continuous learning experience through the systematic integration of a modular classroom plan that combines theoretical content, practical exercises in Python and R through Colab Notebooks, and formative assessment tools, such as automatically graded assessments and immediate feedback.
   The pedagogical approach of the environment is based on active learning and the progressive construction of knowledge, promoting continuous student participation and the development of skills related to statistical analysis and data interpretation. The proposed activities are designed to encourage autonomous learning. The results obtained suggest that the use of the virtual environment contributes to improving the understanding of statistical content, as well as increasing student motivation and commitment to their training process. This proposal represents a methodological and technological alternative that responds to the current needs of higher education in the field of systems engineering, especially in contexts where the articulation between theory and practice is essential for the development of professional skills.
-
 
 
 \end{description}}\normalsize
@@ -406,7 +406,6 @@ Safe Exam Browser (SEB) es una aplicación de código abierto diseñada para ase
 
 \chapter{Estado del Arte}
 
-\section{Introducción}
 La enseñanza de la estadística en educación superior presenta desafíos significativos debido a la abstracción de sus conceptos y la necesidad de aplicar teoría a problemas del mundo real. En este contexto, los Ambientes Virtuales de Aprendizaje (AVA) y plataformas digitales han emergido como recursos clave para mediar procesos formativos, permitiendo integrar materiales, actividades prácticas y evaluaciones \parencite{AlHaddad2024}. Sin embargo, aunque las soluciones existentes han avanzado en accesibilidad y organización de contenidos, persisten limitaciones relacionadas con la retroalimentación inmediata, la integración de entornos de análisis de datos y la evaluación automatizada de procesos complejos como la estadística inferencial.
 
 \section{Antecedentes}
@@ -545,6 +544,11 @@ integración entre LMS.
 
 \chapter{Metodología}
 
+La metodología empleada en este proyecto se diseñó con el propósito de articular de manera efectiva los componentes tecnológicos, pedagógicos y organizativos que hicieron posible el desarrollo del ambiente de aprendizaje para la enseñanza de Estadística II. Para ello, se adoptó un enfoque ágil basado en la metodología \textit{Scrum}, que permitió estructurar el trabajo en ciclos cortos de planificación, desarrollo y evaluación, denominados \textit{sprints}. Esta elección metodológica favoreció una gestión ordenada de las tareas, una comunicación constante entre los participantes y la incorporación progresiva de nuevas funcionalidades, manteniendo siempre el enfoque en los objetivos académicos del proyecto.
+
+Se presentan las estrategias y procedimientos utilizados para llevar a cabo cada fase del proceso de desarrollo. Se describen los roles asumidos por el equipo, la organización del trabajo mediante \textit{sprints} y las herramientas tecnológicas que facilitaron la implementación, como la arquitectura de microservicios basada en \textit{Node.js}, \textit{React}, \textit{MariaDB} y \textit{Docker}, así como soluciones complementarias como \textit{Playit.gg} y \textit{Safe Exam Browser}. Esta estructura metodológica permitió avanzar de forma controlada y flexible, garantizando que cada entrega parcial fortaleciera la integración entre los contenidos académicos y las funciones esperadas para la autoevaluación de los \textit{graders}.
+
+
 \section{Enfoque metodológico}
 
 Para el desarrollo del presente proyecto se adoptó la metodología ágil Scrum, debido a que permitió organizar el trabajo en iteraciones cortas (sprints), promover la retroalimentación constante y garantizar la entrega continua de productos funcionales. Este enfoque se ajustó a la naturaleza del proyecto, en el cual se requirió diseñar, implementar y validar materiales interactivos y evaluativos para la asignatura Estadística II en un ambiente de aprendizaje.
@@ -555,7 +559,7 @@ Según \cite{schwaber2013scrum}, ``Scrum es un marco de trabajo por el cual las 
 
 La metodología del proyecto se estructuró en función de los objetivos específicos, los cuales se materializaron en una serie de acciones interrelacionadas.
 
-En primer lugar, para el diseño de un plan de aula modular, se realizó una revisión y selección de los contenidos teóricos y prácticos más relevantes de la asignatura, en conjunto con los docentes responsables. Posteriormente, estos contenidos fueron organizados en unidades interactivas implementadas en Colab Notebooks con Python y R, incorporando actividades prácticas y calificadores automáticos que ofrecieron retroalimentación inmediata.
+En primer lugar, para el diseño de un plan de aula modular, se realizó una revisión y selección de los contenidos teóricos y prácticos más relevantes de la asignatura, en conjunto con los docentes responsables Anexo \ref{anexo:acta-abril-2025}. Posteriormente, estos contenidos fueron organizados en unidades interactivas implementadas en Colab Notebooks con Python y R, incorporando actividades prácticas y calificadores automáticos que ofrecieron retroalimentación inmediata.
 
 En cuanto a la implementación del ambiente virtual de aprendizaje en Moodle, se inició con la configuración de la estructura del curso, definiendo por semanas con el fin de mantener un orden y control de los contenidos. A continuación, se integraron los Colab Notebooks, los materiales didácticos de apoyo y diversos recursos multimedia que fortalecieron la experiencia pedagógica. Finalmente, se llevaron a cabo pruebas de funcionamiento tanto técnico como pedagógico, con el propósito de verificar la accesibilidad y coherencia de los recursos integrados.
 
@@ -661,11 +665,11 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 	\begin{figure}[ht]
 		\centering
 		\captionof{figure}{ \\ \vspace{0.5cm} Sprint 1. \textbf{Esquema de los contenedores Docker}.}
-		\includegraphics[width=1\textwidth]{Figs/Diagrama_contenedores.pdf}
+		\includegraphics[width=0.8\textwidth]{Figs/Diagrama_contenedores.pdf}
 		\label{fig:Diagrama-Docker}
 		\\Fuente: Elaboración propia con base en la estructura de los contenedores usados.
 	\end{figure}
-	\newpage
+
 	\item \textbf{Material teórico en Moodle}
 	\begin{itemize}
 		\item Se elaboraron recursos interactivos utilizando H5P dentro de Moodle.
@@ -1040,9 +1044,9 @@ Se utilizó como base la plataforma de gestión académica, en la cual se estruc
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Desarrollo tecnológico del ambiente virtual. \textbf{Estructura del curso de Moodle}.}
-	\includegraphics[width=1\textwidth]{Figs/Moodle.pdf}
+	\includegraphics[width=0.8\textwidth]{Figs/Moodle.pdf}
 	\label{fig:Moodle}
-	\\Fuente: Pantallazo del curso en Moodle.
+	\\Fuente: Captura de pantalla del curso en Moodle.
 \end{figure}
 
 \newpage
@@ -1051,7 +1055,8 @@ Vinculado a través de la plataforma, se utilizó el entorno virtual para realiz
 
 Un ejemplo de ello fue la implementación del método \textit{bootstrap} para la estimación de la mediana y el uso del \textit{skewness} como criterio para decidir si emplear el estimador normal o el de percentiles. A través de esta actividad, los estudiantes pudieron seguir paso a paso el proceso de remuestreo, calcular el sesgo (\textit{Bias}), el error estándar (\textit{SE}) y finalmente construir intervalos de confianza al 95 \%. El código utilizado fue el siguiente:
 
-\begin{lstlisting}[language=R, caption={Implementación del método bootstrap y Skewness para la mediana en R}]
+\renewcommand{\lstlistingname}{Código}
+\begin{lstlisting}[language=R, caption={Implementación del método Bootstrap en R}]
 # Semilla de reproducibilidad
 set.seed(21)
 x <- c(0.5, 1, 0.75, 1.2, 0.9, 1.1, 2, 3, 4, 5, 6, 8, 10, 
@@ -1098,7 +1103,7 @@ Los graders automáticos se integraron al aula virtual con el propósito de ofre
 	\captionof{figure}{ \\ \vspace{0.5cm} Desarrollo tecnológico del ambiente virtual. \textbf{Calificador de las prácticas}.}
 	\includegraphics[width=1\textwidth]{Figs/Colab.pdf}
 	\label{fig:Colab}
-	\\Fuente: Pantallazo del mensaje del calificador en el Notebook.
+	\\Fuente: Captura de pantalla del mensaje del calificador en el Notebook.
 \end{figure}
 \newpage
 Se implementó el plugin \textit{Safe Exam Browser (SEB)} en los quices del curso. Esta herramienta permite bloquear el acceso a otras aplicaciones, navegadores o páginas web mientras los estudiantes realizan los ejercicios, asegurando que cada cuestionario se responda de manera individual y bajo condiciones controladas como se muestra en la Figura \ref{fig:SEB} (el cual no permite realizar captura de pantalla). Aportando ventajas significativas como:
@@ -1113,7 +1118,7 @@ Gracias a estas características, SEB no solo reforzó la seguridad de los quice
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Desarrollo tecnológico del ambiente virtual. \textbf{Safe Exam Browser}.}
-	\includegraphics[width=1\textwidth]{Figs/SEB.pdf}
+	\includegraphics[width=0.8\textwidth]{Figs/SEB.pdf}
 	\label{fig:SEB}
 	\\Fuente: Foto de un cuestionario en Safe Exam Browser.
 \end{figure}
@@ -1125,9 +1130,9 @@ La infraestructura tecnológica diseñada para soportar el ambiente virtual de a
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Arquitectura tecnológica del Ambiente Virtual de aprendizaje}.}
-	\includegraphics[width=0.7\textwidth]{Figs/Arquitectura_AVA.pdf}
+	\includegraphics[width=1\textwidth]{Figs/Arquitectura_AVA.pdf}
 	\label{fig:AVA}
-	\\Fuente: Elaboración propia segun el árbol de estructura de servicios.
+	\\Fuente: Elaboración propia según el árbol de estructura de servicios.
 \end{figure}
 
 \subsection{Backend}
@@ -1142,9 +1147,27 @@ La infraestructura tecnológica diseñada para soportar el ambiente virtual de a
 \subsection{Frontend}
 \begin{itemize}
     \item Implementado con \textit{React}, contenía la interfaz con la que interactuaron los practicantes y el docente.
-    \item En la carpeta \texttt{components} se construyeron elementos como \texttt{Grupos.js}, \texttt{Semanas.js} y \texttt{DetalleEstudiante.js}, que organizaron la presentación de la información académica.
-    \item Los estilos \texttt{CSS} asociados (\texttt{Grupos.css}, \texttt{Semanas.css}, \texttt{DetalleEstudiantes.css}) se diseñaron para lograr una visualización limpia y funcional.
-    \item El despliegue del \textit{frontend} se gestionó mediante un \texttt{Dockerfile}, asegurando que la interfaz se integrara de manera coherente al ecosistema.
+    \item En la carpeta \texttt{components} se construyeron elementos como \texttt{Grupos.js}, \texttt{Semanas.js} y \texttt{DetalleEstudiante.js}, que organizaron la presentación de la información académica como se puede observar en la Figura \ref{fig:Detalles}.
+    
+	\begin{figure}[ht]
+		\centering
+		\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Detalle del envío en frontend}.}
+		\includegraphics[width=0.8\textwidth]{Figs/Detalles_practica.pdf}
+		\label{fig:Detalles}
+		\\Fuente: Captura de pantalla de los detalles del código realizada por los estudiantes.
+	\end{figure}
+
+	\item Los estilos \texttt{CSS} asociados (\texttt{Grupos.css}, \texttt{Semanas.css}, \texttt{DetalleEstudiantes.css}) se diseñaron para lograr una visualización limpia y funcional como muestra la Figura \ref{fig:Interfaz}.
+    
+	\begin{figure}[ht]
+		\centering
+		\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Interfaz de notas}.}
+		\includegraphics[width=0.8\textwidth]{Figs/Interfaz _de_notas.pdf}
+		\label{fig:Interfaz}
+		\\Fuente: Captura de pantalla de la visualización de las notas.
+	\end{figure}
+	
+	\item El despliegue del \textit{frontend} se gestionó mediante un \texttt{Dockerfile}, asegurando que la interfaz se integrara de manera coherente al ecosistema.
 \end{itemize}
 
 \subsection{Base de Datos}
@@ -1164,7 +1187,16 @@ La infraestructura tecnológica diseñada para soportar el ambiente virtual de a
 \subsection{Playit.gg}
 \begin{itemize}
     \item Durante la implementación de los grupos piloto, se utilizó este servicio para establecer túneles seguros y exponer temporalmente los servicios.
-    \item Esto garantizó la accesibilidad sin necesidad de un despliegue en un servidor hosting.
+    
+	\begin{figure}[ht]
+		\centering
+		\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Dashboard de los túneles utilizados en Playit.gg }.}
+		\includegraphics[width=0.8\textwidth]{Figs/dashboard playit.gg.pdf}
+		\label{fig:Playit}
+		\\Fuente: Captura de pantalla del dashboard de los túneles de Playit.
+\end{figure}
+	
+	\item Esto garantizó la accesibilidad sin necesidad de un despliegue en un servidor hosting.
 \end{itemize}
 
 \section{Recursos interactivos}
@@ -1176,9 +1208,9 @@ En este contexto, se hizo uso de \textit{Genially} y \textit{H5P}, plataformas q
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Presentación en Genially sobre Intervalos de confianza}.}
-	\includegraphics[width=1\textwidth]{Figs/Presentacion_Genially.pdf}
+	\includegraphics[width=0.7\textwidth]{Figs/Presentacion_Genially.pdf}
 	\label{fig:Pgenially}
-	\\Fuente: Pantallazo de una presentación en Genially.
+	\\Fuente: Captura de pantalla de una presentación en Genially.
 \end{figure}
 
 \begin{figure}[ht]
@@ -1186,7 +1218,7 @@ En este contexto, se hizo uso de \textit{Genially} y \textit{H5P}, plataformas q
 	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Infografía en Genially sobre Bootstrap}.}
 	\includegraphics[width=0.55\textwidth]{Figs/Infografia_Genially.pdf}
 	\label{fig:Igenially}
-	\\Fuente: Pantallazo de una infografía en Genially.
+	\\Fuente: Captura de pantalla de una infografía en Genially.
 \end{figure}
 
 Por su parte, \textit{H5P}, que puede implementarse de forma nativa en \textit{Moodle}, se utilizó para generar infografías y actividades en las primeras clases como se muestra en la Figura \ref{fig:H5P}, contribuyendo a un aprendizaje más activo desde el inicio del curso. En el caso de \textit{Genially}, debido a que no se integra directamente en la plataforma, se recurrió al uso de \textit{iframes} embebidos para incorporar materiales sobre temas complejos, como el Teorema del Límite Central, en los cuales se añadieron diagramas interactivos y simulaciones.
@@ -1194,16 +1226,73 @@ Por su parte, \textit{H5P}, que puede implementarse de forma nativa en \textit{M
 \begin{figure}[ht]
 	\centering
 	\captionof{figure}{ \\ \vspace{0.5cm} Recursos interactivos. \textbf{Infografía en H5P sobre Estadística descriptiva}.}
-	\includegraphics[width=1\textwidth]{Figs/Infografia_H5P.pdf}
+	\includegraphics[width=0.8\textwidth]{Figs/Infografia_H5P.pdf}
 	\label{fig:H5P}
-	\\Fuente: Pantallazo de una infografía en H5P.
+	\\Fuente: Captura de pantalla de una infografía en H5P.
 \end{figure}
+
+\newpage
 
 Este proceso contó con el acompañamiento del profesor Carlos Mantilla, quien no solo orientó en la correcta implementación de los recursos embebidos, sino que también brindó recomendaciones sobre la manera más efectiva de llevar los temas dentro de \textit{Moodle}.
 
 \section{Experiencia de los Estudiantes}
 
-Un componente central en la evaluación de resultados fue la percepción de los estudiantes frente al uso del entorno y las herramientas tecnológicas. Para ello, se aplicó una encuesta a los dos cursos participantes, con el fin de indagar tanto en la experiencia técnica como en el impacto académico.
+Un componente clave en la evaluación de resultados fue la percepción de los estudiantes sobre el uso del entorno virtual y las herramientas tecnológicas implementadas. Para este propósito, se aplicó una encuesta a los dos cursos piloto participantes, de la cual respondieron 30 de los 50 estudiantes.
+
+En cuanto al acompañamiento brindado por los practicantes, cerca del $50\%$ de los encuestados consideró que este no fue del todo adecuado, señalando que la orientación recibida no siempre resultó suficiente para resolver sus inquietudes. De manera similar, un $43.3\%$ calificó como \textit{regular} la capacidad del ambiente de aprendizaje para fortalecer la comprensión de los contenidos.
+
+Por otro lado, se resaltaron aspectos positivos relacionados con los métodos de enseñanza utilizados, los cuales fueron valorados como efectivos por el $56.7\%$ de los participantes. A esto se suma la percepción favorable hacia la calidad de los materiales teóricos, que obtuvo una aprobación del $60\%$. Asimismo, los estudiantes reconocieron la rapidez del servidor, con un $73\%$ de aceptación, lo que facilitó el acceso fluido a las actividades y recursos.
+
+En relación con las herramientas tecnológicas, la gran mayoría de los encuestados ($93.3\%$) manifestó su preferencia por Python como lenguaje de programación, argumentando que les resulta más comprensible debido a experiencias previas en otros cursos. Asimismo, un porcentaje similar resaltó el uso de Google Colab como entorno de programación, destacando que se trata de una herramienta gratuita, de fácil acceso y que no requiere la instalación de programas adicionales.
+
+No obstante, respecto a la propuesta de consolidar un esquema completo dentro de Moodle que agrupe todos los materiales, el $40\%$ de los estudiantes manifestó estar en desacuerdo y un $56.7\%$ expresó una posición neutral, lo cual refleja que aún existen percepciones divididas frente a la centralización de los recursos.
+
+Finalmente, el $63.3\%$ de los encuestados coincidieron en que la implementación de evaluadores automáticos (\textit{graders}) fue una herramienta útil para el desarrollo del curso, aportando tanto a la retroalimentación inmediata como a la autoevaluación de los conocimientos adquiridos.
+
+\section{Análisis de los cursos piloto}
+
+Se hizo el análisis de cinco prácticas de laboratorio en los cursos piloto, los cuales evidencian una evolución desigual en el proceso de aprendizaje de los estudiantes. También, se analizó tanto el código entregado por los estudiantes como su nivel de atención durante las clases, con el propósito de identificar si la falta de concentración o el uso inadecuado de recursos externos podía influir en la calidad de las soluciones presentadas. 
+
+\subsection{Prácticas}
+En la \textbf{Práctica 1} se presentó la mayor dificultad inicial: el  promedio es de $\bar{x}=2.17$, con una mediana de $2.18$, una desviación estándar de $\sigma=1.44$ y un rango intercuartílico $\text{IQR}$ de $2.23$. Estos indicadores reflejan un bajo desempeño general y una gran dispersión en los resultados, como se muestra en la Figura \ref{fig:Mapa}.
+
+La \textbf{Práctica 2} marcó un avance notable en el rendimiento, con un promedio de $\bar{x}=3.89$, mediana de $4.27$, desviación estándar de $\sigma=1.47$ e $\text{IQR}$ de $1.67$. Este progreso se refleja también en la Figura \ref{fig:Dispersion}, donde se observa una concentración importante de calificaciones entre $4.0$ y $5.0$.
+
+La \textbf{Práctica 3} representó el punto más alto del proceso formativo, alcanzando un promedio de $\bar{x}=4.14$, una mediana de $4.5$, desviación estándar de $\sigma=1.13$ e $\text{IQR}$ de $1.28$. Estos resultados muestran homogeneidad y predominio de notas altas, lo que sugiere que en este momento del curso los estudiantes lograron consolidar de manera más efectiva sus aprendizajes.
+
+No obstante, en la \textbf{Práctica 4} ($\bar{x}=3.92$, mediana $4.33$, desviación estándar $\sigma=1.62$, $\text{IQR}$ $1.46$) y, sobre todo, en la \textbf{Práctica 5} ($\bar{x}=2.24$, mediana $2.80$, desviación estándar $\sigma=1.54$, $\text{IQR}$ $3.42$), se evidencia un retroceso importante. En esta última práctica, la Figura \ref{fig:Promedio} muestra una caída significativa de la mediana y una alta dispersión, mientras que la Figura \ref{fig:Dispersion} confirma la concentración de notas bajas, convirtiéndola en la actividad más crítica del proceso.
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los cursos piloto. \textbf{Diagrama de dispersión de notas de las prácticas}.}
+	\includegraphics[width=0.75\textwidth]{Figs/Dispersion_Notas.pdf}
+	\label{fig:Dispersion}
+	\\Fuente: Elaboración propia a partir de las notas de las prácticas 1 a 5.
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los cursos piloto. \textbf{Diagrama de boxplots de notas de las prácticas}.}
+	\includegraphics[width=0.75\textwidth]{Figs/Promedio_Notas.pdf}
+	\label{fig:Promedio}
+	\\Fuente: Elaboración propia a partir de las notas de las prácticas 1 a 5.
+\end{figure}
+
+Los resultados sugieren que los estudiantes son capaces de alcanzar altos niveles de rendimiento cuando cuentan con condiciones de práctica dirigida, retroalimentación inmediata o acompañamiento cercano, como se reflejó en las Prácticas 2, 3 y 4 evidenciado en la Figura \ref{fig:Mapa}. Sin embargo, el retroceso evidenciado en la Práctica 5 revela que, cuando el proceso depende más del aprendizaje autónomo y de la aplicación de la teoría, aparecen varias dificultades.
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Análisis de los cursos piloto. \textbf{Diagrama de matriz de correlación de notas de las prácticas}.}
+	\includegraphics[width=0.8\textwidth]{Figs/Mapa_Notas.pdf}
+	\label{fig:Mapa}
+	\\Fuente: Elaboración propia a partir de las notas de las prácticas 1 a 5.
+\end{figure}
+
+\subsection{Estudiantes}
+
+De acuerdo con las prácticas no se puede explicar únicamente la complejidad de las actividades, sino también por factores comportamentales y pedagógicos. Se observó que algunos estudiantes no prestan la atención adecuada en las clases, se distraen con los celulares o confían en el uso de herramientas como la IA y en la posibilidad de tener más de un intento para resolver las actividades. No obstante, los resultados demuestran que esta dependencia no compensa la falta de comprensión conceptual; cuando las tareas exigen aplicar ecuaciones o integrar teoría en código, muchos estudiantes no logran resolverlas de forma adecuada o, en ciertos casos, deciden no presentar las actividades.
+
+
 
 \section{Generalización de los resultados}
 
@@ -1221,19 +1310,17 @@ Los resultados reflejan dos realidades distintas. Por un lado, ponen de manifies
 
 En el presente trabajo se evidenció que los estudiantes aprovecharon de manera significativa las herramientas tecnológicas integradas en el entorno virtual (\textit{Colab Notebooks}, Python, R, H5P y Genially) para resolver problemas relacionados con la asignatura y con situaciones prácticas de su formación. La implementación de contenidos interactivos, infografías, presentaciones y ejercicios con retroalimentación inmediata permitió consolidar un aprendizaje activo y práctico, alineado con los objetivos del curso de Estadística II.
 
-Se diseñó un plan de aula modular, el cual permitió estructurar los contenidos teóricos y prácticos de manera coherente en notebooks de Colab, utilizando los dos lenguajes propuestos (Python y R). Estos notebooks estaban configurados con autocalificación, lo que generaba una nota y, a su vez, facilitaba que los estudiantes recibieran retroalimentación en función del trabajo realizado en la práctica.
+Se diseñó un plan de aula modular, el cual permitió estructurar los contenidos teóricos y prácticos de manera coherente en notebooks de Colab, utilizando los dos lenguajes propuestos (Python y R). Estos notebooks estaban configurados con autocalificación, lo que generaba una nota y, a su vez, facilitaba que los estudiantes recibieran retroalimentación en función del trabajo realizado en la práctica. 
 
 El ambiente virtual de aprendizaje (AVA) fue implementado en la plataforma Moodle, dentro de la oferta de TIC de la universidad, donde se logró integrar de manera efectiva el contenido teórico y práctico de los temas establecidos en el plan modular.
 
 Para alcanzar este objetivo, se establecieron como mecanismos de medición de las actividades prácticas y evaluativas \textit{quices} y laboratorios, los cuales permitieron observar y analizar el comportamiento académico de los estudiantes.
 
-El AVA se integró en dos grupos de Estadística II de la Escuela de Ingeniería de Sistemas e Informática (C1 y F3), bajo la dirección del profesor Andrés Leonardo González Gómez, quien autorizó su uso para pilotear el ambiente virtual. En este proceso se evidenció una mejoría en las calificaciones a medida que los estudiantes se adaptaban al nuevo esquema de trabajo.
+El AVA se integró en dos grupos de Estadística II de la Escuela de Ingeniería de Sistemas e Informática (C1 y F3), bajo la dirección del profesor Andrés Leonardo González Gómez, quien autorizó su uso para pilotear el ambiente virtual. En este proceso se evidenció dificultades de los estudiantes para adaptarse al nuevo esquema de trabajo.
 
 No obstante, se identificó que no todos los estudiantes hicieron un uso adecuado de herramientas externas como la inteligencia artificial. Aunque en algunos casos se implementó el plugin \textit{Safe Exam Browser (SEB)} y estrategias de acompañamiento para \textit{quices} y evaluaciones, estas medidas no fueron suficientes en las actividades tipo laboratorio, donde se detectó el uso de IA a través de errores en el formato, la aplicación de métodos no explicados en clase y la utilización de librerías que resolvían los problemas estadísticos sin necesidad de aplicar las fórmulas correspondientes.
 
-Conclusión de acuerdo a la encuesta.
 
-Finalmente, se puede señalar que la implementación del aula modular en Moodle habría sido mucho más sencilla si hubiese sido posible integrar diferentes plugins orientados a la contenerización mediante Docker y a la gestión de los \textit{graders}. De esta manera, los servicios podrían haberse expuesto directamente desde la plataforma, lo cual representaría una mejora importante en la implementación de proyectos de este tipo.
 
 \section{Trabajo a futuro}
 
@@ -1242,6 +1329,8 @@ Se recomienda ampliar el uso del entorno virtual no solo a más grupos de Estad�
 En cuanto a los instrumentos de evaluación, es conveniente optimizarlos incorporando una mayor diversidad de ejercicios prácticos y autoevaluativos, junto con métricas que permitan un seguimiento más detallado y personalizado del progreso de cada estudiante.
 
 Si bien el uso de \textit{Safe Exam Browser (SEB)} y otras estrategias resultó positivo, se considera necesario explorar nuevos mecanismos de supervisión y acompañamiento que fortalezcan el uso responsable de los recursos digitales y prevengan conductas que puedan comprometer la integridad académica.
+
+Asimismo, la implementación del aula modular en Moodle habría sido mucho más sencilla si hubiese sido posible integrar diferentes plugins orientados a la contenerización mediante Docker y a la gestión de los \textit{graders}. De esta manera, los servicios podrían haberse expuesto directamente desde la plataforma, lo cual representaría una mejora importante en la implementación de proyectos de este tipo.
 
 Finalmente, se sugiere incrementar la cantidad de actividades interactivas, infografías dinámicas y ejercicios de simulación en Python y R. Estas acciones no solo favorecerían la práctica constante, sino que también impulsarían la aplicación de los conceptos estadísticos en problemas más complejos y cercanos a la realidad profesional, contribuyendo a un aprendizaje más profundo y significativo.
 
@@ -1268,7 +1357,6 @@ Finalmente, se sugiere incrementar la cantidad de actividades interactivas, info
 \chapter*{Anexos}
 \addcontentsline{toc}{chapter}{Anexos}
 
-
 % --- Anexo 1 ---
 \refstepcounter{chapter}
 \chapter*{Anexo \thechapter: Actas de reunión}
@@ -1288,6 +1376,8 @@ Finalmente, se sugiere incrementar la cantidad de actividades interactivas, info
 \label{anexo:Guía-Semana-8}
 
 \includepdf[pages=-, scale=0.9, pagecommand={\thispagestyle{plain}}]{Anexos/G.pdf}
+
+
 
 % ------------------------------------------------------------------------
 
