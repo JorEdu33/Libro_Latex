@@ -376,6 +376,35 @@
       \verb https://editorial.ucp.edu.co/omp/index.php/e-books/catalog/download/50/46/1818?inline=1
       \endverb
     \endentry
+    \entry{genially2023}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4179c000d7a2cf82625dc934571a706e}{%
+           family={{Genially}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{fullhash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{bibnamehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{authorbibnamehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{authornamehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{authorfullhash}{4179c000d7a2cf82625dc934571a706e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-01}
+      \field{title}{Genially - Interactive Visual Communication}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://genially.com/first-steps/
+      \endverb
+      \verb{url}
+      \verb https://genially.com/first-steps/
+      \endverb
+    \endentry
     \entry{Goh2025}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6376314b96bd62deceac8d70064d4946}{%
@@ -439,6 +468,35 @@
       \endverb
       \verb{url}
       \verb https://www.researchgate.net/publication/305503842
+      \endverb
+    \endentry
+    \entry{h5p2023}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe509c38c1edb3e42923dfb261ac5403}{%
+           family={{H5P}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{fullhash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{bibnamehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{authorbibnamehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{authornamehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{authorfullhash}{fe509c38c1edb3e42923dfb261ac5403}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-01}
+      \field{title}{H5P - Create and Share Rich HTML5 Content and Applications}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://h5p.org/documentation
+      \endverb
+      \verb{url}
+      \verb https://h5p.org/documentation
       \endverb
     \endentry
     \entry{Hooper1977}{book}{}
@@ -1728,6 +1786,35 @@
       \verb https://editorial.ucp.edu.co/omp/index.php/e-books/catalog/download/50/46/1818?inline=1
       \endverb
     \endentry
+    \entry{genially2023}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=4179c000d7a2cf82625dc934571a706e}{%
+           family={{Genially}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{fullhash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{bibnamehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{authorbibnamehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{authornamehash}{4179c000d7a2cf82625dc934571a706e}
+      \strng{authorfullhash}{4179c000d7a2cf82625dc934571a706e}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-01}
+      \field{title}{Genially - Interactive Visual Communication}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://genially.com/first-steps/
+      \endverb
+      \verb{url}
+      \verb https://genially.com/first-steps/
+      \endverb
+    \endentry
     \entry{Goh2025}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6376314b96bd62deceac8d70064d4946}{%
@@ -1791,6 +1878,35 @@
       \endverb
       \verb{url}
       \verb https://www.researchgate.net/publication/305503842
+      \endverb
+    \endentry
+    \entry{h5p2023}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe509c38c1edb3e42923dfb261ac5403}{%
+           family={{H5P}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{fullhash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{bibnamehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{authorbibnamehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{authornamehash}{fe509c38c1edb3e42923dfb261ac5403}
+      \strng{authorfullhash}{fe509c38c1edb3e42923dfb261ac5403}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed: 2025-10-01}
+      \field{title}{H5P - Create and Share Rich HTML5 Content and Applications}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://h5p.org/documentation
+      \endverb
+      \verb{url}
+      \verb https://h5p.org/documentation
       \endverb
     \endentry
     \entry{Hooper1977}{book}{}
