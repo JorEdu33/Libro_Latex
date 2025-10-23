@@ -574,7 +574,7 @@ Según \cite{schwaber2013scrum}, ``Scrum es un marco de trabajo por el cual las 
 
 La metodología del proyecto se estructuró en función de los objetivos específicos, los cuales se materializaron en una serie de acciones interrelacionadas.
 
-En primer lugar, para el diseño de un plan de aula modular, se realizó una revisión y selección de los contenidos teóricos y prácticos más relevantes de la asignatura, en conjunto con los docentes responsables (Anexo \ref{anexo:acta-abril-2025}). Posteriormente, estos contenidos fueron organizados en unidades interactivas implementadas en Colab Notebooks con Python y R, incorporando actividades prácticas y calificadores automáticos que ofrecieron retroalimentación inmediata.
+En primer lugar, para el diseño de un plan de aula modular, se realizó una revisión y selección de los contenidos teóricos y prácticos más relevantes de la asignatura, en conjunto con los docentes responsables (Anexo \ref{anexo:acta-abril-2025}). Con base en este documento, se elaboró el plan de aula modular correspondiente (Anexo \ref{anexo:Plan-de-aula-modular}), el cual se implementará durante el desarrollo del proyecto. Este plan permitió definir con mayor claridad los contenidos, los recursos y herramientas tecnológicas, así como la metodología de enseñanza y aprendizaje. Posteriormente, estos contenidos fueron organizados en unidades interactivas implementadas en Colab Notebooks con Python y R, incorporando actividades prácticas y calificadores automáticos que ofrecieron retroalimentación inmediata.
 
 En cuanto a la implementación del ambiente virtual de aprendizaje en Moodle, se inició con la configuración de la estructura del curso, organizando por semanas con el fin de mantener un orden y control de los contenidos. A continuación, se integraron los Colab Notebooks, los materiales didácticos de apoyo y diversos recursos multimedia que fortalecieron la experiencia pedagógica. Finalmente, se llevaron a cabo pruebas de funcionamiento tanto técnico como pedagógico, con el propósito de verificar la accesibilidad y coherencia de los recursos integrados.
 
@@ -637,6 +637,8 @@ Asimismo, se planteó que la herramienta a desarrollar debía ser agnóstica res
 
 De manera complementaria, se estableció una distribución preliminar de temas en tres unidades (1.3 y 1.4; 2.3 y 2.4; 3.3 y 3.4), para estructurar las prácticas, realizar pruebas efectivas y evaluar el funcionamiento del proyecto.  
 
+Como resultado de los acuerdos definidos, se elaboró el plan de aula modular presentado en el Anexo \ref{anexo:Plan-de-aula-modular}, el cual consolida la estructura temática, las competencias y la metodología teórico-práctica basada en Colab Notebooks, R, Python y el uso de graders automáticos para la retroalimentación y evaluación de las actividades.
+
 Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologías base que guiaron el desarrollo:  
 
 \begin{itemize}
@@ -684,6 +686,8 @@ Finalmente, en este sprint se tomaron decisiones relacionadas con las tecnologí
 		\label{fig:Diagrama-Docker}
 		\\Fuente: Elaboración propia con base en la estructura de los contenedores usados.
 	\end{figure}
+	
+	\newpage
 
 	\item \textbf{Material teórico en Moodle}
 	\begin{itemize}
@@ -1204,17 +1208,18 @@ La infraestructura tecnológica diseñada para soportar el ambiente virtual de a
 \subsection{Playit.gg}
 \begin{itemize}
     \item Durante la implementación de los grupos piloto, se utilizó este servicio para establecer túneles seguros y exponer temporalmente los servicios como en la Figura \ref{fig:Playit}.
-    
-	\begin{figure}[ht]
-		\centering
-		\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Dashboard de los túneles utilizados en Playit.gg}.}
-		\includegraphics[width=0.83\textwidth]{Figs/dashboard playit.gg.pdf}
-		\label{fig:Playit}
-		\\Fuente: Captura de pantalla del dashboard de los túneles de Playit.
-	\end{figure}
-	
+
 	\item Esto garantizó la accesibilidad sin necesidad de un despliegue en un servidor hosting.
 \end{itemize}
+
+\begin{figure}[ht]
+	\centering
+	\captionof{figure}{ \\ \vspace{0.5cm} Infraestructura tecnológica implementada. \textbf{Dashboard de los túneles utilizados en Playit.gg}.}
+	\includegraphics[width=0.83\textwidth]{Figs/dashboard playit.gg.pdf}
+	\label{fig:Playit}
+	\\Fuente: Captura de pantalla del dashboard de los túneles de Playit.
+\end{figure}
+
 
 \subsection{Desempeño de despliegue}
 
@@ -1330,6 +1335,7 @@ Con las herramientas tecnológicas la gran mayoría de los encuestados ($93.3\%$
 	\\ Fuente: Elaboración propia a partir de la encuesta.
 \end{figure}
 
+\newpage
 Por otro lado, un porcentaje de ($93.3\%$) resaltó el uso de Google Colab como entorno de programación, destacando que se trata de una herramienta gratuita, de fácil acceso y que no requiere la instalación de programas adicionales.
 Pero también establecen que es mejor usar las tecnologías implementadas para el desarrollo del curso de Estadística II teniendo una aceptación del ($63.3\%$) como lo muestra la Figura \ref{fig:CT}.
 
@@ -1348,7 +1354,7 @@ Pero también establecen que es mejor usar las tecnologías implementadas para e
 	\label{fig:CT}
 	\\ Fuente: Elaboración propia a partir de la encuesta.
 \end{figure}
-
+\newpage
 No obstante, respecto a la propuesta de consolidar un esquema completo dentro de Moodle que agrupe todos los materiales, el $40\%$ de los estudiantes manifestó estar en desacuerdo y un $56.7\%$ expresó una posición neutral, lo cual refleja que aún existen percepciones divididas frente a la centralización de los recursos. Finalmente, el $56.7\%$ de los encuestados coincidieron en que la implementación de evaluadores automáticos (\textit{graders}) fue una herramienta útil para el desarrollo del curso, aportando tanto a la retroalimentación inmediata como a la autoevaluación de los conocimientos adquiridos Figura \ref{fig:MG}.
 
 \begin{figure}[h]
@@ -1543,6 +1549,23 @@ Finalmente, se sugiere incrementar la cantidad de actividades interactivas, info
 
 % --- Anexo 2 ---
 \refstepcounter{chapter}
+\chapter*{Anexo \thechapter: Plan modular}
+\label{anexo:Plan modular}
+
+\section*{Plan de aula modular}
+\label{anexo:Plan-de-aula-modular}
+
+\foreach \p in {1,...,3}{ % número de páginas del PDF
+	\begin{figure}[H]
+		\centering
+		\includegraphics[page=\p, width=1.8\textwidth, height=0.765\textheight, keepaspectratio]{Anexos/Plan de aula.pdf}
+	\end{figure}
+}
+
+
+
+% --- Anexo 3 ---
+\refstepcounter{chapter}
 \chapter*{Anexo \thechapter: Guías de prácticas}
 \label{anexo:Guía-Semana-8}
 
@@ -1558,7 +1581,7 @@ Finalmente, se sugiere incrementar la cantidad de actividades interactivas, info
 
 \newpage
 
-% --- Anexo 3 ---
+% --- Anexo 4 ---
 \refstepcounter{chapter}
 \chapter*{Anexo \thechapter: Repositorio del Proyecto}
 \label{anexo:repositorio}
